@@ -86,7 +86,7 @@ stringData:
   RCLONE_CONFIG_S3_SECRET_ACCESS_KEY: minioadmin
   RCLONE_CONFIG_S3_ENDPOINT: http://$REMOTEIP:31900
 EOF
-
+    rm mc
     echo "End Setup storage"
     echo
 }

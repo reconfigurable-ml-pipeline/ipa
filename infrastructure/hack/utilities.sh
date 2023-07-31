@@ -97,11 +97,11 @@ function install_docker() {
     sudo usermod -aG docker $USER
     sudo systemctl enable docker.service
     sudo systemctl enable containerd.service
+    rm get-docker.sh
     echo "End Install Docker"
     echo
 }
 
-# Call the functions
 install_kubectl
 install_istio
 install_seldon_core

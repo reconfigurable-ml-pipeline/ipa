@@ -22,6 +22,7 @@ function install_helm() {
     tar -xf helm.tar.gz
     sudo mv linux-amd64/helm /usr/local/bin/helm
     rm helm.tar.gz
+    rm -r linux-amd64
     echo "Helm installation complete"
     echo
 }
