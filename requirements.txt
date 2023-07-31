@@ -70,3 +70,4 @@ statsmodels
 soundfile
 librosa
 sklearn
+ipykernel
