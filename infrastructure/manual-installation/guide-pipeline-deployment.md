@@ -1,0 +1,1 @@
+1. According to [Testing Your Model Endpoints](https://docs.seldon.io/projects/seldon-core/en/latest/workflow/serving.html#workflow-serving--page-root) models are accessible at 

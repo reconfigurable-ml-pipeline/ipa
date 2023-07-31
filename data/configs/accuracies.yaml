@@ -1,0 +1,159 @@
+# TODO index by task instead of pipelines to remove duplicate tasks
+# TODO check feasibility of adding microsoft/DialoGPT family
+
+audio-qa:
+  audio:
+    # metric minus of WER (Word Error Rate)
+    # to give us correct ordering
+    # source: HuggingFace
+    # Find accuracy calculation script at the /model-accuracies/audio.py
+    facebook-s2t-small-librispeech-asr: -41.28
+    facebook-s2t-medium-librispeech-asr: -35.12
+    facebook-s2t-large-librispeech-asr: -33.26
+    facebook-wav2vec2-base-960h: -33.85
+    facebook-wav2vec2-large-960h: -27.65
+  nlp-qa:
+    # F1 score, https://huggingface.co/deepset/roberta-base-squad2#performance
+    # Training Dataset: SQuAD 2.0, https://huggingface.co/datasets/squad_v2
+    # Testset: SQuAD 2.0, https://worksheets.codalab.org/rest/bundles/0x6b567e1cf2e041ec80d7098f031c5c9e/contents/blob/
+    deepset-roberta-base-squad2: 82.9125
+    # F1 score, https://huggingface.co/deepset/xlm-roberta-large-squad2#performance
+    # Training Dataset: SQuAD 2.0, https://huggingface.co/datasets/squad_v2
+    # Testset: SQuAD 2.0, https://worksheets.codalab.org/rest/bundles/0x6b567e1cf2e041ec80d7098f031c5c9e/contents/blob/
+    # deepset-xlm-roberta-large-squad2: 83.7925
+    # F1 score, https://huggingface.co/distilbert-base-cased-distilled-squad#evaluation
+    # Training Dataset: SQuAD 1.1, https://huggingface.co/datasets/squad
+    # Testset: SQuAD 1.1
+    # TODO evaluate it on SQuAD 2
+    # distilbert-base-cased-distilled-squad: 87.1
+    # F1 score, https://huggingface.co/deepset/xlm-roberta-base-squad2#performance
+    # Training Dataset: SQuAD 2.0, https://huggingface.co/datasets/squad_v2
+    # Testset: SQuAD 2.0
+    deepset-xlm-roberta-base-squad2: 77.141
+audio-sent:
+  audio:
+    # metric minus of WER (Word Error Rate)
+    # to give us correct ordering
+    # source: HuggingFace
+    # Find accuracy calculation script at the /model-accuracies/audio.py
+    facebook-s2t-small-librispeech-asr: -41.28
+    facebook-s2t-medium-librispeech-asr: -35.12
+    facebook-s2t-large-librispeech-asr: -33.26
+    facebook-wav2vec2-base-960h: -33.85
+    facebook-wav2vec2-large-960h: -27.65
+  nlp-sent:
+    # huggingface/distilbert-base-uncased-finetuned-mnli: null  
+    # huggingface/prunebert-base-uncased-6-finepruned-w-distil-mnli: null
+    # URL: https://huggingface.co/distilbert-base-uncased-finetuned-sst-2-english
+    # Training Datasets: https://huggingface.co/datasets/glue, https://huggingface.co/datasets/sst2
+    distilbert-base-uncased-finetuned-sst-2-english: 0.911 # Accuracy = 0.911 on glue, Accuracy = 0.989 on sst2 
+    Souvikcmsa-BERT_sentiment_analysis: 0.799017824663514  # https://huggingface.co/Souvikcmsa/BERT_sentiment_analysis
+    Souvikcmsa-SentimentAnalysisDistillBERT: 0.7962895598399418  # https://huggingface.co/Souvikcmsa/SentimentAnalysisDistillBERT
+    Souvikcmsa-Roberta_Sentiment_Analysis: 0.8302828618968386  # https://huggingface.co/Souvikcmsa/Roberta_Sentiment_Analysis
+mock:
+  node-1:
+    1: 100
+    2: 100
+  node-2:
+    1: 100
+    2: 100
+nlp:
+  nlp-li:
+    # DONE
+    # Accuracy, https://huggingface.co/dinalzein/xlm-roberta-base-finetuned-language-identification
+    # Training Dataset: https://huggingface.co/datasets/papluca/language-identification
+    dinalzein-xlm-roberta-base-finetuned-language-identification: 0.9959
+  # text summerization
+  nlp-sum:
+    # DONE
+    # ROUGE-L metric for sshleifer versions https://huggingface.co/sshleifer/distilbart-xsum-12-1#metrics-for-distilbart-models
+    # Training Datasets: https://huggingface.co/datasets/cnn_dailymail, https://huggingface.co/datasets/xsum
+    # sshleifer-distilbart-cnn-12-6: 30.59
+    sshleifer-distilbart-xsum-1-1: 32.26
+    # sshleifer-distill-pegasus-cnn-16-4: nill
+    # sshleifer-distill-pegasus-xsum-16-4: nill
+    sshleifer-distilbart-xsum-12-1: 33.37
+    sshleifer-distilbart-xsum-6-6: 35.73
+    sshleifer-distilbart-xsum-12-3: 36.39
+    # sshleifer/pegasus-cnn-ft-v2: nill
+    # sshleifer-distilbart-cnn-6-6: 29.70
+    # sshleifer-distilbart-cnn-12-3: 30.00
+    sshleifer-distilbart-xsum-9-6: 36.61
+    # sshleifer-distill-pegasus-xsum-16-8: nill
+    sshleifer-distilbart-xsum-12-6: 36.99
+
+    # ROUGE-L, https://huggingface.co/facebook/bart-large-cnn, https://paperswithcode.com/sota/summarization-on-cnn-dailymail
+    # Training Dataset: https://huggingface.co/datasets/cnn_dailymail
+    # facebook/bart-large-cnn: 30.619  
+
+    # google/roberta2roberta_L-24_bbc: nill
+    # google/pegasus-cnn_dailymail: nill
+    # google/roberta2roberta_L-24_cnn_daily_mail: nill
+    # google/pegasus-large: nill
+  nlp-trans:
+    # DONE
+    # BLEU metric score, on newsdiscussdev2015
+    # https://huggingface.co/Helsinki-NLP/opus-mt-fr-en
+    # https://huggingface.co/Helsinki-NLP/opus-mt-tc-big-fr-en
+    Helsinki-NLP-opus-mt-fr-en: 33.1
+    Helsinki-NLP-opus-mt-tc-big-fr-en: 34.4
+sum-qa:
+  nlp-sum:
+    # DONE
+    # ROUGE-L metric for sshleifer versions https://huggingface.co/sshleifer/distilbart-xsum-12-1#metrics-for-distilbart-models
+    # Training Datasets: https://huggingface.co/datasets/cnn_dailymail, https://huggingface.co/datasets/xsum
+    # sshleifer-distilbart-cnn-12-6: 30.59
+    sshleifer-distilbart-xsum-1-1: 32.26
+    # sshleifer-distill-pegasus-cnn-16-4: nill
+    # sshleifer-distill-pegasus-xsum-16-4: nill
+    sshleifer-distilbart-xsum-12-1: 33.37
+    sshleifer-distilbart-xsum-6-6: 35.73
+    sshleifer-distilbart-xsum-12-3: 36.39
+    # sshleifer/pegasus-cnn-ft-v2: nill
+    # sshleifer-distilbart-cnn-6-6: 29.70
+    # sshleifer-distilbart-cnn-12-3: 30.00
+    sshleifer-distilbart-xsum-9-6: 36.61
+    # sshleifer-distill-pegasus-xsum-16-8: nill
+    sshleifer-distilbart-xsum-12-6: 36.99
+
+    # ROUGE-L, https://huggingface.co/facebook/bart-large-cnn, https://paperswithcode.com/sota/summarization-on-cnn-dailymail
+    # Training Dataset: https://huggingface.co/datasets/cnn_dailymail
+    # facebook/bart-large-cnn: 30.619  
+
+    # google-roberta2roberta_L-24_bbc: nill
+    # google-pegasus-cnn_dailymail: nill
+    # google-roberta2roberta_L-24_cnn_daily_mail: nill
+    # google-pegasus-large: nill
+  nlp-qa:
+    # F1 score, https://huggingface.co/deepset/roberta-base-squad2#performance
+    # Training Dataset: SQuAD 2.0, https://huggingface.co/datasets/squad_v2
+    # Testset: SQuAD 2.0, https://worksheets.codalab.org/rest/bundles/0x6b567e1cf2e041ec80d7098f031c5c9e/contents/blob/
+    deepset-roberta-base-squad2: 82.9125
+    # F1 score, https://huggingface.co/deepset/xlm-roberta-large-squad2#performance
+    # Training Dataset: SQuAD 2.0, https://huggingface.co/datasets/squad_v2
+    # Testset: SQuAD 2.0, https://worksheets.codalab.org/rest/bundles/0x6b567e1cf2e041ec80d7098f031c5c9e/contents/blob/
+    # deepset-xlm-roberta-large-squad2: 83.7925
+    # F1 score, https://huggingface.co/distilbert-base-cased-distilled-squad#evaluation
+    # Training Dataset: SQuAD 1.1, https://huggingface.co/datasets/squad
+    # Testset: SQuAD 1.1
+    # TODO evaluate it on SQuAD 2
+    # distilbert-base-cased-distilled-squad: 87.1
+    # F1 score, https://huggingface.co/deepset/xlm-roberta-base-squad2#performance
+    # Training Dataset: SQuAD 2.0, https://huggingface.co/datasets/squad_v2
+    # Testset: SQuAD 2.0
+    deepset-xlm-roberta-base-squad2: 77.141
+video:
+  crop:
+    # source https://github.com/ultralytics/yolov5
+    yolov5n: 45.7
+    yolov5s: 56.8
+    yolov5m: 64.1
+    yolov5l: 67.3
+    yolov5x: 68.9
+    # https://pytorch.org/vision/stable/models.html#table-of-all-available-classification-weights
+  classification:
+    resnet18: 69.75
+    resnet34: 73.31
+    resnet50: 76.13
+    resnet101: 77.37
+    resnet152: 78.31

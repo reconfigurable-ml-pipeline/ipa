@@ -1,0 +1,236 @@
+apiVersion: machinelearning.seldon.io/v1
+kind: SeldonDeployment
+metadata:
+  name: yolo
+spec:
+  protocol: v2
+  name: yolo
+  annotations:
+    proxy.istio.io/config: |
+      terminationDrainDuration: 10s
+  predictors:
+  - name: yolo
+    annotations:
+      seldon.io/no-engine: "true"
+    componentSpecs:
+    - spec:
+
+        volumes:
+        - name: yolov5-volume
+          emptyDir: {}
+
+        initContainers:
+        - name: classifier-model-initializer
+          image: seldonio/rclone-storage-initializer:1.16.0-dev
+          imagePullPolicy: IfNotPresent
+          args:
+            - "s3://torchhub/yolo/yolov5n"
+            - "/mnt/models/yolov5n"
+
+          volumeMounts:
+          - mountPath: /mnt/models
+            name: yolov5-volume
+
+          envFrom:
+          - secretRef:
+              name: seldon-rclone-secret
+
+        terminationGracePeriodSeconds: 10
+        containers:
+        - image: sdghafouri/video-final:yolo
+          name: yolo
+          imagePullPolicy: Always
+          resources:
+            requests:
+              cpu: '8'
+              memory: 4Gi
+            limits:
+              cpu: '8'
+              memory: 4Gi
+          volumeMounts:
+          - mountPath: /mnt/models
+            name: yolov5-volume
+          env:
+            - name: MODEL_PATH
+              value: /mnt/models/yolov5n
+            - name: MODEL_VARIANT
+              value: yolov5n
+            - name: TORCH_HOME
+              value: /opt/mlserver/.torch
+            - name: MLSERVER_MODEL_MAX_BATCH_SIZE
+              value: "5"
+            - name: MLSERVER_MODEL_MAX_BATCH_TIME
+              value: "1"
+            - name: MLSERVER_PARALLEL_WORKERS
+              value: "1"
+            - name: USE_THREADING
+              value: "True"
+            - name: NUM_INTEROP_THREADS
+              value: "4"
+            - name: NUM_THREADS
+              value: "4"
+          readinessProbe:
+            failureThreshold: 3
+            initialDelaySeconds: 0
+            periodSeconds: 1
+            successThreshold: 1
+            tcpSocket:
+              port: 9000
+            timeoutSeconds: 1
+          lifecycle:
+            preStop:
+              exec:
+                command:
+                - /bin/sh
+                - -c
+                - /bin/sleep 10
+      replicas: 2
+    graph:
+      name: yolo
+      type: MODEL
+      children: []
+    labels:
+      sidecar.istio.io/inject: "true"
+
+---
+apiVersion: machinelearning.seldon.io/v1
+kind: SeldonDeployment
+metadata:
+  name: resnet-human
+  annotations:
+    proxy.istio.io/config: |
+      terminationDrainDuration: 10s
+spec:
+  protocol: v2
+  name: resnet-human
+  predictors:
+  - name: resnet-human
+    annotations:
+      seldon.io/no-engine: "true"
+    componentSpecs:
+    - spec:
+
+        volumes:
+        - name: resnet-volume
+          emptyDir: {}
+
+        initContainers:
+        - name: classifier-model-initializer
+          image: seldonio/rclone-storage-initializer:1.16.0-dev
+          imagePullPolicy: IfNotPresent
+          args:
+            - "s3://torchhub/resnet/resnet18"
+            - "/opt/mlserver/.torch/hub/checkpoints/"
+
+          volumeMounts:
+          - mountPath: /opt/mlserver/.torch/hub/checkpoints
+            name: resnet-volume
+
+          envFrom:
+          - secretRef:
+              name: seldon-rclone-secret
+
+        terminationGracePeriodSeconds: 10
+        containers:
+        - image: sdghafouri/video-final:resnet-human
+          name: resnet-human
+          imagePullPolicy: Always
+          resources:
+            requests:
+              cpu: '4'
+              memory: 4Gi
+            limits:
+              cpu: '4'
+              memory: 4Gi
+          volumeMounts:
+          - mountPath: /opt/mlserver/.torch/hub/checkpoints
+            name: resnet-volume
+
+          env:
+            - name: MODEL_VARIANT
+              value: resnet18
+            - name: TORCH_HOME
+              value: /opt/mlserver/.torch
+            - name: MLSERVER_MODEL_MAX_BATCH_SIZE
+              value: "5"
+            - name: MLSERVER_MODEL_MAX_BATCH_TIME
+              value: "1"
+            - name: MLSERVER_PARALLEL_WORKERS
+              value: "1"
+            - name: USE_THREADING
+              value: "True"
+            - name: NUM_INTEROP_THREADS
+              value: "4"
+            - name: NUM_THREADS
+              value: "4"
+          readinessProbe:
+            failureThreshold: 3
+            initialDelaySeconds: 0
+            periodSeconds: 1
+            successThreshold: 1
+            tcpSocket:
+              port: 9000
+            timeoutSeconds: 1
+          lifecycle:
+            preStop:
+              exec:
+                command:
+                - /bin/sh
+                - -c
+                - /bin/sleep 10
+      replicas: 2
+    graph:
+      name: resnet-human
+      type: MODEL
+      children: []
+    labels:
+      sidecar.istio.io/inject: "true"
+
+---
+apiVersion: machinelearning.seldon.io/v1
+kind: SeldonDeployment
+metadata:
+  name: router
+  annotations:
+    proxy.istio.io/config: |
+      terminationDrainDuration: 10s
+spec:
+  protocol: v2
+  name: router
+  predictors:
+  - name: router
+    annotations:
+      seldon.io/no-engine: "true" 
+    componentSpecs:
+    - spec:
+        containers:
+        - image: sdghafouri/router:router
+          name: router
+          imagePullPolicy: Always
+          resources:
+            requests:
+              cpu: '8'
+              memory: 8Gi
+            limits:
+              cpu: '16'
+              memory: 16Gi
+          env:
+            - name: MODEL_LISTS
+              value: '["yolo", "resnet-human"]'
+            - name: MLSERVER_PARALLEL_WORKERS
+              value: '1'
+          readinessProbe:
+            failureThreshold: 3
+            initialDelaySeconds: 0
+            periodSeconds: 1
+            successThreshold: 1
+            tcpSocket:
+              port: 9000
+            timeoutSeconds: 1
+      replicas: 1
+    graph:
+      name: router
+      type: MODEL
+      children: []
+    labels:
+      sidecar.istio.io/inject: "true"

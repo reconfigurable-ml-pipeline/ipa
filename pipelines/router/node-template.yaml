@@ -1,0 +1,61 @@
+apiVersion: machinelearning.seldon.io/v1
+kind: SeldonDeployment
+metadata:
+  name: router
+spec:
+  protocol: v2
+  name: router
+  annotations:
+    proxy.istio.io/config: |
+      terminationDrainDuration: {{ distrpution_time }}s
+  predictors:
+  - name: router
+    annotations:
+      seldon.io/no-engine: "true"
+    componentSpecs:
+    - spec:
+        terminationGracePeriodSeconds: {{ distrpution_time }}
+        containers:
+        - image: sdghafouri/router:router
+          name: router
+          imagePullPolicy: Always
+          resources:
+            requests:
+              cpu: '{{ cpu_request }}'
+              memory: '{{ memory_request }}'
+            limits:
+              cpu: '{{ cpu_limit }}'
+              memory: '{{ memory_limit }}'
+          env:
+            - name: MODEL_LISTS
+              value: '{{ model_lists }}'
+            # router should be multi-process to sustain througput
+            - name: MLSERVER_PARALLEL_WORKERS
+              value: "8"
+            - name: DROP_LIMIT
+              value: '{{drop_limit}}'
+            - name: LOGS_ENABLED
+              value: '{{ logs_enabled }}'
+          readinessProbe:
+            failureThreshold: 3
+            initialDelaySeconds: 0
+            periodSeconds: 1
+            successThreshold: 1
+            tcpSocket:
+              port: 9000
+            timeoutSeconds: 1
+          lifecycle:
+            preStop:
+              exec:
+                command:
+                - /bin/sh
+                - -c
+                - /bin/sleep {{ distrpution_time }}
+      replicas: {{ replicas }}
+    graph:
+      name: router
+      type: MODEL
+      children: []
+    labels:
+      sidecar.istio.io/inject: "true"
+

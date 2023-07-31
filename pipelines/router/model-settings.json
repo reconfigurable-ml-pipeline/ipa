@@ -1,0 +1,8 @@
+{
+    "name": "router",
+    "max_batch_size": 1,
+    "implementation": "models.Router",
+    "parameters": {
+        "uri": "./fakeuri"
+    }
+}

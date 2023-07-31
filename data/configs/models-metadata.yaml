@@ -1,0 +1,123 @@
+audio-qa:
+  audio:
+    task-type: 'huggingface'
+    task-name: 'automatic-speech-recognition'
+    model-names:
+    - facebook/s2t-small-librispeech-asr
+    - facebook/s2t-medium-librispeech-asr
+    - facebook/s2t-large-librispeech-asr
+    - facebook/wav2vec2-base-960h
+    - facebook/wav2vec2-large-960h
+  nlp-qa:
+    task-type: 'huggingface'
+    task-name: 'question-answering'
+    model-names:
+    - deepset/roberta-base-squad2
+    - deepset/xlm-roberta-large-squad2
+    - distilbert-base-cased-distilled-squad
+    - deepset/xlm-roberta-base-squad2
+audio-sent:
+  audio:
+    task-type: 'huggingface'
+    task-name: 'automatic-speech-recognition'
+    model-names:
+    - facebook/s2t-small-librispeech-asr
+    - facebook/s2t-medium-librispeech-asr
+    - facebook/s2t-large-librispeech-asr
+    - facebook/wav2vec2-base-960h
+    - facebook/wav2vec2-large-960h
+  nlp-sent:
+    task-type: 'huggingface'
+    task-name: 'sentiment-analysis'
+    model-names:
+    - huggingface/distilbert-base-uncased-finetuned-mnli
+    - huggingface/prunebert-base-uncased-6-finepruned-w-distil-mnli
+    - distilbert-base-uncased-finetuned-sst-2-english
+    - Souvikcmsa/BERT_sentiment_analysis
+    - Souvikcmsa/SentimentAnalysisDistillBERT
+    - Souvikcmsa/Roberta_Sentiment_Analysis
+nlp:
+  nlp-li:
+    task-type: 'huggingface'
+    task-name: 'text-classification'
+    model-names:
+    - dinalzein/xlm-roberta-base-finetuned-language-identification
+  nlp-sum:
+    task-type: 'huggingface'
+    task-name: 'summarization'
+    model-names:
+    - sshleifer/distilbart-cnn-12-6
+    - sshleifer/distilbart-xsum-1-1
+    - sshleifer/distill-pegasus-cnn-16-4
+    - sshleifer/distill-pegasus-xsum-16-4
+    - sshleifer/distilbart-xsum-12-3
+    - sshleifer/distilbart-xsum-6-6
+    - sshleifer/pegasus-cnn-ft-v2
+    - sshleifer/distilbart-cnn-6-6
+    - sshleifer/distilbart-xsum-12-6
+    - sshleifer/distilbart-cnn-12-3
+    - sshleifer/distilbart-xsum-12-1
+    - sshleifer/distilbart-xsum-9-6
+    - sshleifer/distill-pegasus-xsum-16-8
+    - facebook/bart-large-cnn
+    - google/roberta2roberta_L-24_bbc
+    - google/pegasus-cnn_dailymail
+    - google/roberta2roberta_L-24_cnn_daily_mail
+    - google/pegasus-large
+  nlp-trans:
+    task-type: 'huggingface'
+    task-name: 'translation_fr_to_en'
+    model-names:
+    - Helsinki-NLP/opus-mt-fr-en
+    - Helsinki-NLP/opus-mt-tc-big-fr-en
+
+sum-qa:
+  nlp-sum:
+    task-type: 'huggingface'
+    task-name: 'summarization'
+    model-names:
+    - sshleifer/distilbart-xsum-1-1
+    - sshleifer/distilbart-xsum-12-1
+    - sshleifer/distilbart-xsum-6-6
+    - sshleifer/distilbart-xsum-12-3
+    - sshleifer/distilbart-xsum-9-6
+    - sshleifer/distilbart-xsum-12-6
+    - sshleifer/distilbart-cnn-12-6
+    - sshleifer/distill-pegasus-cnn-16-4
+    - sshleifer/distill-pegasus-xsum-16-4
+    - sshleifer/pegasus-cnn-ft-v2
+    - sshleifer/distilbart-cnn-6-6
+    - sshleifer/distilbart-cnn-12-3
+    - sshleifer/distill-pegasus-xsum-16-8
+    - facebook/bart-large-cnn
+    - google/roberta2roberta_L-24_bbc
+    - google/pegasus-cnn_dailymail
+    - google/roberta2roberta_L-24_cnn_daily_mail
+    - google/pegasus-large
+  nlp-qa:
+    task-type: 'huggingface'
+    task-name: 'question-answering'
+    model-names:
+    - deepset/roberta-base-squad2
+    - deepset/xlm-roberta-large-squad2
+    - distilbert-base-cased-distilled-squad
+    - deepset/xlm-roberta-base-squad2
+video:
+  crop:
+    task-type: 'yolov5'
+    model-names:
+    # source https://github.com/ultralytics/yolov5
+    - yolov5n
+    - yolov5s
+    - yolov5m
+    - yolov5l
+    - yolov5x
+    # https://pytorch.org/vision/stable/models.html#table-of-all-available-classification-weights
+  classification:
+    task-type: 'torchvision'
+    model-names:
+    - resnet18
+    - resnet34
+    - resnet50
+    - resnet101
+    - resnet152

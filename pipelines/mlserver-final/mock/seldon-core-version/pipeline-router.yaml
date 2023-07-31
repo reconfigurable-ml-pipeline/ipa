@@ -1,0 +1,122 @@
+apiVersion: machinelearning.seldon.io/v1
+kind: SeldonDeployment
+metadata:
+  name: node-one
+spec:
+  protocol: v2
+  name: node-one
+  predictors:
+  - name: node-one
+    annotations:
+      seldon.io/no-engine: "true"
+    componentSpecs:
+    - spec:
+        containers:
+        - image: sdghafouri/mock-final:node-one
+          name: node-one
+          imagePullPolicy: Always
+          resources:
+            requests:
+              cpu: '4'
+              memory: 4Gi
+            limits:
+              cpu: '4'
+              memory: 4Gi
+          readinessProbe:
+            failureThreshold: 3
+            initialDelaySeconds: 0
+            periodSeconds: 1
+            successThreshold: 1
+            tcpSocket:
+              port: 9000
+            timeoutSeconds: 1
+      replicas: 1
+    graph:
+      name: node-one
+      type: MODEL
+      children: []
+    labels:
+      sidecar.istio.io/inject: "true"
+---
+apiVersion: machinelearning.seldon.io/v1
+kind: SeldonDeployment
+metadata:
+  name: node-two
+spec:
+  protocol: v2
+  name: node-two
+  predictors:
+  - name: node-two
+    annotations:
+      seldon.io/no-engine: "true"
+    componentSpecs:
+    - spec:
+        containers:
+        - image: sdghafouri/mock-final:node-two
+          name: node-two
+          imagePullPolicy: Always
+          resources:
+            requests:
+              cpu: '4'
+              memory: 4Gi
+            limits:
+              cpu: '4'
+              memory: 4Gi
+          readinessProbe:
+            failureThreshold: 3
+            initialDelaySeconds: 0
+            periodSeconds: 1
+            successThreshold: 1
+            tcpSocket:
+              port: 9000
+            timeoutSeconds: 1
+      replicas: 1
+    graph:
+      name: node-two
+      type: MODEL
+      children: []
+    labels:
+      sidecar.istio.io/inject: "true"
+---
+apiVersion: machinelearning.seldon.io/v1
+kind: SeldonDeployment
+metadata:
+  name: router
+spec:
+  protocol: v2
+  name: router
+  predictors:
+  - name: router
+    annotations:
+      seldon.io/no-engine: "true" 
+    componentSpecs:
+    - spec:
+        containers:
+        - image: sdghafouri/router:router
+          name: router
+          imagePullPolicy: Always
+          resources:
+            requests:
+              cpu: '4'
+              memory: 8Gi
+            limits:
+              cpu: '16'
+              memory: 16Gi
+          env:
+            - name: MODEL_LISTS
+              value: '["node-one", "node-two"]'
+          readinessProbe:
+            failureThreshold: 3
+            initialDelaySeconds: 0
+            periodSeconds: 1
+            successThreshold: 1
+            tcpSocket:
+              port: 9000
+            timeoutSeconds: 1
+      replicas: 1
+    graph:
+      name: router
+      type: MODEL
+      children: []
+    labels:
+      sidecar.istio.io/inject: "true"

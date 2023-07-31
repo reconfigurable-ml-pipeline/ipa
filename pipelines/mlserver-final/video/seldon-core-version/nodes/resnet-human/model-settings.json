@@ -1,0 +1,7 @@
+{
+    "name": "resnet-human",
+    "implementation": "models.ResnetHuman",
+    "parameters": {
+        "uri": "./fakeuri"
+    }
+}

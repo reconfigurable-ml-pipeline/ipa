@@ -1,0 +1,48 @@
+apiVersion: machinelearning.seldon.io/v1
+kind: SeldonDeployment
+metadata:
+  name: node-two
+spec:
+  protocol: v2
+  name: node-two
+  predictors:
+  - name: node-two
+    annotations:
+      seldon.io/no-engine: "true" 
+    componentSpecs:
+
+    - spec:
+        containers:
+        - image: sdghafouri/mock-centralized:node-two
+          name: node-two 
+          imagePullPolicy: Always
+          resources:
+            requests:
+              cpu: '4'
+              memory: 4Gi
+            limits:
+              cpu: '4'
+              memory: 4Gi
+
+          env:
+            - name: MLSERVER_MODEL_MAX_BATCH_SIZE
+              value: "1"
+            - name: MLSERVER_MODEL_MAX_BATCH_TIME
+              value: "1"
+            - name: MLSERVER_PARALLEL_WORKERS
+              value: "1"
+          readinessProbe:
+            failureThreshold: 3
+            initialDelaySeconds: 0
+            periodSeconds: 1
+            successThreshold: 1
+            tcpSocket:
+              port: 9000
+            timeoutSeconds: 1
+      replicas: 1
+    graph:
+      name: node-two
+      type: MODEL
+      children: []
+    labels:
+      sidecar.istio.io/inject: "true"

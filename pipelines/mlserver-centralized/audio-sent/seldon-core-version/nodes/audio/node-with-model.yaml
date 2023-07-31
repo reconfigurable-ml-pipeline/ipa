@@ -1,0 +1,95 @@
+apiVersion: machinelearning.seldon.io/v1
+kind: SeldonDeployment
+metadata:
+  name: audio
+spec:
+  protocol: v2
+  name: audio
+  # annotations:
+  #   seldon.io/engine-separate-pod: "true"
+  annotations:
+    proxy.istio.io/config: |
+      terminationDrainDuration: 10s
+  predictors:
+  - name: audio
+    annotations:
+      seldon.io/no-engine: "true"
+    componentSpecs:
+    - spec:
+        # volumes:
+        # - name: classifier-provision-location
+        #   emptyDir: {}
+
+        # initContainers:
+        # - name: classifier-model-initializer
+        #   image: seldonio/rclone-storage-initializer:1.16.0-dev
+        #   imagePullPolicy: IfNotPresent
+        #   args:
+        #     - "s3://huggingface/automatic-speech-recognition/facebook-s2t-large-librispeech-asr"
+        #     - "/mnt/models/facebook-s2t-large-librispeech-asr"
+
+        #   volumeMounts:
+        #   - mountPath: /mnt/models
+        #     name: classifier-provision-location
+
+        #   envFrom:
+        #   - secretRef:
+        #       name: seldon-rclone-secret
+
+        terminationGracePeriodSeconds: 10
+        containers:
+        - image: sdghafouri/audio-sent-centralized-with-model:audio
+          name: audio
+          imagePullPolicy: Always
+          resources:
+            requests:
+              cpu: '4'
+              memory: 4Gi
+            limits:
+              cpu: '4'
+              memory: 4Gi
+          # volumeMounts:
+          # - mountPath: /mnt/models
+          #   name: classifier-provision-location
+
+          env:
+            - name: MODEL_VARIANT
+              value: facebook-s2t-large-librispeech-asr
+            - name: TRANSFORMERS_CACHE
+              value: /opt/mlserver/.cache
+            - name: TASK
+              value: automatic-speech-recognition
+            - name: MLSERVER_PARALLEL_WORKERS
+              value: "0"
+            - name: USE_THREADING
+              value: "True"
+            - name: NUM_INTEROP_THREADS
+              value: "4"
+            - name: NUM_THREADS
+              value: "4"
+            - name: LOGS_ENABLED
+              value: "True"
+            - name: WITH_MODELS
+              value: "True"
+          readinessProbe:
+            failureThreshold: 3
+            initialDelaySeconds: 0
+            periodSeconds: 1
+            successThreshold: 1
+            tcpSocket:
+              port: 9000
+            timeoutSeconds: 1
+          lifecycle:
+            preStop:
+              exec:
+                command:
+                - /bin/sh
+                - -c
+                - /bin/sleep 10
+      replicas: 30
+    graph:
+      name: audio
+      type: MODEL
+      children: []
+    labels:
+      sidecar.istio.io/inject: "true"

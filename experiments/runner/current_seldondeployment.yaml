@@ -1,0 +1,142 @@
+apiVersion: machinelearning.seldon.io/v1
+kind: SeldonDeployment
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"machinelearning.seldon.io/v1","kind":"SeldonDeployment","metadata":{"annotations":{"proxy.istio.io/config":"terminationDrainDuration: 30s\n"},"name":"resnet-human","namespace":"default"},"spec":{"name":"resnet-human","predictors":[{"annotations":{"seldon.io/no-engine":"true"},"componentSpecs":[{"replicas":3,"spec":{"containers":[{"env":[{"name":"MODEL_VARIANT","value":"resnet18"},{"name":"TORCH_HOME","value":"/opt/mlserver/.torch"},{"name":"MLSERVER_PARALLEL_WORKERS","value":"0"},{"name":"USE_THREADING","value":"True"},{"name":"NUM_INTEROP_THREADS","value":"1"},{"name":"NUM_THREADS","value":"1"},{"name":"DROP_LIMIT","value":"10000"}],"image":"sdghafouri/video-centralized:resnet-human","imagePullPolicy":"Always","lifecycle":{"preStop":{"exec":{"command":["/bin/sh","-c","/bin/sleep 30"]}}},"name":"resnet-human","readinessProbe":{"failureThreshold":3,"initialDelaySeconds":0,"periodSeconds":1,"successThreshold":1,"tcpSocket":{"port":9000},"timeoutSeconds":1},"resources":{"limits":{"cpu":"1","memory":"2Gi"},"requests":{"cpu":"1","memory":"2Gi"}},"volumeMounts":[{"mountPath":"/opt/mlserver/.torch/hub/checkpoints","name":"resnet-volume"}]}],"initContainers":[{"args":["s3://torchhub/resnet/resnet18","/opt/mlserver/.torch/hub/checkpoints/"],"envFrom":[{"secretRef":{"name":"seldon-rclone-secret"}}],"image":"seldonio/rclone-storage-initializer:1.16.0-dev","imagePullPolicy":"IfNotPresent","name":"classifier-model-initializer","volumeMounts":[{"mountPath":"/opt/mlserver/.torch/hub/checkpoints","name":"resnet-volume"}]}],"terminationGracePeriodSeconds":30,"volumes":[{"emptyDir":{},"name":"resnet-volume"}]}}],"graph":{"children":[],"name":"resnet-human","type":"MODEL"},"labels":{"sidecar.istio.io/inject":"true"},"name":"resnet-human"}],"protocol":"v2"}}
+    proxy.istio.io/config: |
+      terminationDrainDuration: 30s
+  creationTimestamp: "2023-05-24T15:56:26Z"
+  generation: 5
+  name: resnet-human
+  namespace: default
+  resourceVersion: "2500451"
+  uid: fe8d5ba4-130a-4a54-90cb-babad9129d32
+spec:
+  name: resnet-human
+  predictors:
+  - annotations:
+      seldon.io/no-engine: "true"
+    componentSpecs:
+    - replicas: 3
+      spec:
+        containers:
+        - env:
+          - name: MODEL_VARIANT
+            value: resnet18
+          - name: TORCH_HOME
+            value: /opt/mlserver/.torch
+          - name: MLSERVER_PARALLEL_WORKERS
+            value: "0"
+          - name: USE_THREADING
+            value: "True"
+          - name: NUM_INTEROP_THREADS
+            value: "1"
+          - name: NUM_THREADS
+            value: "1"
+          - name: DROP_LIMIT
+            value: "10000"
+          image: sdghafouri/video-centralized:resnet-human
+          imagePullPolicy: Always
+          lifecycle:
+            preStop:
+              exec:
+                command:
+                - /bin/sh
+                - -c
+                - /bin/sleep 30
+          name: resnet-human
+          readinessProbe:
+            failureThreshold: 3
+            initialDelaySeconds: 0
+            periodSeconds: 1
+            successThreshold: 1
+            tcpSocket:
+              port: 9000
+            timeoutSeconds: 1
+          resources:
+            limits:
+              cpu: "1"
+              memory: 2Gi
+            requests:
+              cpu: "1"
+              memory: 2Gi
+          volumeMounts:
+          - mountPath: /opt/mlserver/.torch/hub/checkpoints
+            name: resnet-volume
+        initContainers:
+        - args:
+          - s3://torchhub/resnet/resnet18
+          - /opt/mlserver/.torch/hub/checkpoints/
+          envFrom:
+          - secretRef:
+              name: seldon-rclone-secret
+          image: seldonio/rclone-storage-initializer:1.16.0-dev
+          imagePullPolicy: IfNotPresent
+          name: classifier-model-initializer
+          volumeMounts:
+          - mountPath: /opt/mlserver/.torch/hub/checkpoints
+            name: resnet-volume
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - emptyDir: {}
+          name: resnet-volume
+    graph:
+      children: []
+      name: resnet-human
+      type: MODEL
+    labels:
+      sidecar.istio.io/inject: "true"
+    name: resnet-human
+  protocol: v2
+status:
+  address:
+    url: http://resnet-human-resnet-human.default.svc.cluster.local:9000/v2/models/resnet-human/infer
+  conditions:
+  - lastTransitionTime: "2023-05-24T15:57:16Z"
+    reason: No Ambassador Mappaings defined
+    status: "True"
+    type: AmbassadorMappingsReady
+  - lastTransitionTime: "2023-05-24T16:07:22Z"
+    message: Deployment has minimum availability.
+    reason: MinimumReplicasAvailable
+    status: "True"
+    type: DeploymentsReady
+  - lastTransitionTime: "2023-05-24T15:56:26Z"
+    reason: No HPAs defined
+    status: "True"
+    type: HpasReady
+  - lastTransitionTime: "2023-05-24T15:56:26Z"
+    reason: No KEDA resources defined
+    status: "True"
+    type: KedaReady
+  - lastTransitionTime: "2023-05-24T15:56:26Z"
+    reason: No PDBs defined
+    status: "True"
+    type: PdbsReady
+  - lastTransitionTime: "2023-05-24T16:07:32Z"
+    status: "True"
+    type: Ready
+  - lastTransitionTime: "2023-05-24T16:07:32Z"
+    reason: All services created
+    status: "True"
+    type: ServicesReady
+  - lastTransitionTime: "2023-05-24T15:57:16Z"
+    reason: All VirtualServices created
+    status: "True"
+    type: istioVirtualServicesReady
+  deploymentStatus:
+    resnet-human-resnet-human-0-resnet-human:
+      availableReplicas: 3
+      replicas: 3
+  replicas: 3
+  serviceStatus:
+    resnet-human-resnet-human:
+      grpcEndpoint: resnet-human-resnet-human.default:9500
+      httpEndpoint: resnet-human-resnet-human.default:9000
+      svcName: resnet-human-resnet-human
+    resnet-human-resnet-human-resnet-human:
+      grpcEndpoint: resnet-human-resnet-human-resnet-human.default:9500
+      httpEndpoint: resnet-human-resnet-human-resnet-human.default:9000
+      svcName: resnet-human-resnet-human-resnet-human
+  state: Available

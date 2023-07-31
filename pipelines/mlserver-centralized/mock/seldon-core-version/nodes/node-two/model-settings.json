@@ -1,0 +1,7 @@
+{
+    "name": "node-two",
+    "implementation": "models.NodeTwo",
+    "parameters": {
+        "uri": "./fakeuri"
+    }
+}

@@ -1,0 +1,63 @@
+
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.pyc
+bin
+*.db
+
+# Mac file system
+**/.DS_Store
+ 
+# editor and IDE paraphernalia
+.idea
+.vscode
+.project
+*.swp
+*.swo
+*~
+.env
+
+# Python dev
+.mypy_cache
+eggs/
+.eggs/
+*.egg-info/
+./pytest_cache
+.tox
+build/
+dist/
+venv/
+
+# Notebook Checkpoints
+.ipynb_checkpoints
+
+# Benchmarking and profiling
+benchmarking/profiles/
+benchmarking/testserver/models/iris-*
+benchmarking/testserver/models/sum-model-*
+*.prof
+
+# Bundle folders
+_bundle
+
+# Conda-packed environment
+old-sklearn.tar.gz
+mlruns
+dataset
+lightning_logs
+
+
+# Sphinx documentation
+docs/_build/
+
+# Tests cache folders
+tests/testdata/.cache/**
+runtimes/alibi-explain/tests/.data/**
+runtimes/mlflow/tests/testdata/.cache/**
+
+# Docker metadata
+.docker/

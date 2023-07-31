@@ -1,0 +1,7 @@
+{
+    "name": "node-one",
+    "implementation": "models.NodeOne",
+    "parameters": {
+        "uri": "./fakeuri"
+    }
+}

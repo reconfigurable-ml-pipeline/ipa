@@ -1,0 +1,14 @@
+{
+  "inputs": [
+    {
+      "name": "foo",
+      "shape": [3],
+      "datatype": "FP64",
+      "data": [1, 2, 3]
+    }
+  ],
+  "parameters": {
+    "content_type": "dict"
+  },
+  "outputs": [{ "name": "predict" }, { "name": "predict_proba" }]
+}

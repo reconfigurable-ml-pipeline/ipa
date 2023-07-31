@@ -1,0 +1,7 @@
+{
+    "name": "queue",
+    "implementation": "models.Queue",
+    "parameters": {
+        "uri": "./fakeuri"
+    }
+}

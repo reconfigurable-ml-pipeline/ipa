@@ -1,0 +1,3 @@
+transformers==4.21.1
+sentencepiece==0.1.97
+torch==1.11.0

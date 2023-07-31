@@ -1,0 +1,82 @@
+apiVersion: machinelearning.seldon.io/v1
+kind: SeldonDeployment
+metadata:
+  name: nlp-trans
+spec:
+  protocol: v2
+  name: nlp-trans
+  predictors:
+  - name: nlp-trans
+    annotations:
+      seldon.io/no-engine: "true"
+    componentSpecs:
+    - spec:
+        volumes:
+        - name: classifier-provision-location
+          emptyDir: {}
+
+        initContainers:
+        - name: classifier-model-initializer
+          image: seldonio/rclone-storage-initializer:1.16.0-dev
+          imagePullPolicy: IfNotPresent
+          args:
+            - "s3://huggingface/translation_fr_to_en/Helsinki-NLP-opus-mt-fr-en"
+            - "/mnt/models/Helsinki-NLP-opus-mt-fr-en"
+
+          volumeMounts:
+          - mountPath: /mnt/models
+            name: classifier-provision-location
+
+          envFrom:
+          - secretRef:
+              name: seldon-rclone-secret
+
+        containers:
+        - image: sdghafouri/nlp-final:nlptrans
+          name: nlp-trans
+          imagePullPolicy: Always
+          resources:
+            requests:
+              cpu: '2'
+              memory: 4Gi
+            limits:
+              cpu: '2'
+              memory: 4Gi
+          volumeMounts:
+          - mountPath: /mnt/models
+            name: classifier-provision-location
+
+          env:
+            - name: MODEL_VARIANT
+              value: /mnt/models/Helsinki-NLP-opus-mt-fr-en
+            - name: TASK
+              value: translation_fr_to_en
+            - name: MLSERVER_MODEL_MAX_BATCH_SIZE
+              value: "5"
+            - name: MLSERVER_MODEL_MAX_BATCH_TIME
+              value: "1"
+            - name: MLSERVER_PARALLEL_WORKERS
+              value: "1"
+            - name: USE_THREADING
+              value: "True"
+            - name: NUM_INTEROP_THREADS
+              value: "2"
+            - name: NUM_THREADS
+              value: "2"
+            - name: LOGS_ENABLED
+              value: 'False'
+          readinessProbe:
+            failureThreshold: 3
+            initialDelaySeconds: 0
+            periodSeconds: 1
+            successThreshold: 1
+            tcpSocket:
+              port: 9000
+            timeoutSeconds: 1
+      replicas: 1
+    graph:
+      name: nlp-trans
+      type: MODEL
+      children: []
+    labels:
+      sidecar.istio.io/inject: "true"

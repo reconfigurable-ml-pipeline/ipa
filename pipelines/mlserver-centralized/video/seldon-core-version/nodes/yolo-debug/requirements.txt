@@ -1,0 +1,9 @@
+opencv-python==4.5.5.64
+matplotlib>=3.2.2
+PyYAML>=5.3.1
+scipy>=1.4.1
+gitpython>=3.1.30
+seaborn>=0.11.0
+psutil
+torch==1.11.0
+torchvision==0.12.0

@@ -1,0 +1,95 @@
+apiVersion: machinelearning.seldon.io/v1
+kind: SeldonDeployment
+metadata:
+  name: yolo
+spec:
+  protocol: v2
+  name: yolo
+  annotations:
+    proxy.istio.io/config: |
+      terminationDrainDuration: 10s
+  predictors:
+  - name: yolo
+    annotations:
+      seldon.io/no-engine: "true"
+    componentSpecs:
+    - spec:
+
+        volumes:
+        - name: yolov5-volume
+          emptyDir: {}
+
+        initContainers:
+        - name: classifier-model-initializer
+          image: seldonio/rclone-storage-initializer:1.16.0-dev
+          imagePullPolicy: IfNotPresent
+          args:
+            - "s3://torchhub/yolo/yolov5m"
+            - "/mnt/models/yolov5m"
+
+          volumeMounts:
+          - mountPath: /mnt/models
+            name: yolov5-volume
+
+          envFrom:
+          - secretRef:
+              name: seldon-rclone-secret
+
+        terminationGracePeriodSeconds: 10
+        containers:
+        - image: sdghafouri/video-final:yolo
+          name: yolo
+          imagePullPolicy: Always
+          resources:
+            requests:
+              cpu: '1'
+              memory: 4Gi
+            limits:
+              cpu: '1'
+              memory: 4Gi
+          volumeMounts:
+          - mountPath: /mnt/models
+            name: yolov5-volume
+          env:
+            - name: MODEL_PATH
+              value: /mnt/models/yolov5m
+            - name: MODEL_VARIANT
+              value: yolov5n
+            - name: TORCH_HOME
+              value: /opt/mlserver/.torch
+            - name: MLSERVER_MODEL_MAX_BATCH_SIZE
+              value: "1"
+            - name: MLSERVER_MODEL_MAX_BATCH_TIME
+              value: "1"
+            - name: MLSERVER_PARALLEL_WORKERS
+              value: "1"
+            - name: USE_THREADING
+              value: "True"
+            - name: NUM_INTEROP_THREADS
+              value: "1"
+            - name: NUM_THREADS
+              value: "1"
+            - name: LOGS_ENABLED
+              value: 'False'
+          readinessProbe:
+            failureThreshold: 3
+            initialDelaySeconds: 0
+            periodSeconds: 1
+            successThreshold: 1
+            tcpSocket:
+              port: 9000
+            timeoutSeconds: 1
+          lifecycle:
+            preStop:
+              exec:
+                command:
+                - /bin/sh
+                - -c
+                - /bin/sleep 10
+      replicas: 1
+    graph:
+      name: yolo
+      type: MODEL
+      children: []
+    labels:
+      sidecar.istio.io/inject: "true"

@@ -1,0 +1,46 @@
+apiVersion: machinelearning.seldon.io/v1
+kind: SeldonDeployment
+metadata:
+  name: router
+spec:
+  protocol: v2
+  name: router
+  predictors:
+  - name: router
+    annotations:
+      seldon.io/no-engine: "true" 
+    componentSpecs:
+    - spec:
+        containers:
+        - image: sdghafouri/router:router
+          name: router
+          imagePullPolicy: Always
+          resources:
+            requests:
+              cpu: '4'
+              memory: 8Gi
+            limits:
+              cpu: '16'
+              memory: 16Gi
+          env:
+            - name: MODEL_LISTS
+              value: '["queue-one", "queue-two"]'
+            - name: MLSERVER_PARALLEL_WORKERS
+              value: "1"
+            - name: DROP_LIMIT
+              value: "5"
+          readinessProbe:
+            failureThreshold: 3
+            initialDelaySeconds: 0
+            periodSeconds: 1
+            successThreshold: 1
+            tcpSocket:
+              port: 9000
+            timeoutSeconds: 1
+      replicas: 1
+    graph:
+      name: router
+      type: MODEL
+      children: []
+    labels:
+      sidecar.istio.io/inject: "true"

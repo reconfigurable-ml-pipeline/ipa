@@ -1,0 +1,60 @@
+series: 101
+series_meta: 'Final profile on: Intel(R) Xeon(R) Gold 6126 CPU @ 2.60GHz'
+pipeline_name: audio-qa
+node_name: audio
+data_type: audio
+timeout: 1
+mode: step
+model_variants:
+  - facebook-s2t-small-librispeech-asr
+  # - facebook-s2t-medium-librispeech-asr
+  # - facebook-s2t-large-librispeech-asr
+  # - facebook-wav2vec2-base-960h
+  # - facebook-wav2vec2-large-960h
+max_batch_size:
+  - '1'
+  # - '2'
+  # - '4'
+  # - '8'
+  # - '16'
+  # - '32'
+  # - '64'
+max_batch_time:
+  - '1'
+cpu_request:
+  - '1'
+  # - '2'
+  # - '4'
+  # - '8'
+  # - '16'
+  # - '32'
+memory_request:
+  - 10Gi
+replicas:
+  - 1
+workload_type: static
+benchmark_duration: 1
+use_threading: 'False'
+num_interop_threads:
+  - '1'
+num_threads:
+  - '1'
+repetition: 1
+workload_config:
+  loads_to_test:
+  - 1
+  # - 5
+  # - 10
+  # - 20
+  # - 40
+  load_duration: 10
+# workload_type: twitter
+# workload_config:
+#   - start: '3:5:0'
+#     end: '3:5:1'
+
+distrpution_time: 10
+central_queue: false
+
+# ----------- enable in container logging -------------
+logs_enabled: true

@@ -1,0 +1,92 @@
+apiVersion: machinelearning.seldon.io/v1
+kind: SeldonDeployment
+metadata:
+  name: nlp-sent
+spec:
+  protocol: v2
+  name: nlp-sent
+  annotations:
+    proxy.istio.io/config: |
+      terminationDrainDuration: 10s
+  predictors:
+  - name: nlp-sent
+    annotations:
+      seldon.io/no-engine: "true"
+    componentSpecs:
+
+    - spec:
+        volumes:
+        - name: classifier-provision-location
+          emptyDir: {}
+
+        initContainers:
+        - name: classifier-model-initializer
+          image: seldonio/rclone-storage-initializer:1.16.0-dev
+          imagePullPolicy: IfNotPresent
+          args:
+            - "s3://huggingface/sentiment-analysis/distilbert-base-uncased-finetuned-sst-2-english"
+            - "/mnt/models/distilbert-base-uncased-finetuned-sst-2-english"
+
+          volumeMounts:
+          - mountPath: /mnt/models
+            name: classifier-provision-location
+
+          envFrom:
+          - secretRef:
+              name: seldon-rclone-secret
+
+        terminationGracePeriodSeconds: 10
+        containers:
+        - image: sdghafouri/audio-sent-centralized:nlpsent
+          name: nlp-sent
+          imagePullPolicy: Always
+          resources:
+            requests:
+              cpu: '4'
+              memory: 4Gi
+            limits:
+              cpu: '4'
+              memory: 4Gi
+          volumeMounts:
+          - mountPath: /mnt/models
+            name: classifier-provision-location
+
+          env:
+            - name: MODEL_VARIANT
+              value: distilbert-base-uncased-finetuned-sst-2-english
+            - name: TRANSFORMERS_CACHE
+              value: /opt/mlserver/.cache
+            - name: TASK
+              value: sentiment-analysis
+            - name: MLSERVER_PARALLEL_WORKERS
+              value: "0"
+            - name: USE_THREADING
+              value: "True"
+            - name: NUM_INTEROP_THREADS
+              value: "4"
+            - name: NUM_THREADS
+              value: "4"
+            - name: LOGS_ENABLED
+              value: 'False'
+          readinessProbe:
+            failureThreshold: 3
+            initialDelaySeconds: 0
+            periodSeconds: 1
+            successThreshold: 1
+            tcpSocket:
+              port: 9000
+            timeoutSeconds: 1
+          lifecycle:
+            preStop:
+              exec:
+                command:
+                - /bin/sh
+                - -c
+                - /bin/sleep 10
+      replicas: 2
+    graph:
+      name: nlp-sent
+      type: MODEL
+      children: []
+    labels:
+      sidecar.istio.io/inject: "true"
