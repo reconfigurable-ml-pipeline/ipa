@@ -16,6 +16,7 @@ install_packages() {
     utilities_script="${hack_dir}/hack/utilities.sh"
     storage_script="${hack_dir}/hack/storage.sh"
     gurobi_script="${hack_dir}/hack/gurobi.sh"
+    download_data="${hack_dir}/hack/download_data.sh"
 #     post_installation="${hack_dir}/post-installation.sh"
 
     source "$repos_script"
@@ -30,6 +31,8 @@ install_packages() {
     echo "install_kube_dev.sh completed"
     bash "$gurobi_script"
     echo "gurobi.sh completed"
+    bash "$download_data"
+    echo "download_data.sh completed"
 #     bash "$post_installation"
 #     echo "post_installation.sh completed"
 
