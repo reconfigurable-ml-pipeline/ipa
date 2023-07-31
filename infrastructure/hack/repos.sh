@@ -32,7 +32,7 @@ function install_conda_environment() {
 # Install customized MLServer
 function install_custom_mlserver() {
     echo "Installing the customized MLServer"
-    cd ~/MLServer
+    cd ~/ipa/MLServer
     # git clone https://github.com/saeid93/MLServer.git
     # cd MLServer
     git checkout configure-custom-1
@@ -55,7 +55,7 @@ function install_inference_pipeline() {
 # Install load_tester
 function install_load_tester() {
     echo "Installing BarAzmoon"
-    cd ~/load_tester
+    cd ~/ipa/load_tester
     pip install -e .
     cd ..
     echo "load_tester installation complete"
