@@ -52,7 +52,7 @@ transformers==4.21.1
 opencv-python==4.6.0.66
 datasets==2.8.0
 tensorflow
-ultralytics==8.0.100
+ultralytics
 seaborn
 soundfile
 librosa
