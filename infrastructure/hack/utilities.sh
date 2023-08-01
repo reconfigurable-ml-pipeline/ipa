@@ -6,7 +6,7 @@ install_kubectl() {
     sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
     sudo microk8s config > $HOME/.kube/config
     sudo ufw allow 16443
-    sudo ufw enable
+    echo "y" | sudo ufw enable
     echo "End Install kubectl"
 
     # Remove kubectl file
