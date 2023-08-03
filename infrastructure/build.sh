@@ -17,7 +17,7 @@ install_packages() {
     storage_script="${hack_dir}/hack/storage.sh"
     gurobi_script="${hack_dir}/hack/gurobi.sh"
     download_data="${hack_dir}/hack/download_data.sh"
-#     post_installation="${hack_dir}/post-installation.sh"
+    run_jupyters="${hack_dir}/run_jupyters.sh"
 
     source "$repos_script"
     echo "repos.sh completed"
@@ -33,8 +33,8 @@ install_packages() {
     echo "gurobi.sh completed"
     bash "$download_data"
     echo "download_data.sh completed"
-#     bash "$post_installation"
-#     echo "post_installation.sh completed"
+    bash "$run_jupyters"
+    echo "run_jupyters.sh completed"
 
 
     echo "Installation of all packages and dependencies completed"
