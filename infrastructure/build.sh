@@ -17,7 +17,7 @@ install_packages() {
     storage_script="${hack_dir}/hack/storage.sh"
     gurobi_script="${hack_dir}/hack/gurobi.sh"
     download_data="${hack_dir}/hack/download_data.sh"
-    run_jupyters="${hack_dir}/run_jupyters.sh"
+    run_jupyters="${hack_dir}/hack/run_jupyters.sh"
 
     source "$repos_script"
     echo "repos.sh completed"
