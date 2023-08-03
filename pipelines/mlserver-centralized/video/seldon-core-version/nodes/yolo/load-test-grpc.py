@@ -21,7 +21,7 @@ data = image_loader(PATH, "input-sample.JPEG")
 data_shape = list(np.array(data).shape)
 data = np.array(data).flatten()
 
-load = 1
+load = 10
 test_duration = 1
 variant = 0
 platform = "seldon"

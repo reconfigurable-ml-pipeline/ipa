@@ -37,7 +37,7 @@ spec:
 
         terminationGracePeriodSeconds: 10
         containers:
-        - image: sdghafouri/video-centralized:yolo
+        - image: sdghafouri/video-centralized-1:yolo
           name: yolo
           imagePullPolicy: Always
           resources:
