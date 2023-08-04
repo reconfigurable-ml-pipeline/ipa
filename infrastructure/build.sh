@@ -12,7 +12,7 @@ install_packages() {
     repos_script="${hack_dir}/repos.sh"
     kubernetes_script="${hack_dir}/kubernetes.sh"
     utilities_script="${hack_dir}/utilities.sh"
-    storage_script="${hack_dir}/kstorage.sh"
+    storage_script="${hack_dir}/storage.sh"
     gurobi_script="${hack_dir}/gurobi.sh"
     download_data="${hack_dir}/download_data.sh"
     jupyters="${hack_dir}/jupyters.sh"
