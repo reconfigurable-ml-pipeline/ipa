@@ -33,4 +33,4 @@ python runner_script.py --config-name video-20
 sleep 60
 
 # Draw the results of the experiment
-~/ipa/experiments/runner/notebooks/Jsys-reviewers.ipynb
+jupyter nbconvert --execute --to notebook --inplace ~/ipa/experiments/runner/notebooks/Jsys-reviewers.ipynb
