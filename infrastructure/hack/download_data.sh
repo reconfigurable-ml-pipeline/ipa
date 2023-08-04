@@ -1,4 +1,3 @@
-
 function download_data(){
     # download experiment logs
     gsutil cp -rn gs://ipa-results-1/results.zip ~/ipa/data

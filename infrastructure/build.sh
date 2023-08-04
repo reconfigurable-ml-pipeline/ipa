@@ -25,8 +25,6 @@ install_packages() {
     echo "utilities.sh completed"
     bash "$storage_script" "$1"
     echo "storage.sh completed"
-    bash install_kube_dev
-    echo "install_kube_dev.sh completed"
     bash "$gurobi_script"
     echo "gurobi.sh completed"
     bash "$download_data"
