@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# TODO some y prompt
-
 install_packages() {
     if [ -z "$1" ];
     then
@@ -9,15 +7,15 @@ install_packages() {
         exit 0; 
     fi
 
-    hack_dir="$HOME/ipa/infrastructure"
-    zsh_script="${hack_dir}/hack/zsh.sh"
-    repos_script="${hack_dir}/hack/repos.sh"
-    kubernetes_script="${hack_dir}/hack/kubernetes.sh"
-    utilities_script="${hack_dir}/hack/utilities.sh"
-    storage_script="${hack_dir}/hack/storage.sh"
-    gurobi_script="${hack_dir}/hack/gurobi.sh"
-    download_data="${hack_dir}/hack/download_data.sh"
-    jupyters="${hack_dir}/hack/jupyters.sh"
+    hack_dir="$HOME/ipa/infrastructure/hack"
+    zsh_script="${hack_dir}/zsh.sh"
+    repos_script="${hack_dir}/repos.sh"
+    kubernetes_script="${hack_dir}/kubernetes.sh"
+    utilities_script="${hack_dir}/utilities.sh"
+    storage_script="${hack_dir}/kstorage.sh"
+    gurobi_script="${hack_dir}/gurobi.sh"
+    download_data="${hack_dir}/download_data.sh"
+    jupyters="${hack_dir}/jupyters.sh"
 
     source "$repos_script"
     echo "repos.sh completed"
