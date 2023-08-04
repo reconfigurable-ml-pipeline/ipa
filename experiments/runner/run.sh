@@ -1,3 +1,4 @@
+#!/bin/bash
 python runner_script.py --config-name video-1
 sleep 60
 python runner_script.py --config-name video-2
@@ -30,3 +31,6 @@ python runner_script.py --config-name video-18
 sleep 60
 python runner_script.py --config-name video-20
 sleep 60
+
+# Draw the results of the experiment
+~/ipa/experiments/runner/notebooks/Jsys-reviewers.ipynb
