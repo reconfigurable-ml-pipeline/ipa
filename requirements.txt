@@ -71,3 +71,4 @@ soundfile
 librosa
 sklearn
 ipykernel
+jupyter
