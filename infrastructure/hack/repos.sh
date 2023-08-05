@@ -52,7 +52,7 @@ function install_inference_pipeline() {
 
 # Install load_tester
 function install_load_tester() {
-    echo "Installing BarAzmoon"
+    echo "Installing load tester"
     cd ~/ipa/load_tester
     pip install -e .
     cd ..
