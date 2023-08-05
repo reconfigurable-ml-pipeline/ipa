@@ -1,0 +1,263 @@
+# The configurations that used for the recording, feel free to edit them
+config:
+
+  # Specify a command to be executed
+  # like `/bin/bash -l`, `ls`, or any other commands
+  # the default is bash for Linux
+  # or powershell.exe for Windows
+  command: bash -l
+  
+  # Specify the current working directory path
+  # the default is the current working directory path
+  cwd: /home/cc/ipa/experiments/runner
+  
+  # Export additional ENV variables
+  env:
+    recording: true
+  
+  # Explicitly set the number of columns
+  # or use `auto` to take the current
+  # number of columns of your shell
+  cols: 87
+  
+  # Explicitly set the number of rows
+  # or use `auto` to take the current
+  # number of rows of your shell
+  rows: 36
+  
+  # Amount of times to repeat GIF
+  # If value is -1, play once
+  # If value is 0, loop indefinitely
+  # If value is a positive number, loop n times
+  repeat: 0
+  
+  # Quality
+  # 1 - 100
+  quality: 100
+  
+  # Delay between frames in ms
+  # If the value is `auto` use the actual recording delays
+  frameDelay: auto
+  
+  # Maximum delay between frames in ms
+  # Ignored if the `frameDelay` isn't set to `auto`
+  # Set to `auto` to prevent limiting the max idle time
+  maxIdleTime: 2000
+  
+  # The surrounding frame box
+  # The `type` can be null, window, floating, or solid`
+  # To hide the title use the value null
+  # Don't forget to add a backgroundColor style with a null as type
+  frameBox:
+    type: floating
+    title: Terminalizer
+    style:
+      border: 0px black solid
+      # boxShadow: none
+      # margin: 0px
+  
+  # Add a watermark image to the rendered gif
+  # You need to specify an absolute path for
+  # the image on your machine or a URL, and you can also
+  # add your own CSS styles
+  watermark:
+    imagePath: null
+    style:
+      position: absolute
+      right: 15px
+      bottom: 15px
+      width: 100px
+      opacity: 0.9
+  
+  # Cursor style can be one of
+  # `block`, `underline`, or `bar`
+  cursorStyle: block
+  
+  # Font family
+  # You can use any font that is installed on your machine
+  # in CSS-like syntax
+  fontFamily: "Monaco, Lucida Console, Ubuntu Mono, Monospace"
+  
+  # The size of the font
+  fontSize: 12
+  
+  # The height of lines
+  lineHeight: 1
+  
+  # The spacing between letters
+  letterSpacing: 0
+  
+  # Theme
+  theme:
+    background: "transparent"
+    foreground: "#afafaf"
+    cursor: "#c7c7c7"
+    black: "#232628"
+    red: "#fc4384"
+    green: "#b3e33b"
+    yellow: "#ffa727"
+    blue: "#75dff2"
+    magenta: "#ae89fe"
+    cyan: "#708387"
+    white: "#d5d5d0"
+    brightBlack: "#626566"
+    brightRed: "#ff7fac"
+    brightGreen: "#c8ed71"
+    brightYellow: "#ebdf86"
+    brightBlue: "#75dff2"
+    brightMagenta: "#ae89fe"
+    brightCyan: "#b1c6ca"
+    brightWhite: "#f9f9f4"
+  
+# Records, feel free to edit them
+records:
+  - delay: 881
+    content: "(base) \e]0;cc@saeid: ~/ipa/experiments/runner\a\e[01;32mcc@saeid\e[00m:\e[01;34m~/ipa/experiments/runner\e[00m$ "
+  - delay: 827
+    content: w
+  - delay: 246
+    content: a
+  - delay: 159
+    content: t
+  - delay: 252
+    content: c
+  - delay: 165
+    content: h
+  - delay: 156
+    content: ' '
+  - delay: 338
+    content: k
+  - delay: 249
+    content: u
+  - delay: 79
+    content: b
+  - delay: 226
+    content: e
+  - delay: 198
+    content: c
+  - delay: 181
+    content: t
+  - delay: 140
+    content: l
+  - delay: 134
+    content: ' '
+  - delay: 273
+    content: g
+  - delay: 166
+    content: e
+  - delay: 91
+    content: t
+  - delay: 70
+    content: ' '
+  - delay: 378
+    content: p
+  - delay: 56
+    content: o
+  - delay: 147
+    content: d
+  - delay: 84
+    content: s
+  - delay: 3544
+    content: "\r\n"
+  - delay: 123
+    content: "\e[?1049h\e[22;0;0t\e[1;36r\e(B\e[m\e[4l\e[?7h\e[H\e[2JEvery 2.0s: kubectl get pods\e[1;57Hsaeid: Sat Aug  5 19:43:55 2023\e[3;1HNo resources found in default namespace.\e[36;87H"
+  - delay: 2117
+    content: "\e[1;82H7\r\e[3dNAME\e[32X\e[3;37HREADY   STATUS     RESTARTS   AGE\r\e[4dyolo-yolo-0-yolo-847599f5db-jdptl   0/2     Init:1/2   0\e[4;67H2s\e[36;87H"
+  - delay: 2123
+    content: "\e[1;82H9\e[3;51H\e[1P\e[4;45HRunning   0 \e[4;66H4s\e[K\e[36;87H"
+  - delay: 2120
+    content: "\e[1;79H4:01\e[4;37H2\e[4;66H6\e[36;87H"
+  - delay: 2114
+    content: "\e[1;82H3\e[4;66H8\e[36;87H"
+  - delay: 2122
+    content: "\e[1;82H5\e[4;66H10s\e[36;87H"
+  - delay: 2102
+    content: "\e[1;82H7\e[3;37H\e[24X\e[3;61HREADY   STATUS     RESTARTS\e[4;1H   AGE\e[K\r\e[5dyolo-yolo-0-yolo-847599f5db-jdptl\e[5;61H2/2     Running    0\e[6;4H13s\r\e[7dresnet-human-resnet-human-0-resnet-human-69bb45bd94-fmgzk   0/2     Init:0/2   0\e[8;4H2s\e[36;87H"
+  - delay: 2132
+    content: "\e[1;81H10\e[3;80H       R\e[4;1HESTARTS   AGE\e[5;80H \e[87G0\e[6;10H\e[1K 15s\e[7;69HPodInitializing   0\e[8;10H\e[1K 4s\e[36;87H"
+  - delay: 2121
+    content: "\e[1;82H2\e[3;79HRESTARTS\e[K\r\e[4d  AGE\e[K\e[5;79H0\e[K\e[6;3H17s\e[K\e[7;61H2\e[69GRunn\e[8P\e[8;3H6s\e[K\e[36;87H"
+  - delay: 2122
+    content: "\e[1;82H4\e[6;4H9\e[8d\b\b8\e[36;87H"
+  - delay: 2128
+    content: "\e[1;82H6\e[6;3H21\e[8d\b\b10s\e[36;87H"
+  - delay: 2139
+    content: "\e[1;82H8\e[3;79H        R\e[4;1HESTARTS   AGE\e[5;79H \e[87G0\e[6;10H\e[1K 23s\e[7;79H \e[87G0\e[8;10H\e[1K 12s\r\e[9dqueue-yolo-queue-yolo-0-queue-yolo-ccbb797d7-nvjpj\e[9;61H0/2     PodInitializing   0\e[10;11H2s\e[36;87H"
+  - delay: 2126
+    content: "\e[1;81H20\e[3;79HRESTARTS\e[K\r\e[4d  AGE\e[K\e[5;79H0\e[K\e[6;3H25s\e[K\e[7;79H0\e[K\e[8;3H14s\e[K\e[9;61H2\e[69GRunn\e[8P\e[10;3H4s\e[K\e[36;87H"
+  - delay: 2120
+    content: "\e[1;82H2\e[6;4H7\e[8d\b6\e[10d\b\b6\e[36;87H"
+  - delay: 2122
+    content: "\e[1;82H4\e[6;3H30\e[8d\b9\e[10d\b\b9\e[36;87H"
+  - delay: 2217
+    content: "\e[1;82H7\e[3;61H      READY   STATUS    RES\e[4;1HTARTS   AGE\e[5;34H\e[5;61H      2/2     Running   0\e[6;8H\e[1K 32s\e[7;58H         2/2     Running   0\e[8;8H\e[1K 21s\e[9;51H\e[9;61H      2/2     Running   0\e[10;8H\e[1K 11s\r\e[11dqueue-resnet-human-queue-resnet-human-0-queue-resnet-human4hjhb   0/2     Pending   0\e[12;9H0s\e[36;87H"
+  - delay: 2131
+    content: "\e[1;82H9\e[3d   RE\e[4;1HSTARTS   AGE\e[5;82H    0\e[6;9H 34s\e[7;82H    0\e[8;9H 23s\e[9;82H    0\e[10;9H 13s\e[11;75HInit:0/1   0\e[12;9H 2s\e[36;87H"
+  - delay: 2133
+    content: "\e[1;81H31\e[3d  RES\e[4;1H\e[1P\e[5;85H0\e[K\e[6;9H36s\e[K\e[7;85H0\e[K\e[8;9H25s\e[K\e[9;85H0\e[K\e[10;9H15s\e[K\e[11;67H1\e[75GRunning   0\e[K\e[12;9H4s\e[K\e[36;87H"
+  - delay: 2127
+    content: "\e[1;82H3\e[6;10H8\e[8d\b7\e[10d\b7\e[11;67H2\e[12;9H6\e[36;87H"
+  - delay: 2128
+    content: "\e[1;82H5\e[6;9H40\e[8d\b9\e[10d\b9\e[12d\b\b8\e[36;87H"
+  - delay: 2131
+    content: "\e[1;82H7\e[3d   RE\e[4;1HSTARTS   AGE\e[5;82H    0\e[6;9H 42s\e[7;82H    0\e[8;9H 31s\e[9;82H    0\e[10;9H 21s\e[11;82H    0\e[12;9H 10s\r\e[13drouter-router-0-router-6b856444f9-hcbf8\e[13;67H0/2     Init:0/1   0\e[14;10H0s\e[36;87H"
+  - delay: 2141
+    content: "\e[1;82H9\e[3;86H\e[K\e[4;5H\e[1K RESTARTS   AGE\e[5;86H \e[6;6H0          45s\e[7;86H \e[8;6H0          34s\e[9;86H \e[10;6H0          24s\e[11;86H \e[12;6H0          13s\e[13;75HPodInitializi\e[14;1Hng   0          3s\e[36;87H"
+  - delay: 2136
+    content: "\e[1;81H42\e[3d  RES\e[4;1H\e[8P\e[5;85H0\e[6;6H   47s\e[K\e[7;85H0\e[8;6H   36s\e[K\e[9;85H0\e[10;6H   26s\e[K\e[11;85H0\e[12;6H   15s\e[K\e[13;67H2\e[75GRunning   0\e[K\e[14;8H\e[1K 5s\e[K\e[36;87H"
+  - delay: 2131
+    content: "\e[1;82H4\e[6;10H9\e[8d\b8\e[10d\b8\e[12d\b7\e[14d\b\b7\e[36;87H"
+  - delay: 2127
+    content: "\e[1;82H6\e[6;9H51\e[8d\b\b40\e[10d\b\b30\e[12d\b9\e[14d\b\b9\e[36;87H"
+  - delay: 2133
+    content: "\e[1;82H8\e[6;10H3\e[8d\b2\e[10d\b2\e[12d\b\b21\e[14d\b\b11s\e[36;87H"
+  - delay: 2124
+    content: "\e[1;81H50\e[6;10H5\e[8d\b4\e[10d\b4\e[12d\b3\e[14d\b3\e[36;87H"
+  - delay: 2125
+    content: "\e[1;82H2\e[6;10H7\e[8d\b6\e[10d\b6\e[12d\b5\e[14d\b5\e[36;87H"
+  - delay: 2126
+    content: "\e[1;82H4\e[6;10H9\e[8d\b8\e[10d\b8\e[12d\b7\e[14d\b7\e[36;87H"
+  - delay: 2132
+    content: "\e[1;82H7\e[6;9H62\e[8d\b\b51\e[10d\b\b41\e[12d\b\b30\e[14d\b\b20\e[36;87H"
+  - delay: 2134
+    content: "\e[1;82H9\e[6;10H4\e[8d\b3\e[10d\b3\e[12d\b2\e[14d\b2\e[36;87H"
+  - delay: 2144
+    content: "\e[1;79H5:01\e[3d   RE\e[4;1HSTARTS   AGE\e[5;82H    0\e[6;9H 66s\e[7;82H    0\e[8;9H 55s\e[9;82H    0\e[10;9H 45s\e[11;82H    0\e[12;9H 34s\e[13;82H    0\e[14;9H 24s\r\e[15dyolo-yolo-0-yolo-7d4499bcb5-82c2t\e[15;67H0/2     Init:0/2   0\e[16;10H1s\r\e[17dresnet-human-resnet-human-0-resnet-human-55c8bfdbfc-2npg6\e[17;67H0/2     Init:0/2   0\e[18;10H1s\r\e[19dqueue-resnet-human-queue-resnet-human-0-queue-resnet-humanphx7g   0/2     Init:0/1   0\e[20;10H1s\e[36;87H"
+  - delay: 2144
+    content: "\e[1;82H3\e[3;86H\e[K\e[4;5H\e[1K RESTARTS   AGE\e[5;86H \e[6;6H0          68s\e[7;86H \e[8;6H0          57s\e[9;86H \e[10;6H0          47s\e[11;86H \e[12;6H0          36s\e[13;86H \e[14;6H0          26s\r\e[15dresnet-human-resnet-human-0-resnet-human-55c8bfdbfc-2npg6\e[80G1/2\e[K\e[16;6H0          3s\r\e[17dqueue-resnet-human-queue-resnet-human-0-queue-resnet-humanphx7g\e[17;75HPodInitializi\e[18;1Hng   0          3s\r\e[19dyolo-yolo-0-yolo-7d4499bcb5-82c2t\e[30X\e[80G1/2\e[K\e[20;6H0          3s\e[36;87H"
+  - delay: 2151
+    content: "\e[10;16r\e[16;1H\e[2S\e[1;36r\e[1;82H5\r\e[4d\e[4P\e[6d 0    \e[13G70s\e[K\r\e[8d 0    \e[13G59s\e[K\r\e[10d 0    \e[13G49s\e[K\r\e[12d 0    \e[13G28s\e[K\e[13;75HRunning\e[K\r\e[14d 0    \e[13G5s\e[K\r\e[15dyolo-yolo-0-yolo-7d4499bcb5-82c2t\e[15;67H0/2     Running\r\e[16d 0\e[16;13H5s\e[17;67H2\e[75GRunning\e[K\r\e[18d 0    \e[13G5s\e[K\r\e[19dqueue-resnet-human-queue-resnet-human-0-queue-resnet-human4hjhb   2\e[75GTerminating\r\e[20d 0    \e[13G38s\e[K\e[36;87H"
+  - delay: 2139
+    content: "\r\e[9d\e[8M\e[1;82H7\r\e[5dqueue-yolo-queue-yolo-0-queue-yolo-ccbb797d7-nvjpj\e[6;13H51\r\e[7drouter-router-0-router-6b856444f9-hcbf8\e[18X\e[8;13H30\e[10d\b\b7\e[12d\b40\r\e[13dresnet-human-resnet-human-0-resnet-human-55c8bfdbfc-2npg6\e[13;67H2/2     Running\r\e[14d 0\e[14;13H7s\r\e[15dresnet-human-resnet-human-0-resnet-human-69bb45bd94-fmgzk\e[15;67H2/2     Terminating\r\e[16d 0\e[16;13H61s\r\e[17dyolo-yolo-0-yolo-7d4499bcb5-82c2t\e[17;67H2/2     Running\r\e[18d 0\e[18;13H7s\r\e[19dyolo-yolo-0-yolo-847599f5db-jdptl\e[19;67H2/2     Terminating\r\e[20d 0\e[20;13H72s\e[36;87H"
+  - delay: 2154
+    content: "\e[1;82H9\e[6;14H3\e[8d\b2\e[10d\b\b9\e[12d2\e[14d\b\b9\e[16d3\e[18d\b\b9\e[20d4\e[36;87H"
+  - delay: 2156
+    content: "\e[1;81H12\e[6;14H6\e[8d\b5\e[10d\b\b12s\e[12d\b\b5\e[14d\b\b12s\e[16d\b\b6\e[18d\b\b12s\e[20d\b\b7\r\e[21dqueue-resnet-human-queue-resnet-human-0-queue-resnet-humanrw995   0/2     Init:0/1\r\e[22d 0\e[22;13H1s\r\e[23dyolo-yolo-0-yolo-847599f5db-b9jkc\e[23;67H0/2     Init:0/2\r\e[24d 0\e[24;13H1s\r\e[25dresnet-human-resnet-human-0-resnet-human-7f6b794546-wrlf7\e[25;67H0/2     Init:0/2\r\e[26d 0\e[26;13H1s\e[36;87H"
+  - delay: 2151
+    content: "\e[1;82H4\r\e[4d     RESTARTS   AGE\r\e[6d     0\e[13G    58s\r\e[8d     0\e[13G    37s\r\e[10d     0\e[13G    14s\r\e[12d     0\e[13G    47s\r\e[14d     0\e[13G    14s\r\e[16d     0\e[13G    68s\r\e[18d     0\e[13G    14s\r\e[20d     0\e[13G    79s\e[21;75HPodInitializi\e[22;1Hng   0\e[13G    3s\e[23;80H1\r\e[24d     0\e[13G    3s\e[25;80H1\r\e[26d     0\e[13G    3s\e[36;87H"
+  - delay: 2152
+    content: "\e[1;82H6\r\e[4d\e[4P\e[6d 0    \e[13G60s\e[K\r\e[8d 0    \e[13G39s\e[K\r\e[10d 0    \e[13G16s\e[K\r\e[12d 0    \e[13G49s\e[K\r\e[14d 0    \e[13G16s\e[K\r\e[16d 0    \e[13G70s\e[K\r\e[18d 0    \e[13G16s\e[K\r\e[20d 0    \e[13G81s\e[K\r\e[21dresnet-human-resnet-human-0-resnet-human-7f6b794546-wrlf7      \e[21;75HRunning\e[K\r\e[22d 0    \e[13G5s\e[K\e[23;75HRunning\e[K\r\e[24d 0    \e[13G5s\e[K\r\e[25dqueue-resnet-human-queue-resnet-human-0-queue-resnet-humanrw995   1\e[75GRunning\e[K\r\e[26d 0    \e[13G5s\e[K\e[36;87H"
+  - delay: 2197
+    content: "\e[1;82H8\e[6;14H2\e[8d\b\b41\e[9;59H4hjhb\e[9;75HTerminating\e[10;13H51\r\e[11dresnet-human-resnet-human-0-resnet-human-69bb45bd94-fmgzk      \e[12;13H72\r\e[13dyolo-yolo-0-yolo-847599f5db-jdptl\e[24X\e[13;75HTerminating\e[14;13H83\r\e[15dqueue-resnet-human-queue-resnet-human-0-queue-resnet-humanrw995\e[15;75HRunning\e[K\e[16;14Hs\e[K\r\e[17dqueue-resnet-human-queue-resnet-human-0-queue-resnet-humanphx7g\e[17;75HTerminating\e[18;14H8\r\e[19dresnet-human-resnet-human-0-resnet-human-7f6b794546-wrlf7\e[19;75HRunning\e[K\e[20;13H7s\e[K\e[21;42H55c8bfdbfc-2npg6\e[21;67H2\e[75GTerminating\e[22;13H18s\e[23;67H2\e[24;13H7\r\e[25dyolo-yolo-0-yolo-7d4499bcb5-82c2t\e[33X\e[25;67H2\e[75GTerminating\e[26;13H18s\e[36;87H"
+  - delay: 2154
+    content: "\e[1;81H20\e[6;14H4\e[8d\b3\e[10d\b3\e[12d\b4\e[14d\b5\e[16d\b\b9\e[18d\b20\e[20d\b\b9\e[22d\b20\e[24d\b\b9\e[26d\b20\e[36;87H"
+  - delay: 2147
+    content: "\e[1;82H2\e[6;14H6\e[8d\b5\e[10d\b5\e[12d\b6\e[14d\b7\e[16d\b\b11s\e[18d\b\b2\e[20d\b\b11s\e[22d\b\b2\e[24d\b\b11s\e[26d\b\b2\e[36;87H"
+  - delay: 2146
+    content: "\e[1;82H4\e[6;14H9\e[8d\b8\e[10d\b8\e[12d\b9\e[14d\b\b90\e[16d\b4\e[18d\b5\e[20d\b4\e[22d\b5\e[24d\b4\e[26d\b5\e[36;87H"
+  - delay: 2189
+    content: "\e[1;82H7\e[6;13H71\e[8d\b\b50\e[10d\b\b60\e[12d\b\b81\e[14d\b2\e[16d\b6\e[18d\b7\e[20d\b6\e[22d\b7\e[24d\b6\e[26d\b7\e[36;87H"
+  - delay: 2151
+    content: "\e[1;82H9\e[6;14H3\e[8d\b2\e[10d\b2\e[12d\b3\e[14d\b4\e[16d\b8\e[18d\b9\e[20d\b8\e[22d\b9\e[24d\b8\e[26d\b9\e[36;87H"
+  - delay: 2147
+    content: "\e[1;81H31\e[6;14H5\e[8d\b4\e[10d\b4\e[12d\b5\e[14d\b6\e[16d\b\b20\e[18d\b\b31\e[20d\b\b20\e[22d\b\b31\e[24d\b\b20\e[26d\b\b31\e[36;87H"
+  - delay: 2160
+    content: "\e[1;82H3\e[6;14H7\e[8d\b6\e[10d\b6\e[12d\b7\e[14d\b8\e[16d\b2\e[18d\b3\e[20d\b2\e[22d\b3\e[24d\b2\e[26d\b3\e[36;87H"
+  - delay: 2155
+    content: "\e[1;82H5\e[6;14H9\e[8d\b8\e[10d\b8\e[12d\b9\e[14d\b\b100s\e[16;14H4\e[18d\b5\e[20d\b4\e[22d\b5\e[24d\b4\e[26d\b5\e[36;87H"
+  - delay: 2185
+    content: "\r\e[10d\e[2M\e[1;82H7\e[6;13H82\e[8d\b\b61\e[10d\b\b71\e[12d3\e[14d\b\b7\e[16d\b8\e[18d\b7\e[20d\b8\e[22d\b7\e[24d\b8\r\e[25dresnet-human-resnet-human-0-resnet-human-69bb45bd94-fmgzk\e[25;67H2/2     Terminating\r\e[26d 0\e[26;13H92s\e[36;87H"
+  - delay: 605
+    content: "\e[36;1H\e[?1049l\e[23;0;0t\r\e[?1l\e>(base) \e]0;cc@saeid: ~/ipa/experiments/runner\a\e[01;32mcc@saeid\e[00m:\e[01;34m~/ipa/experiments/runner\e[00m$ "
+  - delay: 2962
+    content: "logout\r\n"

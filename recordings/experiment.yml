@@ -1,0 +1,541 @@
+# The configurations that used for the recording, feel free to edit them
+config:
+
+  # Specify a command to be executed
+  # like `/bin/bash -l`, `ls`, or any other commands
+  # the default is bash for Linux
+  # or powershell.exe for Windows
+  command: bash -l
+  
+  # Specify the current working directory path
+  # the default is the current working directory path
+  cwd: /home/cc/ipa/experiments/runner
+  
+  # Export additional ENV variables
+  env:
+    recording: true
+  
+  # Explicitly set the number of columns
+  # or use `auto` to take the current
+  # number of columns of your shell
+  cols: 203
+  
+  # Explicitly set the number of rows
+  # or use `auto` to take the current
+  # number of rows of your shell
+  rows: 36
+  
+  # Amount of times to repeat GIF
+  # If value is -1, play once
+  # If value is 0, loop indefinitely
+  # If value is a positive number, loop n times
+  repeat: 0
+  
+  # Quality
+  # 1 - 100
+  quality: 100
+  
+  # Delay between frames in ms
+  # If the value is `auto` use the actual recording delays
+  frameDelay: auto
+  
+  # Maximum delay between frames in ms
+  # Ignored if the `frameDelay` isn't set to `auto`
+  # Set to `auto` to prevent limiting the max idle time
+  maxIdleTime: 2000
+  
+  # The surrounding frame box
+  # The `type` can be null, window, floating, or solid`
+  # To hide the title use the value null
+  # Don't forget to add a backgroundColor style with a null as type
+  frameBox:
+    type: floating
+    title: Terminalizer
+    style:
+      border: 0px black solid
+      # boxShadow: none
+      # margin: 0px
+  
+  # Add a watermark image to the rendered gif
+  # You need to specify an absolute path for
+  # the image on your machine or a URL, and you can also
+  # add your own CSS styles
+  watermark:
+    imagePath: null
+    style:
+      position: absolute
+      right: 15px
+      bottom: 15px
+      width: 100px
+      opacity: 0.9
+  
+  # Cursor style can be one of
+  # `block`, `underline`, or `bar`
+  cursorStyle: block
+  
+  # Font family
+  # You can use any font that is installed on your machine
+  # in CSS-like syntax
+  fontFamily: "Monaco, Lucida Console, Ubuntu Mono, Monospace"
+  
+  # The size of the font
+  fontSize: 12
+  
+  # The height of lines
+  lineHeight: 1
+  
+  # The spacing between letters
+  letterSpacing: 0
+  
+  # Theme
+  theme:
+    background: "transparent"
+    foreground: "#afafaf"
+    cursor: "#c7c7c7"
+    black: "#232628"
+    red: "#fc4384"
+    green: "#b3e33b"
+    yellow: "#ffa727"
+    blue: "#75dff2"
+    magenta: "#ae89fe"
+    cyan: "#708387"
+    white: "#d5d5d0"
+    brightBlack: "#626566"
+    brightRed: "#ff7fac"
+    brightGreen: "#c8ed71"
+    brightYellow: "#ebdf86"
+    brightBlue: "#75dff2"
+    brightMagenta: "#ae89fe"
+    brightCyan: "#b1c6ca"
+    brightWhite: "#f9f9f4"
+  
+# Records, feel free to edit them
+records:
+  - delay: 854
+    content: "(base) \e]0;cc@saeid: ~/ipa/experiments/runner\a\e[01;32mcc@saeid\e[00m:\e[01;34m~/ipa/experiments/runner\e[00m$ "
+  - delay: 581
+    content: s
+  - delay: 103
+    content: o
+  - delay: 223
+    content: u
+  - delay: 106
+    content: r
+  - delay: 110
+    content: c
+  - delay: 213
+    content: e
+  - delay: 625
+    content: ' '
+  - delay: 1619
+    content: r
+  - delay: 140
+    content: u
+  - delay: 274
+    content: "\an"
+  - delay: 1112
+    content: .
+  - delay: 83
+    content: 'sh '
+  - delay: 3075
+    content: "\r\n"
+  - delay: 11542
+    content: "2023-08-05 19:34:56.535866: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libcudart.so.11.0'; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory\r\n2023-08-05 19:34:56.535892: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.\r\n"
+  - delay: 268
+    content: "Error from server (NotFound): seldondeployments.machinelearning.seldon.io \"video\" not found\r\n"
+  - delay: 108
+    content: "No resources found\r\n"
+  - delay: 92
+    content: "No resources found\r\n"
+  - delay: 111
+    content: "No resources found\r\n"
+  - delay: 140
+    content: "No resources found\r\n"
+  - delay: 224
+    content: "Error from server (NotFound): services \"NAME\" not found\r\n"
+  - delay: 7
+    content: " 2023-08-05:19:34:57 [INFO] [logger.py:31] -------------------------------------------------- pipeline video successfuly removed --------------------------------------------------\r\n 2023-08-05:19:34:57 [INFO] [logger.py:31] \r\n\r\n 2023-08-05:19:34:57 [INFO] [logger.py:31] ------------------------- setting up the node with following config-------------------------\r\n 2023-08-05:19:34:57 [INFO] [logger.py:31] \r\n\r\n 2023-08-05:19:34:57 [INFO] [logger.py:31] ------------------------- setting up the node with following config-------------------------\r\n 2023-08-05:19:34:57 [INFO] [logger.py:31] \r\n\r\n"
+  - delay: 12
+    content: " 2023-08-05:19:34:57 [INFO] [logger.py:31] apiVersion: machinelearning.seldon.io/v1\r\nkind: SeldonDeployment\r\nmetadata:\r\n  name: yolo\r\nspec:\r\n  protocol: v2\r\n  name: yolo\r\n  annotations:\r\n    proxy.istio.io/config: |\r\n      terminationDrainDuration: 30s\r\n  predictors:\r\n  - name:  yolo\r\n    annotations:\r\n      seldon.io/no-engine: \"true\"\r\n    componentSpecs:\r\n    - spec:\r\n\r\n        volumes:\r\n        - name: yolov5-volume\r\n          emptyDir: {}\r\n\r\n        initContainers:\r\n        - name: classifier-model-initializer\r\n          image: seldonio/rclone-storage-initializer:1.16.0-dev\r\n          imagePullPolicy: IfNotPresent\r\n          args:\r\n            - \"s3://torchhub/yolo/yolov5n\"\r\n            - \"/mnt/models/yolov5n\"\r\n\r\n          volumeMounts:\r\n          - mountPath: /mnt/models\r\n            name: yolov5-volume\r\n\r\n          envFrom:\r\n          - secretRef:\r\n              name: seldon-rclone-secret\r\n\r\n        terminationGracePeriodSeconds: 30\r\n        containers:\r\n        - image: sdghafouri/video-centralized:yolo\r\n          name: yolo\r\n          imagePullPolicy: Always\r\n          resources:\r\n            requests:\r\n              cpu: '1'\r\n              memory: '4Gi'\r\n            limits:\r\n              cpu: '1'\r\n              memory: '4Gi'\r\n          volumeMounts:\r\n          - mountPath: /mnt/models\r\n            name: yolov5-volume\r\n\r\n          env:\r\n            - name: MODEL_PATH\r\n              value: /mnt/models/yolov5n\r\n            - name: MODEL_VARIANT\r\n              value: yolov5n\r\n            - name: TORCH_HOME\r\n              value: /opt/mlserver/.torch\r\n            - name: MLSERVER_PARALLEL_WORKERS\r\n              value: \"0\"\r\n            - name: USE_THREADING\r\n              value: 'True'\r\n            - name: NUM_INTEROP_THREADS\r\n              value: '1'\r\n            - name: NUM_THREADS\r\n              value: '1'\r\n            - name: DROP_LIMIT\r\n              value: '10'\r\n            - name: LOGS_ENABLED\r\n              value: 'False'\r\n          readinessProbe:\r\n            failureThreshold: 3\r\n            initialDelaySeconds: 0\r\n            periodSeconds: 1\r\n            successThreshold: 1\r\n            tcpSocket:\r\n              port: 9000\r\n            timeoutSeconds: 1\r\n          lifecycle:\r\n            preStop:\r\n              exec:\r\n                command:\r\n                - /bin/sh\r\n                - -c\r\n                - /bin/sleep 30\r\n      replicas: 1\r\n    graph:\r\n      name: yolo\r\n      type: MODEL\r\n      children: []\r\n    labels:\r\n      sidecar.istio.io/inject: \"true\"\r\n"
+  - delay: 343
+    content: "seldondeployment.machinelearning.seldon.io/yolo created\r\n"
+  - delay: 17
+    content: " 2023-08-05:19:34:57 [INFO] [logger.py:31] ------------------------- waiting to make sure the node is up -------------------------\r\n 2023-08-05:19:34:57 [INFO] [logger.py:31] \r\n\r\n 2023-08-05:19:34:57 [INFO] [logger.py:31] ------------------------- model pod yolo successfuly set up -------------------------\r\n 2023-08-05:19:34:57 [INFO] [logger.py:31] \r\n\r\n"
+  - delay: 28
+    content: " 2023-08-05:19:34:57 [INFO] [logger.py:31] all_model_pods: []\r\n 2023-08-05:19:34:57 [INFO] [logger.py:31] waited for 5 to check if the pods are up\r\n\r  0%|                                                                                                                                                                                | 0/5 [00:00<?, ?it/s]"
+  - delay: 1002
+    content: "\r 20%|█████████████████████████████████▌                                                                                                                                      | 1/5 [00:01<00:04,  1.00s/it]"
+  - delay: 1002
+    content: "\r 40%|███████████████████████████████████████████████████████████████████▏                                                                                                    | 2/5 [00:02<00:03,  1.00s/it]"
+  - delay: 1002
+    content: "\r 60%|████████████████████████████████████████████████████████████████████████████████████████████████████▊                                                                   | 3/5 [00:03<00:02,  1.00s/it]"
+  - delay: 1001
+    content: "\r 80%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▍                                 | 4/5 [00:04<00:01,  1.00s/it]"
+  - delay: 1002
+    content: "\r100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:05<00:00,  1.00s/it]\r100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:05<00:00,  1.00s/it]\r\n 2023-08-05:19:35:02 [INFO] [logger.py:31] all_containers: []\r\n 2023-08-05:19:35:02 [INFO] [logger.py:31] waited for 5 to check if the pods are up\r\n\r  0%|                                                                                                                                                                                | 0/5 [00:00<?, ?it/s]"
+  - delay: 1002
+    content: "\r 20%|█████████████████████████████████▌                                                                                                                                      | 1/5 [00:01<00:04,  1.00s/it]"
+  - delay: 1001
+    content: "\r 40%|███████████████████████████████████████████████████████████████████▏                                                                                                    | 2/5 [00:02<00:03,  1.00s/it]"
+  - delay: 1002
+    content: "\r 60%|████████████████████████████████████████████████████████████████████████████████████████████████████▊                                                                   | 3/5 [00:03<00:02,  1.00s/it]"
+  - delay: 303
+    content: "2023-08-05 19:35:06.207971: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libcudart.so.11.0'; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory\r\n2023-08-05 19:35:06.208065: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libcublas.so.11'; dlerror: libcublas.so.11: cannot open shared object file: No such file or directory\r\n2023-08-05 19:35:06.208117: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libcublasLt.so.11'; dlerror: libcublasLt.so.11: cannot open shared object file: No such file or directory\r\n2023-08-05 19:35:06.208171: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libcufft.so.10'; dlerror: libcufft.so.10: cannot open shared object file: No such file or directory\r\n"
+  - delay: 41
+    content: "2023-08-05 19:35:06.249724: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libcusparse.so.11'; dlerror: libcusparse.so.11: cannot open shared object file: No such file or directory\r\n2023-08-05 19:35:06.249834: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libcudnn.so.8'; dlerror: libcudnn.so.8: cannot open shared object file: No such file or directory\r\n2023-08-05 19:35:06.249849: W tensorflow/core/common_runtime/gpu/gpu_device.cc:1850] Cannot dlopen some GPU libraries. Please make sure the missing libraries mentioned above are installed properly if you would like to use GPU. Follow the guide at https://www.tensorflow.org/install/gpu for how to download and setup the required libraries for your platform.\r\nSkipping registering GPU devices...\r\n2023-08-05 19:35:06.250341: I tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F FMA\r\nTo enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.\r\n"
+  - delay: 586
+    content: " 2023-08-05:19:35:06 [INFO] [logger.py:31] Waiting for 5 seconds before checking if the pipeline is up ...\r\n\r  0%|                                                                                                                                                                                | 0/5 [00:00<?, ?it/s]"
+  - delay: 68
+    content: "\r 80%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▍                                 | 4/5 [00:04<00:01,  1.00s/it]"
+  - delay: 933
+    content: "\r 20%|█████████████████████████████████▌                                                                                                                                      | 1/5 [00:01<00:04,  1.00s/it]"
+  - delay: 69
+    content: "\r100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:05<00:00,  1.00s/it]\r100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:05<00:00,  1.00s/it]\r\n"
+  - delay: 70
+    content: " 2023-08-05:19:35:07 [INFO] [logger.py:31] Environment tarball not found at './envs/base.tar.gz'\r\nEnvironment not found at './envs/base'\r\n2023-08-05 19:35:02,435 [mlserver.rest] INFO - hello from the cusomt server!\r\n2023-08-05 19:35:02,435 [mlserver.rest] INFO - HTTP server running on http://0.0.0.0:9000\r\nINFO:     Started server process [1]\r\nINFO:     Waiting for application startup.\r\n2023-08-05 19:35:02,452 [mlserver.metrics] INFO - Metrics server running on http://0.0.0.0:6000\r\n2023-08-05 19:35:02,452 [mlserver.metrics] INFO - Prometheus scraping endpoint can be accessed on http://0.0.0.0:6000/prometheus\r\nINFO:     Started server process [1]\r\nINFO:     Waiting for application startup.\r\n2023-08-05 19:35:03,341 [mlserver] INFO - PREDICTIVE_UNIT_ID set to: yolo\r\n2023-08-05 19:35:03,341 [mlserver] INFO - USE_THREADING set to: True\r\n2023-08-05 19:35:03,341 [mlserver] INFO - NUM_INTEROP_THREADS set to: 1\r\n2023-08-05 19:35:03,341 [mlserver] INFO - NUM_THREADS set to: 1\r\n2023-08-05 19:35:04,531 [mlserver] INFO - DROP_LIMIT set to: 10.0\r\n2023-08-05 19:35:04,531 [mlserver] INFO - LOGS_ENABLED set to: False\r\n/opt/conda/lib/python3.8/site-packages/torch/hub.py:267: UserWarning: You are about to download and run code from an untrusted repository. In a future release, this won't be allowed. To add the repository to your trusted list, change the command to {calling_fn}(..., trust_repo=False) and a command prompt will appear asking for an explicit confirmation of trust, or load(..., trust_repo=True), which will assume that the prompt is to be answered with 'yes'. You can also use load(..., trust_repo='check') which will only prompt for confirmation if the repo is not already trusted. This will eventually be the default behaviour\r\n  warnings.warn(\r\nDownloading: \"https://github.com/ultralytics/yolov5/zipball/master\" to /opt/mlserver/.torch/hub/master.zip\r\nMatplotlib created a temporary cache directory at /tmp/matplotlib-d1qc1l_l because the default path (/.config/matplotlib) is not a writable directory; it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.\r\nFontconfig error: No writable cache directories\r\nFontconfig error: No writable cache directories\r\nFontconfig error: No writable cache directories\r\nWARNING ⚠️ user config directory '/.config/Ultralytics' is not writeable, defaulting to '/tmp' or CWD.Alternatively you can define a YOLO_CONFIG_DIR environment variable for this path.\r\nYOLOv5 \U0001F680 2023-8-5 Python-3.8.16 torch-1.13.1+cu117 CPU\r\n\r\nFusing layers... \r\nYOLOv5n summary: 213 layers, 1867405 parameters, 0 gradients\r\nAdding AutoShape... \r\n2023-08-05 19:35:07,723 [mlserver] INFO - model loaded!\r\n2023-08-05 19:35:07,723 [mlserver] INFO - model loading complete!\r\n2023-08-05 19:35:07,723 [mlserver] INFO - Loaded model 'yolo' succesfully.\r\nINFO:     Application startup complete.\r\n2023-08-05 19:35:07,724 [mlserver.grpc] INFO - gRPC server running on http://0.0.0.0:9500\r\nINFO:     Application startup complete.\r\nINFO:     Uvicorn running on http://0.0.0.0:9000 (Press CTRL+C to quit)\r\nINFO:     Uvicorn running on http://0.0.0.0:6000 (Press CTRL+C to quit)\r\n\r\n 2023-08-05:19:35:07 [INFO] [logger.py:31] all_model_pods: [True]\r\n 2023-08-05:19:35:07 [INFO] [logger.py:31] all_containers: [True]\r\n 2023-08-05:19:35:07 [INFO] [logger.py:31] model container completely loaded!\r\n 2023-08-05:19:35:07 [INFO] [logger.py:31] ------------------------- setting up the node with following config-------------------------\r\n 2023-08-05:19:35:07 [INFO] [logger.py:31] \r\n\r\n"
+  - delay: 9
+    content: " 2023-08-05:19:35:07 [INFO] [logger.py:31] apiVersion: machinelearning.seldon.io/v1\r\nkind: SeldonDeployment\r\nmetadata:\r\n  name: resnet-human\r\nspec:\r\n  protocol: v2\r\n  name: resnet-human\r\n  annotations:\r\n    proxy.istio.io/config: |\r\n      terminationDrainDuration: 30s\r\n  predictors:\r\n  - name: resnet-human\r\n    annotations:\r\n      seldon.io/no-engine: \"true\"\r\n    componentSpecs:\r\n    - spec:\r\n\r\n        volumes:\r\n        - name: resnet-volume\r\n          emptyDir: {}\r\n\r\n        initContainers:\r\n        - name: classifier-model-initializer\r\n          image: seldonio/rclone-storage-initializer:1.16.0-dev\r\n          imagePullPolicy: IfNotPresent\r\n          args:\r\n            - \"s3://torchhub/resnet/resnet18\"\r\n            - \"/opt/mlserver/.torch/hub/checkpoints/\"\r\n\r\n          volumeMounts:\r\n          - mountPath: /opt/mlserver/.torch/hub/checkpoints\r\n            name: resnet-volume\r\n\r\n          envFrom:\r\n          - secretRef:\r\n              name: seldon-rclone-secret\r\n\r\n        terminationGracePeriodSeconds: 30\r\n        containers:\r\n        - image: sdghafouri/video-centralized:resnet-human\r\n          name: resnet-human\r\n          imagePullPolicy: Always\r\n          resources:\r\n            requests:\r\n              cpu: '1'\r\n              memory: '4Gi'\r\n            limits:\r\n              cpu: '1'\r\n              memory: '4Gi'\r\n          volumeMounts:\r\n          - mountPath: /opt/mlserver/.torch/hub/checkpoints\r\n            name: resnet-volume\r\n\r\n          env:\r\n            - name: MODEL_VARIANT\r\n              value: resnet18\r\n            - name: TORCH_HOME\r\n              value: /opt/mlserver/.torch\r\n            - name: MLSERVER_PARALLEL_WORKERS\r\n              value: \"0\"\r\n            - name: USE_THREADING\r\n              value: 'True'\r\n            - name: NUM_INTEROP_THREADS\r\n              value: '1'\r\n            - name: NUM_THREADS\r\n              value: '1'\r\n            - name: DROP_LIMIT\r\n              value: '10'\r\n            - name: LOGS_ENABLED\r\n              value: 'False'\r\n          readinessProbe:\r\n            failureThreshold: 3\r\n            initialDelaySeconds: 0\r\n            periodSeconds: 1\r\n            successThreshold: 1\r\n            tcpSocket:\r\n              port: 9000\r\n            timeoutSeconds: 1\r\n          lifecycle:\r\n            preStop:\r\n              exec:\r\n                command:\r\n                - /bin/sh\r\n                - -c\r\n                - /bin/sleep 30\r\n      replicas: 1\r\n    graph:\r\n      name: resnet-human\r\n      type: MODEL\r\n      children: []\r\n    labels:\r\n      sidecar.istio.io/inject: \"true\"\r\n"
+  - delay: 345
+    content: "seldondeployment.machinelearning.seldon.io/resnet-human created\r\n"
+  - delay: 14
+    content: " 2023-08-05:19:35:08 [INFO] [logger.py:31] ------------------------- waiting to make sure the node is up -------------------------\r\n 2023-08-05:19:35:08 [INFO] [logger.py:31] \r\n\r\n 2023-08-05:19:35:08 [INFO] [logger.py:31] ------------------------- model pod resnet-human successfuly set up -------------------------\r\n 2023-08-05:19:35:08 [INFO] [logger.py:31] \r\n\r\n"
+  - delay: 10
+    content: " 2023-08-05:19:35:08 [INFO] [logger.py:31] all_model_pods: []\r\n 2023-08-05:19:35:08 [INFO] [logger.py:31] waited for 5 to check if the pods are up\r\n\r  0%|                                                                                                                                                                                | 0/5 [00:00<?, ?it/s]"
+  - delay: 484
+    content: "\r 40%|███████████████████████████████████████████████████████████████████▏                                                                                                    | 2/5 [00:02<00:03,  1.00s/it]"
+  - delay: 518
+    content: "\r 20%|█████████████████████████████████▌                                                                                                                                      | 1/5 [00:01<00:04,  1.00s/it]"
+  - delay: 483
+    content: "\r 60%|████████████████████████████████████████████████████████████████████████████████████████████████████▊                                                                   | 3/5 [00:03<00:02,  1.00s/it]"
+  - delay: 518
+    content: "\r 40%|███████████████████████████████████████████████████████████████████▏                                                                                                    | 2/5 [00:02<00:03,  1.00s/it]"
+  - delay: 483
+    content: "\r 80%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▍                                 | 4/5 [00:04<00:01,  1.00s/it]"
+  - delay: 519
+    content: "\r 60%|████████████████████████████████████████████████████████████████████████████████████████████████████▊                                                                   | 3/5 [00:03<00:02,  1.00s/it]"
+  - delay: 483
+    content: "\r100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:05<00:00,  1.00s/it]\r100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:05<00:00,  1.00s/it]\r\n 2023-08-05:19:35:11 [INFO] [logger.py:31] ------------------------- model pod router successfuly set up -------------------------\r\n 2023-08-05:19:35:11 [INFO] [logger.py:31] \r\n\r\n"
+  - delay: 40
+    content: " 2023-08-05:19:35:11 [INFO] [logger.py:31] all_model_pods: []\r\n 2023-08-05:19:35:11 [INFO] [logger.py:31] waited for 5 to check if the pods are up\r\n\r  0%|                                                                                                                                                                                | 0/5 [00:00<?, ?it/s]"
+  - delay: 478
+    content: "\r 80%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▍                                 | 4/5 [00:04<00:01,  1.00s/it]"
+  - delay: 523
+    content: "\r 20%|█████████████████████████████████▌                                                                                                                                      | 1/5 [00:01<00:04,  1.00s/it]"
+  - delay: 478
+    content: "\r100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:05<00:00,  1.00s/it]\r100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:05<00:00,  1.00s/it]\r\n 2023-08-05:19:35:13 [INFO] [logger.py:31] all_containers: []\r\n 2023-08-05:19:35:13 [INFO] [logger.py:31] waited for 5 to check if the pods are up\r\n\r  0%|                                                                                                                                                                                | 0/5 [00:00<?, ?it/s]"
+  - delay: 522
+    content: "\r 40%|███████████████████████████████████████████████████████████████████▏                                                                                                    | 2/5 [00:02<00:03,  1.00s/it]"
+  - delay: 479
+    content: "\r 20%|█████████████████████████████████▌                                                                                                                                      | 1/5 [00:01<00:04,  1.00s/it]"
+  - delay: 523
+    content: "\r 60%|████████████████████████████████████████████████████████████████████████████████████████████████████▊                                                                   | 3/5 [00:03<00:02,  1.00s/it]"
+  - delay: 479
+    content: "\r 40%|███████████████████████████████████████████████████████████████████▏                                                                                                    | 2/5 [00:02<00:03,  1.00s/it]"
+  - delay: 522
+    content: "\r 80%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▍                                 | 4/5 [00:04<00:01,  1.00s/it]"
+  - delay: 480
+    content: "\r 60%|████████████████████████████████████████████████████████████████████████████████████████████████████▊                                                                   | 3/5 [00:03<00:02,  1.00s/it]"
+  - delay: 522
+    content: "\r100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:05<00:00,  1.00s/it]\r100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:05<00:00,  1.00s/it]\r\n 2023-08-05:19:35:16 [INFO] [logger.py:31] all_containers: []\r\n 2023-08-05:19:35:16 [INFO] [logger.py:31] waited for 5 to check if the pods are up\r\n\r  0%|                                                                                                                                                                                | 0/5 [00:00<?, ?it/s]"
+  - delay: 478
+    content: "\r 80%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▍                                 | 4/5 [00:04<00:01,  1.00s/it]"
+  - delay: 524
+    content: "\r 20%|█████████████████████████████████▌                                                                                                                                      | 1/5 [00:01<00:04,  1.00s/it]"
+  - delay: 478
+    content: "\r100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:05<00:00,  1.00s/it]\r100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:05<00:00,  1.00s/it]\r\n"
+  - delay: 56
+    content: " 2023-08-05:19:35:18 [INFO] [logger.py:31] Environment tarball not found at './envs/base.tar.gz'\r\nEnvironment not found at './envs/base'\r\n2023-08-05 19:35:13,513 [mlserver.rest] INFO - hello from the cusomt server!\r\n2023-08-05 19:35:13,513 [mlserver.rest] INFO - HTTP server running on http://0.0.0.0:9000\r\nINFO:     Started server process [1]\r\nINFO:     Waiting for application startup.\r\n2023-08-05 19:35:13,533 [mlserver.metrics] INFO - Metrics server running on http://0.0.0.0:6000\r\n2023-08-05 19:35:13,533 [mlserver.metrics] INFO - Prometheus scraping endpoint can be accessed on http://0.0.0.0:6000/prometheus\r\nINFO:     Started server process [1]\r\nINFO:     Waiting for application startup.\r\n2023-08-05 19:35:14,119 [mlserver] INFO - PREDICTIVE_UNIT_ID set to: resnet-human\r\n2023-08-05 19:35:14,119 [mlserver] INFO - DROP_LIMIT set to: 10.0\r\n2023-08-05 19:35:14,119 [mlserver] INFO - USE_THREADING set to: True\r\n2023-08-05 19:35:14,119 [mlserver] INFO - NUM_INTEROP_THREADS set to: 1\r\n2023-08-05 19:35:14,119 [mlserver] INFO - NUM_THREADS set to: 1\r\n2023-08-05 19:35:14,132 [mlserver] INFO - LOGS_ENABLED set to: False\r\nDownloading: \"https://download.pytorch.org/models/resnet18-f37072fd.pth\" to /opt/mlserver/.torch/hub/checkpoints/resnet18-f37072fd.pth\r\n\r  0%|          | 0.00/44.7M [00:00<?, ?B/s]\r 10%|█         | 4.68M/44.7M [00:00<00:00, 48.8MB/s]\r 27%|██▋       | 11.9M/44.7M [00:00<00:00, 64.5MB/s]\r 41%|████      | 18.2M/44.7M [00:00<00:00, 65.3MB/s]\r 55%|█████▍    | 24.4M/44.7M [00:00<00:00, 58.8MB/s]\r 67%|██████▋   | 30.1M/44.7M [00:00<00:00, 58.5MB/s]\r 80%|████████  | 35.8M/44.7M [00:00<00:00, 54.2MB/s]\r 93%|█████████▎| 41.6M/44.7M [00:00<00:00, 56.4MB/s]\r100%|██████████| 44.7M/44.7M [00:00<00:00, 58.5MB/s]\r\nINFO:     Application startup complete.\r\n2023-08-05 19:35:15,436 [mlserver.grpc] INFO - gRPC server running on http://0.0.0.0:9500\r\nINFO:     Application startup complete.\r\nINFO:     Uvicorn running on http://0.0.0.0:9000 (Press CTRL+C to quit)\r\nINFO:     Uvicorn running on http://0.0.0.0:6000 (Press CTRL+C to quit)\r\n\r\n 2023-08-05:19:35:18 [INFO] [logger.py:31] all_model_pods: [True]\r\n 2023-08-05:19:35:18 [INFO] [logger.py:31] all_containers: [True]\r\n 2023-08-05:19:35:18 [INFO] [logger.py:31] model container completely loaded!\r\n 2023-08-05:19:35:18 [INFO] [logger.py:31] ------------------------- setting up the node with following config-------------------------\r\n 2023-08-05:19:35:18 [INFO] [logger.py:31] \r\n\r\n"
+  - delay: 7
+    content: " 2023-08-05:19:35:18 [INFO] [logger.py:31] apiVersion: machinelearning.seldon.io/v1\r\nkind: SeldonDeployment\r\nmetadata:\r\n  name: queue-yolo\r\nspec:\r\n  protocol: v2\r\n  name: queue-yolo\r\n  annotations:\r\n    proxy.istio.io/config: |\r\n      terminationDrainDuration: 120s\r\n  predictors:\r\n  - name: queue-yolo\r\n    annotations:\r\n      seldon.io/no-engine: \"true\" \r\n    componentSpecs:\r\n    - spec:\r\n        terminationGracePeriodSeconds: 120\r\n        containers:\r\n        - image: sdghafouri/queue:queue\r\n          name: queue-yolo\r\n          imagePullPolicy: Always\r\n          resources:\r\n            requests:\r\n              cpu: '4'\r\n              memory: '8Gi'\r\n            limits:\r\n              cpu: '16'\r\n              memory: '32Gi'\r\n          env:\r\n            - name: MODEL_NAME\r\n              value: yolo\r\n            - name: LAST_NODE\r\n              value: 'False'\r\n            - name: MLSERVER_MODEL_MAX_BATCH_SIZE\r\n              value: '1'\r\n            - name: MLSERVER_MODEL_MAX_BATCH_TIME\r\n              value: '1'\r\n            - name: MLSERVER_PARALLEL_WORKERS\r\n              value: \"0\"\r\n            - name: DROP_LIMIT\r\n              value: '10'\r\n            - name: LOGS_ENABLED\r\n              value: 'False'\r\n          readinessProbe:\r\n            failureThreshold: 3\r\n            initialDelaySeconds: 0\r\n            periodSeconds: 1\r\n            successThreshold: 1\r\n            tcpSocket:\r\n              port: 9000\r\n            timeoutSeconds: 1\r\n          lifecycle:\r\n            preStop:\r\n              exec:\r\n                command:\r\n                - /bin/sh\r\n                - -c\r\n                - /bin/sleep 120\r\n      replicas: 1\r\n    graph:\r\n      name: queue-yolo\r\n      type: MODEL\r\n      children: []\r\n    labels:\r\n      sidecar.istio.io/inject: \"true\"\r\n"
+  - delay: 337
+    content: "seldondeployment.machinelearning.seldon.io/queue-yolo created\r\n"
+  - delay: 14
+    content: " 2023-08-05:19:35:18 [INFO] [logger.py:31] ------------------------- waiting to make sure the node is up -------------------------\r\n 2023-08-05:19:35:18 [INFO] [logger.py:31] \r\n\r\n 2023-08-05:19:35:18 [INFO] [logger.py:31] ------------------------- model pod queue-yolo successfuly set up -------------------------\r\n 2023-08-05:19:35:18 [INFO] [logger.py:31] \r\n\r\n"
+  - delay: 11
+    content: " 2023-08-05:19:35:18 [INFO] [logger.py:31] all_model_pods: []\r\n 2023-08-05:19:35:18 [INFO] [logger.py:31] waited for 5 to check if the pods are up\r\n\r  0%|                                                                                                                                                                                | 0/5 [00:00<?, ?it/s]"
+  - delay: 98
+    content: "\r 40%|███████████████████████████████████████████████████████████████████▏                                                                                                    | 2/5 [00:02<00:03,  1.00s/it]"
+  - delay: 904
+    content: "\r 20%|█████████████████████████████████▌                                                                                                                                      | 1/5 [00:01<00:04,  1.00s/it]"
+  - delay: 97
+    content: "\r 60%|████████████████████████████████████████████████████████████████████████████████████████████████████▊                                                                   | 3/5 [00:03<00:02,  1.00s/it]"
+  - delay: 904
+    content: "\r 40%|███████████████████████████████████████████████████████████████████▏                                                                                                    | 2/5 [00:02<00:03,  1.00s/it]"
+  - delay: 97
+    content: "\r 80%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▍                                 | 4/5 [00:04<00:01,  1.00s/it]"
+  - delay: 905
+    content: "\r 60%|████████████████████████████████████████████████████████████████████████████████████████████████████▊                                                                   | 3/5 [00:03<00:02,  1.00s/it]"
+  - delay: 97
+    content: "\r100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:05<00:00,  1.00s/it]\r100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:05<00:00,  1.00s/it]\r\n"
+  - delay: 14
+    content: " 2023-08-05:19:35:21 [INFO] [logger.py:31] all_model_pods: []\r\n 2023-08-05:19:35:21 [INFO] [logger.py:31] waited for 5 to check if the pods are up\r\n\r  0%|                                                                                                                                                                                | 0/5 [00:00<?, ?it/s]"
+  - delay: 891
+    content: "\r 80%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▍                                 | 4/5 [00:04<00:01,  1.00s/it]"
+  - delay: 111
+    content: "\r 20%|█████████████████████████████████▌                                                                                                                                      | 1/5 [00:01<00:04,  1.00s/it]"
+  - delay: 891
+    content: "\r100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:05<00:00,  1.00s/it]\r100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:05<00:00,  1.00s/it]\r\n 2023-08-05:19:35:23 [INFO] [logger.py:31] all_containers: []\r\n 2023-08-05:19:35:23 [INFO] [logger.py:31] waited for 5 to check if the pods are up\r\n\r  0%|                                                                                                                                                                                | 0/5 [00:00<?, ?it/s]"
+  - delay: 109
+    content: "\r 40%|███████████████████████████████████████████████████████████████████▏                                                                                                    | 2/5 [00:02<00:03,  1.00s/it]"
+  - delay: 892
+    content: "\r 20%|█████████████████████████████████▌                                                                                                                                      | 1/5 [00:01<00:04,  1.00s/it]"
+  - delay: 110
+    content: "\r 60%|████████████████████████████████████████████████████████████████████████████████████████████████████▊                                                                   | 3/5 [00:03<00:02,  1.00s/it]"
+  - delay: 892
+    content: "\r 40%|███████████████████████████████████████████████████████████████████▏                                                                                                    | 2/5 [00:02<00:03,  1.00s/it]"
+  - delay: 110
+    content: "\r 80%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▍                                 | 4/5 [00:04<00:01,  1.00s/it]"
+  - delay: 891
+    content: "\r 60%|████████████████████████████████████████████████████████████████████████████████████████████████████▊                                                                   | 3/5 [00:03<00:02,  1.00s/it]"
+  - delay: 110
+    content: "\r100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:05<00:00,  1.00s/it]\r100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:05<00:00,  1.00s/it]\r\n 2023-08-05:19:35:26 [INFO] [logger.py:31] all_containers: []\r\n 2023-08-05:19:35:26 [INFO] [logger.py:31] waited for 5 to check if the pods are up\r\n\r  0%|                                                                                                                                                                                | 0/5 [00:00<?, ?it/s]"
+  - delay: 891
+    content: "\r 80%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▍                                 | 4/5 [00:04<00:01,  1.00s/it]"
+  - delay: 111
+    content: "\r 20%|█████████████████████████████████▌                                                                                                                                      | 1/5 [00:01<00:04,  1.00s/it]"
+  - delay: 891
+    content: "\r100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:05<00:00,  1.00s/it]\r100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:05<00:00,  1.00s/it]\r\n"
+  - delay: 55
+    content: " 2023-08-05:19:35:28 [INFO] [logger.py:31] Environment tarball not found at './envs/base.tar.gz'\r\nEnvironment not found at './envs/base'\r\n2023-08-05 19:35:22,298 [mlserver.rest] INFO - hello from the cusomt server!\r\n2023-08-05 19:35:22,298 [mlserver.rest] INFO - HTTP server running on http://0.0.0.0:9000\r\nINFO:     Started server process [1]\r\nINFO:     Waiting for application startup.\r\n2023-08-05 19:35:22,312 [mlserver.metrics] INFO - Metrics server running on http://0.0.0.0:6000\r\n2023-08-05 19:35:22,312 [mlserver.metrics] INFO - Prometheus scraping endpoint can be accessed on http://0.0.0.0:6000/prometheus\r\nINFO:     Started server process [1]\r\nINFO:     Waiting for application startup.\r\n2023-08-05 19:35:22,314 [mlserver] INFO - PREDICTIVE_UNIT_ID set to: queue-yolo\r\n2023-08-05 19:35:22,314 [mlserver] INFO - DROP_LIMIT set to: 10.0\r\n2023-08-05 19:35:22,314 [mlserver] INFO - MODEL_NAME set to: yolo\r\n2023-08-05 19:35:22,314 [mlserver] INFO - LAST_NODE set to: True\r\n2023-08-05 19:35:22,314 [mlserver] INFO - LOGS_ENABLED set to: False\r\nINFO:     Application startup complete.\r\n2023-08-05 19:35:22,315 [mlserver.grpc] INFO - gRPC server running on http://0.0.0.0:9500\r\nINFO:     Application startup complete.\r\nINFO:     Uvicorn running on http://0.0.0.0:9000 (Press CTRL+C to quit)\r\nINFO:     Uvicorn running on http://0.0.0.0:6000 (Press CTRL+C to quit)\r\n\r\n 2023-08-05:19:35:28 [INFO] [logger.py:31] all_model_pods: [True]\r\n 2023-08-05:19:35:28 [INFO] [logger.py:31] all_containers: [True]\r\n 2023-08-05:19:35:28 [INFO] [logger.py:31] model container completely loaded!\r\n 2023-08-05:19:35:28 [INFO] [logger.py:31] ------------------------- setting up the node with following config-------------------------\r\n 2023-08-05:19:35:28 [INFO] [logger.py:31] \r\n\r\n"
+  - delay: 5
+    content: " 2023-08-05:19:35:28 [INFO] [logger.py:31] apiVersion: machinelearning.seldon.io/v1\r\nkind: SeldonDeployment\r\nmetadata:\r\n  name: queue-resnet-human\r\nspec:\r\n  protocol: v2\r\n  name: queue-resnet-human\r\n  annotations:\r\n    proxy.istio.io/config: |\r\n      terminationDrainDuration: 120s\r\n  predictors:\r\n  - name: queue-resnet-human\r\n    annotations:\r\n      seldon.io/no-engine: \"true\" \r\n    componentSpecs:\r\n    - spec:\r\n        terminationGracePeriodSeconds: 120\r\n        containers:\r\n        - image: sdghafouri/queue:queue\r\n          name: queue-resnet-human\r\n          imagePullPolicy: Always\r\n          resources:\r\n            requests:\r\n              cpu: '4'\r\n              memory: '8Gi'\r\n            limits:\r\n              cpu: '16'\r\n              memory: '32Gi'\r\n          env:\r\n            - name: MODEL_NAME\r\n              value: resnet-human\r\n            - name: LAST_NODE\r\n              value: 'False'\r\n            - name: MLSERVER_MODEL_MAX_BATCH_SIZE\r\n              value: '1'\r\n            - name: MLSERVER_MODEL_MAX_BATCH_TIME\r\n              value: '1'\r\n            - name: MLSERVER_PARALLEL_WORKERS\r\n              value: \"0\"\r\n            - name: DROP_LIMIT\r\n              value: '10'\r\n            - name: LOGS_ENABLED\r\n              value: 'False'\r\n          readinessProbe:\r\n            failureThreshold: 3\r\n            initialDelaySeconds: 0\r\n            periodSeconds: 1\r\n            successThreshold: 1\r\n            tcpSocket:\r\n              port: 9000\r\n            timeoutSeconds: 1\r\n          lifecycle:\r\n            preStop:\r\n              exec:\r\n                command:\r\n                - /bin/sh\r\n                - -c\r\n                - /bin/sleep 120\r\n      replicas: 1\r\n    graph:\r\n      name: queue-resnet-human\r\n      type: MODEL\r\n      children: []\r\n    labels:\r\n      sidecar.istio.io/inject: \"true\"\r\n"
+  - delay: 50
+    content: "\r 40%|███████████████████████████████████████████████████████████████████▏                                                                                                    | 2/5 [00:02<00:03,  1.00s/it]"
+  - delay: 322
+    content: "seldondeployment.machinelearning.seldon.io/queue-resnet-human created\r\n"
+  - delay: 14
+    content: " 2023-08-05:19:35:29 [INFO] [logger.py:31] ------------------------- waiting to make sure the node is up -------------------------\r\n 2023-08-05:19:35:29 [INFO] [logger.py:31] \r\n\r\n 2023-08-05:19:35:29 [INFO] [logger.py:31] ------------------------- model pod queue-resnet-human successfuly set up -------------------------\r\n 2023-08-05:19:35:29 [INFO] [logger.py:31] \r\n\r\n"
+  - delay: 15
+    content: " 2023-08-05:19:35:29 [INFO] [logger.py:31] all_model_pods: []\r\n 2023-08-05:19:35:29 [INFO] [logger.py:31] waited for 5 to check if the pods are up\r\n\r  0%|                                                                                                                                                                                | 0/5 [00:00<?, ?it/s]"
+  - delay: 650
+    content: "\r 60%|████████████████████████████████████████████████████████████████████████████████████████████████████▊                                                                   | 3/5 [00:03<00:02,  1.00s/it]"
+  - delay: 351
+    content: "\r 20%|█████████████████████████████████▌                                                                                                                                      | 1/5 [00:01<00:04,  1.00s/it]"
+  - delay: 650
+    content: "\r 80%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▍                                 | 4/5 [00:04<00:01,  1.00s/it]"
+  - delay: 352
+    content: "\r 40%|███████████████████████████████████████████████████████████████████▏                                                                                                    | 2/5 [00:02<00:03,  1.00s/it]"
+  - delay: 650
+    content: "\r100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:05<00:00,  1.00s/it]\r100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:05<00:00,  1.00s/it]\r\n"
+  - delay: 17
+    content: " 2023-08-05:19:35:31 [INFO] [logger.py:31] all_model_pods: []\r\n 2023-08-05:19:35:31 [INFO] [logger.py:31] waited for 5 to check if the pods are up\r\n\r  0%|                                                                                                                                                                                | 0/5 [00:00<?, ?it/s]"
+  - delay: 334
+    content: "\r 60%|████████████████████████████████████████████████████████████████████████████████████████████████████▊                                                                   | 3/5 [00:03<00:02,  1.00s/it]"
+  - delay: 668
+    content: "\r 20%|█████████████████████████████████▌                                                                                                                                      | 1/5 [00:01<00:04,  1.00s/it]"
+  - delay: 334
+    content: "\r 80%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▍                                 | 4/5 [00:04<00:01,  1.00s/it]"
+  - delay: 667
+    content: "\r 40%|███████████████████████████████████████████████████████████████████▏                                                                                                    | 2/5 [00:02<00:03,  1.00s/it]"
+  - delay: 333
+    content: "\r100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:05<00:00,  1.00s/it]\r100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:05<00:00,  1.00s/it]\r\n 2023-08-05:19:35:34 [INFO] [logger.py:31] all_containers: []\r\n 2023-08-05:19:35:34 [INFO] [logger.py:31] waited for 5 to check if the pods are up\r\n\r  0%|                                                                                                                                                                                | 0/5 [00:00<?, ?it/s]"
+  - delay: 667
+    content: "\r 60%|████████████████████████████████████████████████████████████████████████████████████████████████████▊                                                                   | 3/5 [00:03<00:02,  1.00s/it]"
+  - delay: 335
+    content: "\r 20%|█████████████████████████████████▌                                                                                                                                      | 1/5 [00:01<00:04,  1.00s/it]"
+  - delay: 667
+    content: "\r 80%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▍                                 | 4/5 [00:04<00:01,  1.00s/it]"
+  - delay: 335
+    content: "\r 40%|███████████████████████████████████████████████████████████████████▏                                                                                                    | 2/5 [00:02<00:03,  1.00s/it]"
+  - delay: 667
+    content: "\r100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:05<00:00,  1.00s/it]\r100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:05<00:00,  1.00s/it]\r\n 2023-08-05:19:35:36 [INFO] [logger.py:31] all_containers: []\r\n 2023-08-05:19:35:36 [INFO] [logger.py:31] waited for 5 to check if the pods are up\r\n\r  0%|                                                                                                                                                                                | 0/5 [00:00<?, ?it/s]"
+  - delay: 335
+    content: "\r 60%|████████████████████████████████████████████████████████████████████████████████████████████████████▊                                                                   | 3/5 [00:03<00:02,  1.00s/it]"
+  - delay: 668
+    content: "\r 20%|█████████████████████████████████▌                                                                                                                                      | 1/5 [00:01<00:04,  1.00s/it]"
+  - delay: 334
+    content: "\r 80%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▍                                 | 4/5 [00:04<00:01,  1.00s/it]"
+  - delay: 667
+    content: "\r 40%|███████████████████████████████████████████████████████████████████▏                                                                                                    | 2/5 [00:02<00:03,  1.00s/it]"
+  - delay: 334
+    content: "\r100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:05<00:00,  1.00s/it]\r100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:05<00:00,  1.00s/it]\r\n"
+  - delay: 57
+    content: " 2023-08-05:19:35:39 [INFO] [logger.py:31] Environment tarball not found at './envs/base.tar.gz'\r\nEnvironment not found at './envs/base'\r\n2023-08-05 19:35:33,416 [mlserver.rest] INFO - hello from the cusomt server!\r\n2023-08-05 19:35:33,416 [mlserver.rest] INFO - HTTP server running on http://0.0.0.0:9000\r\nINFO:     Started server process [1]\r\nINFO:     Waiting for application startup.\r\n2023-08-05 19:35:33,430 [mlserver.metrics] INFO - Metrics server running on http://0.0.0.0:6000\r\n2023-08-05 19:35:33,430 [mlserver.metrics] INFO - Prometheus scraping endpoint can be accessed on http://0.0.0.0:6000/prometheus\r\nINFO:     Started server process [1]\r\nINFO:     Waiting for application startup.\r\n2023-08-05 19:35:33,433 [mlserver] INFO - PREDICTIVE_UNIT_ID set to: queue-resnet-human\r\n2023-08-05 19:35:33,433 [mlserver] INFO - DROP_LIMIT set to: 10.0\r\n2023-08-05 19:35:33,433 [mlserver] INFO - MODEL_NAME set to: resnet-human\r\n2023-08-05 19:35:33,433 [mlserver] INFO - LAST_NODE set to: True\r\n2023-08-05 19:35:33,433 [mlserver] INFO - LOGS_ENABLED set to: False\r\nINFO:     Application startup complete.\r\n2023-08-05 19:35:33,434 [mlserver.grpc] INFO - gRPC server running on http://0.0.0.0:9500\r\nINFO:     Application startup complete.\r\nINFO:     Uvicorn running on http://0.0.0.0:9000 (Press CTRL+C to quit)\r\nINFO:     Uvicorn running on http://0.0.0.0:6000 (Press CTRL+C to quit)\r\n\r\n 2023-08-05:19:35:39 [INFO] [logger.py:31] all_model_pods: [True]\r\n 2023-08-05:19:35:39 [INFO] [logger.py:31] all_containers: [True]\r\n 2023-08-05:19:35:39 [INFO] [logger.py:31] model container completely loaded!\r\n 2023-08-05:19:35:39 [INFO] [logger.py:31] ------------------------- setting up the node with following config-------------------------\r\n 2023-08-05:19:35:39 [INFO] [logger.py:31] \r\n\r\n"
+  - delay: 6
+    content: " 2023-08-05:19:35:39 [INFO] [logger.py:31] apiVersion: machinelearning.seldon.io/v1\r\nkind: SeldonDeployment\r\nmetadata:\r\n  name: router\r\nspec:\r\n  protocol: v2\r\n  name: router\r\n  annotations:\r\n    proxy.istio.io/config: |\r\n      terminationDrainDuration: 30s\r\n  predictors:\r\n  - name: router\r\n    annotations:\r\n      seldon.io/no-engine: \"true\"\r\n    componentSpecs:\r\n    - spec:\r\n        terminationGracePeriodSeconds: 30\r\n        containers:\r\n        - image: sdghafouri/router:router\r\n          name: router\r\n          imagePullPolicy: Always\r\n          resources:\r\n            requests:\r\n              cpu: '4'\r\n              memory: '8Gi'\r\n            limits:\r\n              cpu: '16'\r\n              memory: '32Gi'\r\n          env:\r\n            - name: MODEL_LISTS\r\n              value: '[\"queue-yolo\", \"queue-resnet-human\"]'\r\n            # router should be multi-process to sustain througput\r\n            - name: MLSERVER_PARALLEL_WORKERS\r\n              value: \"8\"\r\n            - name: DROP_LIMIT\r\n              value: '10'\r\n            - name: LOGS_ENABLED\r\n              value: 'False'\r\n          readinessProbe:\r\n            failureThreshold: 3\r\n            initialDelaySeconds: 0\r\n            periodSeconds: 1\r\n            successThreshold: 1\r\n            tcpSocket:\r\n              port: 9000\r\n            timeoutSeconds: 1\r\n          lifecycle:\r\n            preStop:\r\n              exec:\r\n                command:\r\n                - /bin/sh\r\n                - -c\r\n                - /bin/sleep 30\r\n      replicas: 1\r\n    graph:\r\n      name: router\r\n      type: MODEL\r\n      children: []\r\n    labels:\r\n      sidecar.istio.io/inject: \"true\"\r\n\r\n"
+  - delay: 343
+    content: "seldondeployment.machinelearning.seldon.io/router created\r\n"
+  - delay: 14
+    content: " 2023-08-05:19:35:39 [INFO] [logger.py:31] ------------------------- waiting to make sure the node is up -------------------------\r\n 2023-08-05:19:35:39 [INFO] [logger.py:31] \r\n\r\n 2023-08-05:19:35:39 [INFO] [logger.py:31] ------------------------- model pod router successfuly set up -------------------------\r\n 2023-08-05:19:35:39 [INFO] [logger.py:31] \r\n\r\n"
+  - delay: 16
+    content: " 2023-08-05:19:35:39 [INFO] [logger.py:31] all_model_pods: []\r\n 2023-08-05:19:35:39 [INFO] [logger.py:31] waited for 5 to check if the pods are up\r\n\r  0%|                                                                                                                                                                                | 0/5 [00:00<?, ?it/s]"
+  - delay: 229
+    content: "\r 60%|████████████████████████████████████████████████████████████████████████████████████████████████████▊                                                                   | 3/5 [00:03<00:02,  1.00s/it]"
+  - delay: 772
+    content: "\r 20%|█████████████████████████████████▌                                                                                                                                      | 1/5 [00:01<00:04,  1.00s/it]"
+  - delay: 230
+    content: "\r 80%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▍                                 | 4/5 [00:04<00:01,  1.00s/it]"
+  - delay: 772
+    content: "\r 40%|███████████████████████████████████████████████████████████████████▏                                                                                                    | 2/5 [00:02<00:03,  1.00s/it]"
+  - delay: 230
+    content: "\r100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:05<00:00,  1.00s/it]\r100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:05<00:00,  1.00s/it]\r\n"
+  - delay: 43
+    content: " 2023-08-05:19:35:42 [INFO] [logger.py:31] all_model_pods: [False]\r\n 2023-08-05:19:35:42 [INFO] [logger.py:31] waited for 5 to check if the pods are up\r\n\r  0%|                                                                                                                                                                                | 0/5 [00:00<?, ?it/s]"
+  - delay: 728
+    content: "\r 60%|████████████████████████████████████████████████████████████████████████████████████████████████████▊                                                                   | 3/5 [00:03<00:02,  1.00s/it]"
+  - delay: 273
+    content: "\r 20%|█████████████████████████████████▌                                                                                                                                      | 1/5 [00:01<00:04,  1.00s/it]"
+  - delay: 728
+    content: "\r 80%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▍                                 | 4/5 [00:04<00:01,  1.00s/it]"
+  - delay: 274
+    content: "\r 40%|███████████████████████████████████████████████████████████████████▏                                                                                                    | 2/5 [00:02<00:03,  1.00s/it]"
+  - delay: 728
+    content: "\r100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:05<00:00,  1.00s/it]\r100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:05<00:00,  1.00s/it]\r\n 2023-08-05:19:35:44 [INFO] [logger.py:31] all_containers: []\r\n 2023-08-05:19:35:44 [INFO] [logger.py:31] waited for 5 to check if the pods are up\r\n\r  0%|                                                                                                                                                                                | 0/5 [00:00<?, ?it/s]"
+  - delay: 272
+    content: "\r 60%|████████████████████████████████████████████████████████████████████████████████████████████████████▊                                                                   | 3/5 [00:03<00:02,  1.00s/it]"
+  - delay: 730
+    content: "\r 20%|█████████████████████████████████▌                                                                                                                                      | 1/5 [00:01<00:04,  1.00s/it]"
+  - delay: 272
+    content: "\r 80%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▍                                 | 4/5 [00:04<00:01,  1.00s/it]"
+  - delay: 729
+    content: "\r 40%|███████████████████████████████████████████████████████████████████▏                                                                                                    | 2/5 [00:02<00:03,  1.00s/it]"
+  - delay: 273
+    content: "\r100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:05<00:00,  1.00s/it]\r100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:05<00:00,  1.00s/it]\r\n 2023-08-05:19:35:47 [INFO] [logger.py:31] all_containers: []\r\n 2023-08-05:19:35:47 [INFO] [logger.py:31] waited for 5 to check if the pods are up\r\n\r  0%|                                                                                                                                                                                | 0/5 [00:00<?, ?it/s]"
+  - delay: 728
+    content: "\r 60%|████████████████████████████████████████████████████████████████████████████████████████████████████▊                                                                   | 3/5 [00:03<00:02,  1.00s/it]"
+  - delay: 274
+    content: "\r 20%|█████████████████████████████████▌                                                                                                                                      | 1/5 [00:01<00:04,  1.00s/it]"
+  - delay: 728
+    content: "\r 80%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▍                                 | 4/5 [00:04<00:01,  1.00s/it]"
+  - delay: 274
+    content: "\r 40%|███████████████████████████████████████████████████████████████████▏                                                                                                    | 2/5 [00:02<00:03,  1.00s/it]"
+  - delay: 727
+    content: "\r100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:05<00:00,  1.00s/it]\r100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:05<00:00,  1.00s/it]\r\n"
+  - delay: 56
+    content: " 2023-08-05:19:35:49 [INFO] [logger.py:31] Environment tarball not found at './envs/base.tar.gz'\r\nEnvironment not found at './envs/base'\r\n2023-08-05 19:35:43,558 [mlserver.rest] INFO - hello from the cusomt server!\r\n2023-08-05 19:35:43,558 [mlserver.rest] INFO - HTTP server running on http://0.0.0.0:9000\r\nINFO:     Started server process [1]\r\nINFO:     Waiting for application startup.\r\n2023-08-05 19:35:43,577 [mlserver.metrics] INFO - Metrics server running on http://0.0.0.0:6000\r\n2023-08-05 19:35:43,577 [mlserver.metrics] INFO - Prometheus scraping endpoint can be accessed on http://0.0.0.0:6000/prometheus\r\nINFO:     Started server process [1]\r\nINFO:     Waiting for application startup.\r\nINFO:     Application startup complete.\r\nINFO:     Application startup complete.\r\n2023-08-05 19:35:43,582 [mlserver.grpc] INFO - gRPC server running on http://0.0.0.0:9500\r\nINFO:     Uvicorn running on http://0.0.0.0:9000 (Press CTRL+C to quit)\r\nINFO:     Uvicorn running on http://0.0.0.0:6000 (Press CTRL+C to quit)\r\n2023-08-05 19:35:44,833 [mlserver] INFO - PREDICTIVE_UNIT_ID set to: router\r\n2023-08-05 19:35:44,833 [mlserver] INFO - DROP_LIMIT set to: 10.0\r\n2023-08-05 19:35:44,833 [mlserver] INFO - MODEL_LISTS set to: ['queue-yolo', 'queue-resnet-human']\r\n2023-08-05 19:35:44,833 [mlserver] INFO - LOGS_ENABLED set to: False\r\n2023-08-05 19:35:44,846 [mlserver] INFO - PREDICTIVE_UNIT_ID set to: router\r\n2023-08-05 19:35:44,846 [mlserver] INFO - DROP_LIMIT set to: 10.0\r\n2023-08-05 19:35:44,846 [mlserver] INFO - MODEL_LISTS set to: ['queue-yolo', 'queue-resnet-human']\r\n2023-08-05 19:35:44,846 [mlserver] INFO - LOGS_ENABLED set to: False\r\n2023-08-05 19:35:44,857 [mlserver] INFO - PREDICTIVE_UNIT_ID set to: router\r\n2023-08-05 19:35:44,857 [mlserver] INFO - DROP_LIMIT set to: 10.0\r\n2023-08-05 19:35:44,857 [mlserver] INFO - MODEL_LISTS set to: ['queue-yolo', 'queue-resnet-human']\r\n2023-08-05 19:35:44,857 [mlserver] INFO - LOGS_ENABLED set to: False\r\n2023-08-05 19:35:44,859 [mlserver] INFO - PREDICTIVE_UNIT_ID set to: router\r\n2023-08-05 19:35:44,859 [mlserver] INFO - DROP_LIMIT set to: 10.0\r\n2023-08-05 19:35:44,859 [mlserver] INFO - MODEL_LISTS set to: ['queue-yolo', 'queue-resnet-human']\r\n2023-08-05 19:35:44,859 [mlserver] INFO - LOGS_ENABLED set to: False\r\n2023-08-05 19:35:44,880 [mlserver] INFO - PREDICTIVE_UNIT_ID set to: router\r\n2023-08-05 19:35:44,880 [mlserver] INFO - DROP_LIMIT set to: 10.0\r\n2023-08-05 19:35:44,880 [mlserver] INFO - MODEL_LISTS set to: ['queue-yolo', 'queue-resnet-human']\r\n2023-08-05 19:35:44,880 [mlserver] INFO - LOGS_ENABLED set to: False\r\n2023-08-05 19:35:44,884 [mlserver] INFO - PREDICTIVE_UNIT_ID set to: router\r\n2023-08-05 19:35:44,884 [mlserver] INFO - DROP_LIMIT set to: 10.0\r\n2023-08-05 19:35:44,884 [mlserver] INFO - MODEL_LISTS set to: ['queue-yolo', 'queue-resnet-human']\r\n2023-08-05 19:35:44,884 [mlserver] INFO - LOGS_ENABLED set to: False\r\n2023-08-05 19:35:44,895 [mlserver] INFO - PREDICTIVE_UNIT_ID set to: router\r\n2023-08-05 19:35:44,895 [mlserver] INFO - DROP_LIMIT set to: 10.0\r\n2023-08-05 19:35:44,895 [mlserver] INFO - MODEL_LISTS set to: ['queue-yolo', 'queue-resnet-human']\r\n2023-08-05 19:35:44,895 [mlserver] INFO - LOGS_ENABLED set to: False\r\n2023-08-05 19:35:44,973 [mlserver] INFO - PREDICTIVE_UNIT_ID set to: router\r\n2023-08-05 19:35:44,973 [mlserver] INFO - DROP_LIMIT set to: 10.0\r\n2023-08-05 19:35:44,973 [mlserver] INFO - MODEL_LISTS set to: ['queue-yolo', 'queue-resnet-human']\r\n2023-08-05 19:35:44,974 [mlserver] INFO - LOGS_ENABLED set to: False\r\n2023-08-05 19:35:44,975 [mlserver] INFO - Loaded model 'router' succesfully.\r\n\r\n 2023-08-05:19:35:49 [INFO] [logger.py:31] all_model_pods: [True]\r\n 2023-08-05:19:35:49 [INFO] [logger.py:31] all_containers: [True]\r\n 2023-08-05:19:35:49 [INFO] [logger.py:31] model container completely loaded!\r\n 2023-08-05:19:35:49 [INFO] [logger.py:31] Checking if the model is up ...\r\n 2023-08-05:19:35:49 [INFO] [logger.py:31] \r\n\r\n"
+  - delay: 16
+    content: " 2023-08-05:19:35:49 [INFO] [logger.py:31] waited for 5 seconds to check for successful request\r\n"
+  - delay: 201
+    content: "\r 60%|████████████████████████████████████████████████████████████████████████████████████████████████████▊                                                                   | 3/5 [00:03<00:02,  1.00s/it]"
+  - delay: 1002
+    content: "\r 80%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▍                                 | 4/5 [00:04<00:01,  1.00s/it]"
+  - delay: 1002
+    content: "\r100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:05<00:00,  1.00s/it]\r100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:05<00:00,  1.00s/it]\r\n"
+  - delay: 60
+    content: " 2023-08-05:19:35:52 [INFO] [logger.py:31] Environment tarball not found at './envs/base.tar.gz'\r\nEnvironment not found at './envs/base'\r\n2023-08-05 19:35:43,558 [mlserver.rest] INFO - hello from the cusomt server!\r\n2023-08-05 19:35:43,558 [mlserver.rest] INFO - HTTP server running on http://0.0.0.0:9000\r\nINFO:     Started server process [1]\r\nINFO:     Waiting for application startup.\r\n2023-08-05 19:35:43,577 [mlserver.metrics] INFO - Metrics server running on http://0.0.0.0:6000\r\n2023-08-05 19:35:43,577 [mlserver.metrics] INFO - Prometheus scraping endpoint can be accessed on http://0.0.0.0:6000/prometheus\r\nINFO:     Started server process [1]\r\nINFO:     Waiting for application startup.\r\nINFO:     Application startup complete.\r\nINFO:     Application startup complete.\r\n2023-08-05 19:35:43,582 [mlserver.grpc] INFO - gRPC server running on http://0.0.0.0:9500\r\nINFO:     Uvicorn running on http://0.0.0.0:9000 (Press CTRL+C to quit)\r\nINFO:     Uvicorn running on http://0.0.0.0:6000 (Press CTRL+C to quit)\r\n2023-08-05 19:35:44,833 [mlserver] INFO - PREDICTIVE_UNIT_ID set to: router\r\n2023-08-05 19:35:44,833 [mlserver] INFO - DROP_LIMIT set to: 10.0\r\n2023-08-05 19:35:44,833 [mlserver] INFO - MODEL_LISTS set to: ['queue-yolo', 'queue-resnet-human']\r\n2023-08-05 19:35:44,833 [mlserver] INFO - LOGS_ENABLED set to: False\r\n2023-08-05 19:35:44,846 [mlserver] INFO - PREDICTIVE_UNIT_ID set to: router\r\n2023-08-05 19:35:44,846 [mlserver] INFO - DROP_LIMIT set to: 10.0\r\n2023-08-05 19:35:44,846 [mlserver] INFO - MODEL_LISTS set to: ['queue-yolo', 'queue-resnet-human']\r\n2023-08-05 19:35:44,846 [mlserver] INFO - LOGS_ENABLED set to: False\r\n2023-08-05 19:35:44,857 [mlserver] INFO - PREDICTIVE_UNIT_ID set to: router\r\n2023-08-05 19:35:44,857 [mlserver] INFO - DROP_LIMIT set to: 10.0\r\n2023-08-05 19:35:44,857 [mlserver] INFO - MODEL_LISTS set to: ['queue-yolo', 'queue-resnet-human']\r\n2023-08-05 19:35:44,857 [mlserver] INFO - LOGS_ENABLED set to: False\r\n2023-08-05 19:35:44,859 [mlserver] INFO - PREDICTIVE_UNIT_ID set to: router\r\n2023-08-05 19:35:44,859 [mlserver] INFO - DROP_LIMIT set to: 10.0\r\n2023-08-05 19:35:44,859 [mlserver] INFO - MODEL_LISTS set to: ['queue-yolo', 'queue-resnet-human']\r\n2023-08-05 19:35:44,859 [mlserver] INFO - LOGS_ENABLED set to: False\r\n2023-08-05 19:35:44,880 [mlserver] INFO - PREDICTIVE_UNIT_ID set to: router\r\n2023-08-05 19:35:44,880 [mlserver] INFO - DROP_LIMIT set to: 10.0\r\n2023-08-05 19:35:44,880 [mlserver] INFO - MODEL_LISTS set to: ['queue-yolo', 'queue-resnet-human']\r\n2023-08-05 19:35:44,880 [mlserver] INFO - LOGS_ENABLED set to: False\r\n2023-08-05 19:35:44,884 [mlserver] INFO - PREDICTIVE_UNIT_ID set to: router\r\n2023-08-05 19:35:44,884 [mlserver] INFO - DROP_LIMIT set to: 10.0\r\n2023-08-05 19:35:44,884 [mlserver] INFO - MODEL_LISTS set to: ['queue-yolo', 'queue-resnet-human']\r\n2023-08-05 19:35:44,884 [mlserver] INFO - LOGS_ENABLED set to: False\r\n2023-08-05 19:35:44,895 [mlserver] INFO - PREDICTIVE_UNIT_ID set to: router\r\n2023-08-05 19:35:44,895 [mlserver] INFO - DROP_LIMIT set to: 10.0\r\n2023-08-05 19:35:44,895 [mlserver] INFO - MODEL_LISTS set to: ['queue-yolo', 'queue-resnet-human']\r\n2023-08-05 19:35:44,895 [mlserver] INFO - LOGS_ENABLED set to: False\r\n2023-08-05 19:35:44,973 [mlserver] INFO - PREDICTIVE_UNIT_ID set to: router\r\n2023-08-05 19:35:44,973 [mlserver] INFO - DROP_LIMIT set to: 10.0\r\n2023-08-05 19:35:44,973 [mlserver] INFO - MODEL_LISTS set to: ['queue-yolo', 'queue-resnet-human']\r\n2023-08-05 19:35:44,974 [mlserver] INFO - LOGS_ENABLED set to: False\r\n2023-08-05 19:35:44,975 [mlserver] INFO - Loaded model 'router' succesfully.\r\n\r\n 2023-08-05:19:35:52 [INFO] [logger.py:31] all_model_pods: [True]\r\n 2023-08-05:19:35:52 [INFO] [logger.py:31] all_containers: [True]\r\n 2023-08-05:19:35:52 [INFO] [logger.py:31] model container completely loaded!\r\n"
+  - delay: 39
+    content: " 2023-08-05:19:35:52 [INFO] [logger.py:31] Found pipeline, starting adaptation ...\r\n"
+  - delay: 138
+    content: " 2023-08-05:19:35:52 [INFO] [logger.py:31] --------------------------------------------------\r\n 2023-08-05:19:35:52 [INFO] [logger.py:31] Waiting 10 to make next descision\r\n 2023-08-05:19:35:52 [INFO] [logger.py:31] --------------------------------------------------\r\n\r  0%|                                                                                                                                                                               | 0/10 [00:00<?, ?it/s]"
+  - delay: 1002
+    content: "\r 10%|████████████████▋                                                                                                                                                      | 1/10 [00:01<00:09,  1.00s/it]"
+  - delay: 1002
+    content: "\r 20%|█████████████████████████████████▍                                                                                                                                     | 2/10 [00:02<00:08,  1.00s/it]"
+  - delay: 567
+    content: "Sending 2 requests sent in Sat Aug  5 19:35:54 2023 at timestep 0\r\n"
+  - delay: 434
+    content: "\r 30%|██████████████████████████████████████████████████                                                                                                                     | 3/10 [00:03<00:07,  1.00s/it]"
+  - delay: 567
+    content: "Recieving 2 requests sent in Sat Aug  5 19:35:55 2023 at timestep 0, success rate: 2/2\r\n 2023-08-05:19:35:55 [INFO] [logger.py:31] \r\n\r\n 2023-08-05:19:35:55 [INFO] [logger.py:31] -------------------------starting load test -------------------------\r\n 2023-08-05:19:35:55 [INFO] [logger.py:31] \r\n\r\n"
+  - delay: 433
+    content: "\r 40%|██████████████████████████████████████████████████████████████████▊                                                                                                    | 4/10 [00:04<00:06,  1.00s/it]"
+  - delay: 342
+    content: "Sending 6 requests sent in Sat Aug  5 19:35:56 2023 at timestep 0\r\n"
+  - delay: 659
+    content: "\r 50%|███████████████████████████████████████████████████████████████████████████████████▌                                                                                   | 5/10 [00:05<00:05,  1.00s/it]"
+  - delay: 341
+    content: "Recieving 6 requests sent in Sat Aug  5 19:35:57 2023 at timestep 0, success rate: 6/6\r\nSending 5 requests sent in Sat Aug  5 19:35:57 2023 at timestep 1\r\n"
+  - delay: 661
+    content: "\r 60%|████████████████████████████████████████████████████████████████████████████████████████████████████▏                                                                  | 6/10 [00:06<00:04,  1.00s/it]"
+  - delay: 340
+    content: "Sending 4 requests sent in Sat Aug  5 19:35:58 2023 at timestep 2\r\nRecieving 5 requests sent in Sat Aug  5 19:35:58 2023 at timestep 1, success rate: 5/5\r\n"
+  - delay: 660
+    content: "\r 70%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▉                                                  | 7/10 [00:07<00:03,  1.00s/it]"
+  - delay: 340
+    content: "Sending 5 requests sent in Sat Aug  5 19:35:59 2023 at timestep 3\r\nRecieving 4 requests sent in Sat Aug  5 19:35:59 2023 at timestep 2, success rate: 4/4\r\n"
+  - delay: 662
+    content: "\r 80%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▌                                 | 8/10 [00:08<00:02,  1.00s/it]"
+  - delay: 338
+    content: "Sending 5 requests sent in Sat Aug  5 19:36:00 2023 at timestep 4\r\nRecieving 5 requests sent in Sat Aug  5 19:36:00 2023 at timestep 3, success rate: 5/5\r\n"
+  - delay: 663
+    content: "\r 90%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▎                | 9/10 [00:09<00:01,  1.00s/it]"
+  - delay: 336
+    content: "Sending 5 requests sent in Sat Aug  5 19:36:01 2023 at timestep 5\r\nRecieving 5 requests sent in Sat Aug  5 19:36:01 2023 at timestep 4, success rate: 5/5\r\n"
+  - delay: 665
+    content: "\r100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 10/10 [00:10<00:00,  1.00s/it]\r100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 10/10 [00:10<00:00,  1.00s/it]\r\n"
+  - delay: 51
+    content: " 2023-08-05:19:36:02 [INFO] [logger.py:31] --------------------------------------------------\r\n 2023-08-05:19:36:02 [INFO] [logger.py:31] \r\nPredicted Load: 6\r\n\r\n 2023-08-05:19:36:02 [INFO] [logger.py:31] --------------------------------------------------\r\n"
+  - delay: 30
+    content: "Restricted license - for non-production use only - expires 2024-10-28\r\n 2023-08-05:19:36:02 [INFO] [optimizer.py:523] Restricted license - for non-production use only - expires 2024-10-28\r\n"
+  - delay: 119
+    content: "Set parameter PoolSearchMode to value 2\r\n 2023-08-05:19:36:02 [INFO] [optimizer.py:784] Set parameter PoolSearchMode to value 2\r\n"
+  - delay: 58
+    content: " 2023-08-05:19:36:02 [INFO] [logger.py:31] --------------------------------------------------\r\n 2023-08-05:19:36:02 [INFO] [logger.py:31] candidate configs:\r\n[{'yolo': {'cpu': 1, 'replicas': 1, 'batch': 1, 'variant': 'yolov5s'}, 'resnet-human': {'cpu': 1, 'replicas': 1, 'batch': 2, 'variant': 'resnet101'}}]\r\n 2023-08-05:19:36:02 [INFO] [logger.py:31] --------------------------------------------------\r\n"
+  - delay: 64
+    content: " 2023-08-05:19:36:02 [INFO] [logger.py:31] --------------------------------------------------\r\n 2023-08-05:19:36:02 [INFO] [logger.py:31] to be applied configs:\r\n{'yolo': {'cpu': 1, 'replicas': 1, 'batch': 1, 'variant': 'yolov5s'}, 'resnet-human': {'cpu': 1, 'replicas': 1, 'batch': 2, 'variant': 'resnet101'}}\r\n 2023-08-05:19:36:02 [INFO] [logger.py:31] --------------------------------------------------\r\n"
+  - delay: 13
+    content: "Sending 4 requests sent in Sat Aug  5 19:36:02 2023 at timestep 6\r\nRecieving 5 requests sent in Sat Aug  5 19:36:02 2023 at timestep 5, success rate: 5/5\r\n"
+  - delay: 77
+    content: " 2023-08-05:19:36:02 [INFO] [logger.py:31] --------------------------------------------------\r\n 2023-08-05:19:36:02 [INFO] [logger.py:31] Waiting 10 to make next descision\r\n 2023-08-05:19:36:02 [INFO] [logger.py:31] --------------------------------------------------\r\n\r  0%|                                                                                                                                                                               | 0/10 [00:00<?, ?it/s]"
+  - delay: 923
+    content: "Sending 5 requests sent in Sat Aug  5 19:36:03 2023 at timestep 7\r\nRecieving 4 requests sent in Sat Aug  5 19:36:03 2023 at timestep 6, success rate: 4/4\r\n"
+  - delay: 78
+    content: "\r 10%|████████████████▋                                                                                                                                                      | 1/10 [00:01<00:09,  1.00s/it]"
+  - delay: 920
+    content: "Sending 5 requests sent in Sat Aug  5 19:36:04 2023 at timestep 8\r\nRecieving 5 requests sent in Sat Aug  5 19:36:04 2023 at timestep 7, success rate: 5/5\r\n"
+  - delay: 80
+    content: "\r 20%|█████████████████████████████████▍                                                                                                                                     | 2/10 [00:02<00:08,  1.00s/it]"
+  - delay: 919
+    content: "Sending 5 requests sent in Sat Aug  5 19:36:05 2023 at timestep 9\r\nRecieving 5 requests sent in Sat Aug  5 19:36:05 2023 at timestep 8, success rate: 5/5\r\n"
+  - delay: 83
+    content: "\r 30%|██████████████████████████████████████████████████                                                                                                                     | 3/10 [00:03<00:07,  1.00s/it]"
+  - delay: 917
+    content: "Sending 5 requests sent in Sat Aug  5 19:36:06 2023 at timestep 10\r\nRecieving 5 requests sent in Sat Aug  5 19:36:06 2023 at timestep 9, success rate: 5/5\r\n"
+  - delay: 84
+    content: "\r 40%|██████████████████████████████████████████████████████████████████▊                                                                                                    | 4/10 [00:04<00:06,  1.00s/it]"
+  - delay: 915
+    content: "Sending 5 requests sent in Sat Aug  5 19:36:07 2023 at timestep 11\r\nRecieving 5 requests sent in Sat Aug  5 19:36:07 2023 at timestep 10, success rate: 5/5\r\n"
+  - delay: 85
+    content: "\r 50%|███████████████████████████████████████████████████████████████████████████████████▌                                                                                   | 5/10 [00:05<00:05,  1.00s/it]"
+  - delay: 916
+    content: "Sending 4 requests sent in Sat Aug  5 19:36:08 2023 at timestep 12\r\n"
+  - delay: 86
+    content: "\r 60%|████████████████████████████████████████████████████████████████████████████████████████████████████▏                                                                  | 6/10 [00:06<00:04,  1.00s/it]"
+  - delay: 242
+    content: "Recieving 5 requests sent in Sat Aug  5 19:36:08 2023 at timestep 11, success rate: 5/5\r\n"
+  - delay: 671
+    content: "Sending 5 requests sent in Sat Aug  5 19:36:09 2023 at timestep 13\r\n"
+  - delay: 88
+    content: "\r 70%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▉                                                  | 7/10 [00:07<00:03,  1.00s/it]"
+  - delay: 911
+    content: "Sending 6 requests sent in Sat Aug  5 19:36:10 2023 at timestep 14\r\n"
+  - delay: 89
+    content: "\r 80%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▌                                 | 8/10 [00:08<00:02,  1.00s/it]"
+  - delay: 911
+    content: "Sending 6 requests sent in Sat Aug  5 19:36:11 2023 at timestep 15\r\n"
+  - delay: 91
+    content: "\r 90%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▎                | 9/10 [00:09<00:01,  1.00s/it]"
+  - delay: 909
+    content: "Sending 6 requests sent in Sat Aug  5 19:36:12 2023 at timestep 16\r\n"
+  - delay: 93
+    content: "\r100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 10/10 [00:10<00:00,  1.00s/it]\r100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 10/10 [00:10<00:00,  1.00s/it]\r\n"
+  - delay: 55
+    content: " 2023-08-05:19:36:12 [INFO] [logger.py:31] --------------------------------------------------\r\n 2023-08-05:19:36:12 [INFO] [logger.py:31] \r\nPredicted Load: 6\r\n\r\n 2023-08-05:19:36:12 [INFO] [logger.py:31] --------------------------------------------------\r\n"
+  - delay: 135
+    content: "Set parameter PoolSearchMode to value 2\r\n 2023-08-05:19:36:12 [INFO] [optimizer.py:784] Set parameter PoolSearchMode to value 2\r\n"
+  - delay: 50
+    content: " 2023-08-05:19:36:12 [INFO] [logger.py:31] --------------------------------------------------\r\n 2023-08-05:19:36:12 [INFO] [logger.py:31] candidate configs:\r\n[{'yolo': {'cpu': 1, 'replicas': 1, 'batch': 1, 'variant': 'yolov5s'}, 'resnet-human': {'cpu': 1, 'replicas': 1, 'batch': 2, 'variant': 'resnet101'}}]\r\n 2023-08-05:19:36:12 [INFO] [logger.py:31] --------------------------------------------------\r\n"
+  - delay: 70
+    content: " 2023-08-05:19:36:13 [INFO] [logger.py:31] --------------------------------------------------\r\n 2023-08-05:19:36:13 [INFO] [logger.py:31] to be applied configs:\r\n{'yolo': {'cpu': 1, 'replicas': 1, 'batch': 1, 'variant': 'yolov5s'}, 'resnet-human': {'cpu': 1, 'replicas': 1, 'batch': 2, 'variant': 'resnet101'}}\r\n 2023-08-05:19:36:13 [INFO] [logger.py:31] --------------------------------------------------\r\n"
+  - delay: 84
+    content: " 2023-08-05:19:36:13 [INFO] [logger.py:31] --------------------------------------------------\r\n 2023-08-05:19:36:13 [INFO] [logger.py:31] Waiting 10 to make next descision\r\n 2023-08-05:19:36:13 [INFO] [logger.py:31] --------------------------------------------------\r\n\r  0%|                                                                                                                                                                               | 0/10 [00:00<?, ?it/s]"
+  - delay: 511
+    content: "Sending 4 requests sent in Sat Aug  5 19:36:13 2023 at timestep 17\r\n"
+  - delay: 491
+    content: "\r 10%|████████████████▋                                                                                                                                                      | 1/10 [00:01<00:09,  1.00s/it]"
+  - delay: 510
+    content: "Sending 6 requests sent in Sat Aug  5 19:36:14 2023 at timestep 18\r\n"
+  - delay: 378
+    content: "Recieving 4 requests sent in Sat Aug  5 19:36:14 2023 at timestep 12, success rate: 4/4\r\n"
+  - delay: 113
+    content: "\r 20%|█████████████████████████████████▍                                                                                                                                     | 2/10 [00:02<00:08,  1.00s/it]"
+  - delay: 507
+    content: "Sending 5 requests sent in Sat Aug  5 19:36:15 2023 at timestep 19\r\n"
+  - delay: 495
+    content: "\r 30%|██████████████████████████████████████████████████                                                                                                                     | 3/10 [00:03<00:07,  1.00s/it]"
+  - delay: 506
+    content: "Sending 4 requests sent in Sat Aug  5 19:36:16 2023 at timestep 20\r\n"
+  - delay: 86
+    content: "Recieving 6 requests sent in Sat Aug  5 19:36:16 2023 at timestep 14, success rate: 6/6\r\n"
+  - delay: 410
+    content: "\r 40%|██████████████████████████████████████████████████████████████████▊                                                                                                    | 4/10 [00:04<00:06,  1.00s/it]"
