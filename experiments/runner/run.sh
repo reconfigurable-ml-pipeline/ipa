@@ -1,4 +1,7 @@
 #!/bin/bash
+
+conda activate central
+
 python runner_script.py --config-name video-1
 sleep 60
 python runner_script.py --config-name video-2
