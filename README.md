@@ -6,7 +6,23 @@
 3. If you don't want to use the logs and want to check the main paper e2e experiments (E.g. paper's figure 8) do the following steps:
     1. IPA use config yaml files for running experiments, the config files used in the paper are stored in the `data/configs/final` folder.
     2. Go to the `experiments/runner` and run `source run.sh`, this will take ~7 hours since each of the 20 experiments is conducted on a 20 minute load (20 * 20 = 400 minutes ~ 7 hours). The results and logs will be saved under `ipa/data/results/final/18` and the final figure will be in the `ipa/data/figures` under the name of `metaseries-18-video.pdf`
-    3. Go to the `experiments/runner/notebooks/Jsys-reviewers.ipynb` notebook to see the generated figure is same as the `paper-fig8-e2e-video.ipynb` that was generated from the downloaded log. Due to the K8S and distributed scheduling uncertainties there might be slight differences in the figures as shown below figures but the general trend should be the same.
+    3. Go to the `experiments/runner/notebooks/Jsys-reviewers.ipynb` notebook to see the generated figure is same as the `paper-fig8-e2e-video.ipynb` that was generated from the downloaded log. Due to the K8S and distributed scheduling uncertainties there might be slight differences in the figures (for a sample run of the artifact evaluation) as shown below figures but the general trend should be the same.
+
+<table style="width: 100%; border-collapse: collapse;">
+  <tr>
+    <td style="width: 50%; text-align: center;">
+      <img src="paper-figure.png" alt="paper figure" width="500">
+      <br>
+      <strong>Figure 8 in the paper</strong>
+    </td>
+    <td style="width: 50%; text-align: center;">
+      <img src="artifact-eval.png" alt="artifact evaluation" width="500">
+      <br>
+      <strong>Sample artifact evaluation figure</strong>
+    </td>
+  </tr>
+</table>
+
 
 ## Experiment console
 A typical log of an IPA run session:
@@ -20,5 +36,3 @@ Pods being added/deleted by IPA autoconfiguration module:
 
 ![log](https://github.com/reconfigurable-ml-pipeline/ipa/assets/6298780/b43ea8d5-68d9-44b6-b452-c9486878c57e)
 
-# Reproced Results
-Due to un
