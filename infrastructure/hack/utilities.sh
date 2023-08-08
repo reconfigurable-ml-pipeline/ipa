@@ -8,8 +8,6 @@ install_kubectl() {
     sudo ufw allow 16443
     echo "y" | sudo ufw enable
     echo "End Install kubectl"
-
-    # Remove kubectl file
     rm kubectl
 }
 
