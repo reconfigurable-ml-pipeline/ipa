@@ -28,10 +28,6 @@ Do the steps in the following orders to setup the environment:
       sudo apt-get install ffmpeg libsm6 libxext6  -y
     ```
 
-* **Project Data**
-Project data are stored in the google bucket [`ipa-results`](https://console.cloud.google.com/storage/browser?authuser=7&hl=en&project=kubernetes-consolidation)
-1. Install [Gcloud CLI](https://cloud.google.com/sdk/docs/install) for downloading data.
-
 * **Infrastracture** [Kubernetes](https://kubernetes.io/)
    1. Install [Helm](https://helm.sh/docs/intro/install/)
    3. Setup a K8S cluster [k8s-setup](manual-installation/setup-chameleon-k8s.md)
@@ -57,9 +53,6 @@ Project data are stored in the google bucket [`ipa-results`](https://console.clo
    1. For compiling model images of the pipeline you'll need [Dcoker](https://www.docker.com/)
    2. Install them using the offical documentation for [docker-doc](https://docs.docker.com/engine/install/ubuntu/). Also do the [post-installation-steps](https://docs.docker.com/engine/install/linux-postinstall/)
 
-* **Chameleon Object Storage**
-   1. we keep the datasets and models in the Chameleon object storage to moount it on a directory use the guide on [chameleon website](https://chameleoncloud.readthedocs.io/en/latest/technical/swift.html#:~:text=Chameleon%20provides%20an%20object%20store,results%20produced%20by%20your%20experiments.)
-
 * **Minio and nfs**
    1. [Minio](https://min.io/) and [nfs](https://en.wikipedia.org/wiki/Network_File_System) are needed for the storage
    2. Setup them using [setup-storage](manual-installation/setup-storage.md)
@@ -67,13 +60,21 @@ Project data are stored in the google bucket [`ipa-results`](https://console.clo
 * **Guide to Deploy a Model and Pipeline**
    1. [Guide-model-deployment](manual-installation/guide-model-deployment.md)
 
-* **Multi Node server**
-    1. How to set multiNode cluster [MultiNode](manual-installation/multi-node.md)
+* **MLServer**
+   1. We use a modified version of [MLServer](https://mlserver.readthedocs.io/en/stable/) library. Go to the [MLServer](../MLServer/) folder, and install it using `make install-dev`
 
 * **Load Tester**
-   1. For load testing we use the [BarAzmoon library saeed branch](https://github.com/reconfigurable-ml-pipeline/load_tester). Installed as instructed in the reop.
+   1. For load testing we use the [load_tester library saeed branch](https://github.com/reconfigurable-ml-pipeline/load_tester). Go to the [load_tester](../load_tester/) folder and install it using `pip install -e .`
 
-* **Installing Gurobi Sovler**
+* **Project Data**
+Project data are stored in the google bucket [`ipa-results`](https://storage.googleapis.com/ipa-results-1) and [`ipa-models`](https://storage.googleapis.com/ipa-models)
+1. Install [Gcloud CLI](https://cloud.google.com/sdk/docs/install) for downloading data.
+2. Download the data using TODO
+
+* **Installing Gurobi Sovler (not mandatory for JSys review)**
    1. [Gurobi Solver Installation](manual-installation/gurobi-installation.md)
+
+* **Multi Node server (not mandatory for JSys review)**
+    1. How to set multiNode cluster [MultiNode](manual-installation/multi-node.md)
 
 
