@@ -30,11 +30,12 @@ function install_helm() {
 # Install MicroK8s
 function install_microk8s() {
     echo "Installing MicroK8s"
+    CURRENT_USER=$(whoami)
     sudo snap install microk8s --classic --channel=1.23/edge
-    sudo usermod -a -G microk8s cc
+    sudo usermod -a -G microk8s $CURRENT_USER
     mkdir -p $HOME/.kube
     # TODO get the current user instead of hardcoding cc
-    sudo chown -f -R cc ~/.kube
+    sudo chown -f -R $CURRENT_USER ~/.kube
     microk8s config > $HOME/.kube/config
     sudo ufw allow in on cni0
     sudo ufw allow out on cni0
