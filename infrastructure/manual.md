@@ -1,8 +1,5 @@
 # Infrastructure Setup Manual (mandatory steps are X)
 
-* **Physical Resources** [chameleon cloud](https://www.chameleoncloud.org/) and [cloudlab](https://www.cloudlab.us/)
-   1. Steps to leasing a server from Chameleon cloud [chameleon-lease](manual-installation/chameleon-lease.md)
-
 Do the steps in the following orders to setup the environment:
 
 * **Server Utility Tools** [zsh](https://www.zsh.org/) and [ohmyzsh](https://ohmyz.sh/)
@@ -30,19 +27,6 @@ Do the steps in the following orders to setup the environment:
       sudo apt-get update
       sudo apt-get install ffmpeg libsm6 libxext6  -y
     ```
-
-* **Repos**
-Clone the repos in the following order
-
-TODO change
-   1. [**MLServer Custom Fork**](https://github.com/saeid93/MLServer) and [Complete Manual](manual-installation/custom-mlserver.md) 
-   2. **Inference Pipeline Joint Optimization** [Inference Pipeline Joint Optimization](https://github.com/reconfigurable-ml-pipeline/infernece-pipeline-joint-optimization) and install requirements
-     ```
-      pip install -r requirements.txt
-     ```
-   3. **Barazmoon saeed branch** [Barzamoon](https://github.com/reconfigurable-ml-pipeline/load_tester)
-
-**Note** MLServer installation will install torch and tensorflow. However, if you have skipped MLServer installation use [PyTorch](https://pytorch.org/) or [Tensorflow](https://www.tensorflow.org/install/pip#virtual-environment-install) isntallation manual to installation of them based-on your preference
 
 * **Project Data**
 Project data are stored in the google bucket [`ipa-results`](https://console.cloud.google.com/storage/browser?authuser=7&hl=en&project=kubernetes-consolidation)
@@ -82,9 +66,6 @@ Project data are stored in the google bucket [`ipa-results`](https://console.clo
 
 * **Guide to Deploy a Model and Pipeline**
    1. [Guide-model-deployment](manual-installation/guide-model-deployment.md)
-
-* **Debug Mode**
-    1. Debug mode with saving pods logs [debug-mode](manual-installation/debug-mode.md)
 
 * **Multi Node server**
     1. How to set multiNode cluster [MultiNode](manual-installation/multi-node.md)
