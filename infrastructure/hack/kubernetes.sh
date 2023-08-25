@@ -33,6 +33,7 @@ function install_microk8s() {
     sudo snap install microk8s --classic --channel=1.23/edge
     sudo usermod -a -G microk8s cc
     mkdir -p $HOME/.kube
+    # TODO get the current user instead of hardcoding cc
     sudo chown -f -R cc ~/.kube
     microk8s config > $HOME/.kube/config
     sudo ufw allow in on cni0

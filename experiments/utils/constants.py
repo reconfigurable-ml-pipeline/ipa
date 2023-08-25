@@ -2,6 +2,7 @@ import os
 from .obj import setup_obj_store
 
 # defined by the user
+# TODO make the user cc a variable
 PROJECT_PATH = "/home/cc/ipa"
 OBJ_PATH = "/home/cc/my_mounting_point/"  # object store path
 KEY_CONFIG_FILENAME = "key_config_mapper.csv"
