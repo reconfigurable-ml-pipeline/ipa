@@ -1,4 +1,4 @@
-# Infrastructure Setup Manual (mandatory steps are X)
+# Infrastructure Setup Manual
 
 Do the steps in the following orders to setup the environment:
 
