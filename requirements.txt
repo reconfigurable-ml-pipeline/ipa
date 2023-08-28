@@ -69,6 +69,6 @@ jiwer
 statsmodels
 soundfile
 librosa
-sklearn
+scikit-learn
 ipykernel
 jupyter
