@@ -69,6 +69,6 @@ Here is the mapping between code modules and the IPA description in the paper:
 ```python
 python runner_script.py --config-name video-1
 ```
-The log of the experiments are now available at `resents/<metaseries>/<series>` of the experiments.
+The log of the experiments are now available at `results/<metaseries>/<series>` of the experiments.
 
 Note: For now we have provided all the configs used for the video pipelines and samples from other pipelines for intetersted users who wish to setup larger clusters for running the rest of the experiements. We are currently working on making the same automation for the video pipeline explained earlier for the rest of the inference pipelines.
