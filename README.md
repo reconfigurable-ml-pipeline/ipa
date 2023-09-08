@@ -66,7 +66,7 @@ Here is the mapping between code modules and the IPA description in the paper:
 2. IPA use config yaml files for running experiments, the config files used in the paper are stored in the `data/configs/final` folder.
 
 3. To run a specific experiment and pipelines refer to the relevant `yaml` file in the `data/configs/final` folder. Set the `metaseries` and `series` field of the experiment for tagging this experiment. After setting the approperiate configs refer go to the [experiments/runner](experiments/runner) and run the relevant config file e.g.:
-```python
+```bash
 conda activate central
 python runner_script.py --config-name sample-audio-qa
 ```
