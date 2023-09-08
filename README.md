@@ -48,7 +48,7 @@ Here is the mapping between code modules and the IPA description in the paper:
 
 2. [**Pipeline System**](pipelines): IPA inference pipeline management system uses a combination of open source technologies and self made modules. A forked version of [MLServer](https://mlserver.readthedocs.io/en/stable/) available in [here](MLServer) is used as the backend of the serving platform of model containers and queues. Each of the five inference pipelines introduced in the paper are availalbe in [pipelines](pipelines) folder. The pipelines containers are available in [pipelines/mlserver-centralized](pipelines/mlserver-centralized), the containers of queue and router are also available in [queue](pipelines/queue/) and [router](pipelines/router/). The router is the central request distributer for making the connections between model containers. Queue is also the central queue for stage of the infernece pipeline.
 
-3. [**Adapter**](optimizer) This folder contains the [optimizer/adapter.py](optimizer/adapter.py) which is the apater module that periodically checks the state of the Kuberntes cluster and modifiies the state of the cluster through [Kubernetes Python API](https://github.com/kubernetes-client/python). The logic of the Gurobi solver and simulating the pipeline are also available in other files in the same folder.
+3. [**Adapter**](optimizer) This folder contains the [optimizer/adapter.py](optimizer/adapter.py) which is the apater module that periodically checks the state of the Kuberntes cluster and modifies the state of the cluster through [Kubernetes Python API](https://github.com/kubernetes-client/python). The logic of the Gurobi solver and simulating the pipeline are also available in other files in the same folder.
 
 4. [**External Load generation module**](load_tester): This module is responsible for generating different load patterns in the paper. It uses load patterns from the Twitter trace dataset explained in the paper.
 
@@ -66,7 +66,7 @@ Here is the mapping between code modules and the IPA description in the paper:
 2. IPA use config yaml files for running experiments, the config files used in the paper are stored in the `data/configs/final` folder.
 
 3. To run a specific experiment and pipelines refer to the relevant `yaml` file in the `data/configs/final` folder. Set the `metaseries` and `series` field of the experiment for tagging this experiment. After setting the approperiate configs refer go to the [experiments/runner](experiments/runner) and run the relevant config file e.g.:
-```
+```python
 python runner_script.py --config-name video-1
 ```
 The log of the experiments are now available at `resents/<metaseries>/<series>` of the experiments.
