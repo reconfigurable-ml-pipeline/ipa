@@ -42,7 +42,7 @@ Pods being added/deleted by IPA autoconfiguration module:
 
 Here is the mapping between code modules and the IPA description in the paper:
 
-![mapping](doc-figs/mapping.png)
+<img src="doc-figs/mapping.png" alt="mapping" width="400">
 
 1. [**Model Loader and Object Store**](models-to-minio): At the entry, IPA loads models to an object storage for cluster wide access of models in containers. IPA uses [Minio Object Store](https://min.io/).
 
