@@ -1,7 +1,7 @@
 # Inference Project Automation
 
 1. We have used [chameleon cloud](https://www.chameleoncloud.org/)
-   1. Steps to leasing a server from Chameleon cloud [chameleon-lease](manual-installation/chameleon-lease.md) and make instances according to the paper machine specifications. Use ubuntu20.04 as the base images.
+   1. Steps to leasing a server from Chameleon cloud [chameleon-lease](manual-installation/chameleon-lease.md) and make instances according to the paper machine specifications. We recommend using Chameleon UC datacenter and compute_cascadelake_r_ib machines with with 96 Intel(R) Xeon(R) Gold 6240R CPU @2.40GHz cores and 188 Gb of RAM. Use ubuntu20.04 as the base images.
 
 2. On the Main node (Could be any of the cluster nodes):
     1. run `source hack/zsh.sh` in the root directory; reply 'Y' to setting zsh as default
