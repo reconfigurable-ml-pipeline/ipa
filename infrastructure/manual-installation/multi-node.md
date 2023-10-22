@@ -18,6 +18,15 @@ Then, you will see some instructions; Copy the one with the following template:
 
 `microk8s join IP:PORT/TOKEN --worker`
 
+To make sure IPA routers are always scheduled on the manager node:
+```
+kubectl label node <manager node name> router-node=true
+```
+You can get the manager node name with:
+```
+hostname
+```
+
 ---
 
 ### Minions
