@@ -1,9 +1,3 @@
-# V2 Seldon
-Selected parts of Seldon documentation:
-
-* [Model to Server Mapping](https://docs.seldon.io/projects/seldon-core/en/v2.0.0/contents/models/inference-artifacts/index.html)
-* []()
-
 # V1 Seldon
 Selected parts of Seldon documentation:
 

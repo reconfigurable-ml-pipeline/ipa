@@ -1,1 +1,0 @@
-1000. You can add metadata to your model (e.g. training infromation about your model) which will be then accessible through the `/metadata` endpoint using instruction in [metadata template](../pipelines/0-template/metadata/metadata.ipynb)

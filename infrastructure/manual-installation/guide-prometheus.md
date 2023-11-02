@@ -26,28 +26,3 @@ returns:
 ```
 {"status":"success","data":[{"target":{"endpoint":"https-metrics","instance":"10.140.81.236:10250","job":"kubelet","metrics_path":"/metrics/cadvisor","namespace":"kube-system","node":"k8s-cluster","service":"kubelet"},"type":"counter","help":"Number of elapsed enforcement period intervals.","unit":""}]}%
 ```
-
-# List of useful commands for Promentheus
-## contaienrs resource usgae metrics
-
-All containers memory usages:
-```
-container_memory_usage_bytes{container='sample-vpa'}
-```
-All containers cpu usages:
-```
-TODO
-```
-A specific container memory usage
-```
-TODO
-```
-A specific container cpu usage
-```
-TODO
-```
-## latency metrics
-TODO
-
-## Guide to Grafana dashboard
-TODO

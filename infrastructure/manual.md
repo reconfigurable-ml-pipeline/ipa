@@ -31,19 +31,6 @@ Do the steps in the following orders to setup the environment:
       sudo apt-get install ffmpeg libsm6 libxext6  -y
     ```
 
-* **Repos**
-Clone the repos in the following order
-
-TODO change
-   1. [**MLServer Custom Fork**](https://github.com/saeid93/MLServer) and [Complete Manual](manual-installation/custom-mlserver.md) 
-   2. **Inference Pipeline Joint Optimization** [Inference Pipeline Joint Optimization](https://github.com/reconfigurable-ml-pipeline/infernece-pipeline-joint-optimization) and install requirements
-     ```
-      pip install -r requirements.txt
-     ```
-   3. **Barazmoon saeed branch** [Barzamoon](https://github.com/reconfigurable-ml-pipeline/load_tester)
-
-**Note** MLServer installation will install torch and tensorflow. However, if you have skipped MLServer installation use [PyTorch](https://pytorch.org/) or [Tensorflow](https://www.tensorflow.org/install/pip#virtual-environment-install) isntallation manual to installation of them based-on your preference
-
 * **Project Data**
 Project data are stored in the google bucket [`ipa-results`](https://console.cloud.google.com/storage/browser?authuser=7&hl=en&project=kubernetes-consolidation)
 1. Install [Gcloud CLI](https://cloud.google.com/sdk/docs/install) for downloading data.
@@ -79,12 +66,6 @@ Project data are stored in the google bucket [`ipa-results`](https://console.clo
 * **Minio and nfs**
    1. [Minio](https://min.io/) and [nfs](https://en.wikipedia.org/wiki/Network_File_System) are needed for the storage
    2. Setup them using [setup-storage](manual-installation/setup-storage.md)
-
-* **Guide to Deploy a Model and Pipeline**
-   1. [Guide-model-deployment](manual-installation/guide-model-deployment.md)
-
-* **Debug Mode**
-    1. Debug mode with saving pods logs [debug-mode](manual-installation/debug-mode.md)
 
 * **Multi Node server**
     1. How to set multiNode cluster [MultiNode](manual-installation/multi-node.md)
