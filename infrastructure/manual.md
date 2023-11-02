@@ -70,9 +70,6 @@ Project data are stored in the google bucket [`ipa-results`](https://console.clo
 * **Multi Node server**
     1. How to set multiNode cluster [MultiNode](manual-installation/multi-node.md)
 
-* **Load Tester**
-   1. For load testing we use the [BarAzmoon library saeed branch](https://github.com/reconfigurable-ml-pipeline/load_tester). Installed as instructed in the reop.
-
 * **Installing Gurobi Sovler**
    1. [Gurobi Solver Installation](manual-installation/gurobi-installation.md)
 
