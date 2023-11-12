@@ -512,6 +512,7 @@ def draw_cumulative_with_grouping(
     bar_width,
     bbox_to_anchor=(0.8, 6.1),
     xlabel="Stage",
+    ncol=2
 ):
     dict_to_draw_cul = {}
     for metric, dict_to_draw in data.items():
@@ -568,7 +569,7 @@ def draw_cumulative_with_grouping(
     plt.legend(
         fontsize=13,
         fancybox=False,
-        ncol=2,
+        ncol=ncol,
         frameon=False,
         bbox_to_anchor=bbox_to_anchor,
         handlelength=1,
