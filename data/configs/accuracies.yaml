@@ -10,8 +10,8 @@ audio-qa:
     facebook-s2t-small-librispeech-asr: -41.28
     facebook-s2t-medium-librispeech-asr: -35.12
     facebook-s2t-large-librispeech-asr: -33.26
-    facebook-wav2vec2-base-960h: -33.85
-    facebook-wav2vec2-large-960h: -27.65
+    # facebook-wav2vec2-base-960h: -33.85
+    # facebook-wav2vec2-large-960h: -27.65
   nlp-qa:
     # F1 score, https://huggingface.co/deepset/roberta-base-squad2#performance
     # Training Dataset: SQuAD 2.0, https://huggingface.co/datasets/squad_v2
@@ -39,17 +39,17 @@ audio-sent:
     facebook-s2t-small-librispeech-asr: -41.28
     facebook-s2t-medium-librispeech-asr: -35.12
     facebook-s2t-large-librispeech-asr: -33.26
-    facebook-wav2vec2-base-960h: -33.85
-    facebook-wav2vec2-large-960h: -27.65
+    # facebook-wav2vec2-base-960h: -33.85
+    # facebook-wav2vec2-large-960h: -27.65
   nlp-sent:
     # huggingface/distilbert-base-uncased-finetuned-mnli: null  
     # huggingface/prunebert-base-uncased-6-finepruned-w-distil-mnli: null
     # URL: https://huggingface.co/distilbert-base-uncased-finetuned-sst-2-english
     # Training Datasets: https://huggingface.co/datasets/glue, https://huggingface.co/datasets/sst2
-    distilbert-base-uncased-finetuned-sst-2-english: 0.911 # Accuracy = 0.911 on glue, Accuracy = 0.989 on sst2 
-    Souvikcmsa-BERT_sentiment_analysis: 0.799017824663514  # https://huggingface.co/Souvikcmsa/BERT_sentiment_analysis
-    Souvikcmsa-SentimentAnalysisDistillBERT: 0.7962895598399418  # https://huggingface.co/Souvikcmsa/SentimentAnalysisDistillBERT
-    Souvikcmsa-Roberta_Sentiment_Analysis: 0.8302828618968386  # https://huggingface.co/Souvikcmsa/Roberta_Sentiment_Analysis
+    distilbert-base-uncased-finetuned-sst-2-english: 91.1 # Accuracy = 0.911 on glue, Accuracy = 0.989 on sst2 
+    Souvikcmsa-BERT_sentiment_analysis: 79.9017824663514  # https://huggingface.co/Souvikcmsa/BERT_sentiment_analysis
+    Souvikcmsa-SentimentAnalysisDistillBERT: 79.62895598399418  # https://huggingface.co/Souvikcmsa/SentimentAnalysisDistillBERT
+    Souvikcmsa-Roberta_Sentiment_Analysis: 83.02828618968386  # https://huggingface.co/Souvikcmsa/Roberta_Sentiment_Analysis
 mock:
   node-1:
     1: 100
@@ -62,7 +62,7 @@ nlp:
     # DONE
     # Accuracy, https://huggingface.co/dinalzein/xlm-roberta-base-finetuned-language-identification
     # Training Dataset: https://huggingface.co/datasets/papluca/language-identification
-    dinalzein-xlm-roberta-base-finetuned-language-identification: 0.9959
+    dinalzein-xlm-roberta-base-finetuned-language-identification: 99.59
   # text summerization
   nlp-sum:
     # DONE
