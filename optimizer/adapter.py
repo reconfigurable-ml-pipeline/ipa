@@ -26,8 +26,11 @@ from experiments.utils.pipeline_operations import (
     is_terminating,
     get_cpu_model_name,
 )
-
 from experiments.utils.prometheus import PromClient
+from optimizer import Optimizer, Pipeline
+from experiments.utils.constants import NAMESPACE, LSTM_PATH, LSTM_INPUT_SIZE
+from experiments.utils import logger
+from optimizer.optimizer import Optimizer
 
 prom_client = PromClient()
 
@@ -43,14 +46,6 @@ except AttributeError:
 client.Configuration.set_default(kube_config)
 
 kube_custom_api = client.CustomObjectsApi()
-
-project_dir = os.path.dirname(__file__)
-sys.path.append(os.path.normpath(os.path.join(project_dir, "..", "..")))
-
-from optimizer import Optimizer, Pipeline
-from experiments.utils.constants import NAMESPACE, LSTM_PATH, LSTM_INPUT_SIZE
-from experiments.utils import logger
-from optimizer.optimizer import Optimizer
 
 
 class Adapter:
@@ -219,6 +214,10 @@ class Adapter:
                         0, workload_timestep - self.monitoring_duration * 60
                     ) : workload_timestep
                 ]
+                rps_series_1 = self.monitoring.rps_monitor(
+                    monitoring_duration=self.monitoring_duration
+                )
+                a = 1
             else:
                 rps_series = self.monitoring.rps_monitor(
                     monitoring_duration=self.monitoring_duration

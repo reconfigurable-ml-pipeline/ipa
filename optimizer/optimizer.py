@@ -1,3 +1,4 @@
+import os
 import random
 import math
 from typing import Dict, List, Union, Optional
@@ -444,6 +445,7 @@ class Optimizer:
         gamma: float,
         arrival_rate: int,
         num_state_limit: int,
+        dir_path: str = None,
     ) -> pd.DataFrame:
         """generate all the possible states based on profiling data
 
@@ -718,13 +720,7 @@ class Optimizer:
         elif self.baseline_mode == "switch-scale":
             # no batch but ours TODO
             pass
-        # elif self.baseline_mode == "switch":
-        # only switch TODO
-        # pass
-        # elif self.baseline_mode == "sclae":
-        # only scale TODO
-        # pass
-        # one variant constraint
+        # only one active variant constraint
         model.addConstrs(
             (
                 gp.quicksum(i[stage, variant] for variant in stages_variants[stage])
@@ -735,12 +731,34 @@ class Optimizer:
         )
         # objectives
         if self.pipeline.accuracy_method == "multiply":
-            raise NotImplementedError(
-                (
-                    "multiplication accuracy objective is not implemented",
-                    "yet for Grubi due to quadratic limitation of Gurobi",
-                )
-            )
+            if len(stages) <= 2:
+                accuracy_objective = 1
+                for stage in stages:
+                    stage_accuracy = 0
+                    for variant in stages_variants[stage]:
+                        stage_accuracy += (
+                            accuracy_parameters[stage][variant] * i[stage, variant]
+                        )
+                    accuracy_objective *= stage_accuracy
+            else:
+                first_stage_variants = variant_names[0]
+                second_stage_variants = variant_names[1]
+                third_stage_variants = variant_names[2]
+                all_pipeline_variant_combinations = list(
+                    itertools.product(
+                        first_stage_variants, second_stage_variants, third_stage_variants))
+                all_comb_i = model.addVars(
+                    all_pipeline_variant_combinations, name="all_comb_i", vtype=GRB.INTEGER, lb=0, ub=1)
+                accuracy_objective = model.addVar(name="accuracy_objective", vtype=GRB.CONTINUOUS, lb=0, ub=1)
+                model.addConstr(gp.quicksum(all_comb_i[combination] for combination in all_pipeline_variant_combinations) == 1, name='one-model-combs')
+                for combination in all_pipeline_variant_combinations:
+                            model.addConstr((all_comb_i[combination] == 1) >>
+                                ((i[stages[0], combination[0]]\
+                                     + i[stages[1], combination[1]] + i[stages[2], combination[2]]) == 3))
+                            combination_accuracy = 1
+                            for stage, variant in zip(stages, combination):
+                                combination_accuracy *= accuracy_parameters[stage][variant]
+                            model.addConstr((all_comb_i[combination] == 1) >> (accuracy_objective == combination_accuracy))
         elif self.pipeline.accuracy_method == "sum":
             accuracy_objective = gp.quicksum(
                 accuracy_parameters[stage][vairant] * i[stage, vairant]
@@ -792,7 +810,8 @@ class Optimizer:
         # Solve bilinear model
         model.params.NonConvex = 2
         model.optimize()
-        model.write("unmeasured.lp")
+        if dir_path is not None:
+            model.write(os.path.join(dir_path, "unmeasured.lp"))
         # model.display()
         # model.printStatus()
 
@@ -926,6 +945,7 @@ class Optimizer:
         arrival_rate: int,
         num_state_limit: int = None,
         batching_cap: int = None,
+        dir_path: str = None,
     ) -> pd.DataFrame:
         if optimization_method == "brute-force":
             optimal = self.brute_force(
@@ -945,6 +965,7 @@ class Optimizer:
                 gamma=gamma,
                 arrival_rate=arrival_rate,
                 num_state_limit=num_state_limit,
+                dir_path=dir_path,
             )
         else:
             raise ValueError(f"Invalid optimization_method: {optimization_method}")
