@@ -6,7 +6,8 @@ function download_data(){
     rm ~/ipa/data/results.zip
 
     # download ml models
-    gsutil cp -rn gs://ipa-models/myshareddir/* /mnt/myshareddir
+    gsutil cp -rn 'gs://ipa-models/myshareddir/torchhub' /mnt/myshareddir
+    gsutil cp -rn 'gs://ipa-models/myshareddir/huggingface' /mnt/myshareddir
 
     # download lstm trained model
     gsutil cp -r gs://ipa-models/lstm ~/ipa/data
