@@ -4,7 +4,7 @@ PRIVATEIP=$(hostname -I | cut -d' ' -f1)
 
 
 function setup_storage() {
-    REMOTEIP="$1"
+    PUBLIC_IP="$1"
 
     echo "Setup storage: Install NFS"
     sudo apt install -y nfs-kernel-server
@@ -55,17 +55,24 @@ EOF
     MINIOUSER=minioadmin
     MINIOPASSWORD=minioadmin
 
-    helm repo add minio https://helm.min.io/
+    helm repo add minio https://charts.min.io/
 
     helm upgrade --install minio minio/minio \
-    --namespace minio-system \
-    --set accessKey=${MINIOUSER} \
-    --set secretKey=${MINIOPASSWORD} \
-    --set persistence.existingClaim=pvc-nfs
+      --namespace minio-system \
+      --set rootUser=${MINIOUSER} \
+      --set rootPassword=${MINIOPASSWORD} \
+      --set mode=standalone \
+      --set persistence.enabled=true \
+      --set persistence.existingClaim=pvc-nfs \
+      --set persistence.storageClass=- \
+      --set replicas=1
+    
     kubectl patch svc minio -n minio-system --type='json' -p '[{"op":"replace","path":"/spec/type","value":"LoadBalancer"}]'
     kubectl patch svc minio -n minio-system --patch '{"spec": {"type": "LoadBalancer", "ports": [{"port": 9000, "nodePort": 31900}]}}'
-    ACCESS_KEY=$(kubectl get secret minio -n minio-system -o jsonpath="{.data.accesskey}" | base64 --decode)
-    SECRET_KEY=$(kubectl get secret minio -n minio-system -o jsonpath="{.data.secretkey}" | base64 --decode)
+
+    ACCESS_KEY=$(kubectl get secret minio -n minio-system -o jsonpath="{.data.rootUser}" | base64 --decode)
+    SECRET_KEY=$(kubectl get secret minio -n minio-system -o jsonpath="{.data.rootPassword}" | base64 --decode)
+    
     wget https://dl.min.io/client/mc/release/linux-amd64/mc
     chmod +x mc
     sudo cp mc /usr/local/bin
@@ -84,14 +91,19 @@ stringData:
   RCLONE_CONFIG_S3_ENV_AUTH: "false"
   RCLONE_CONFIG_S3_ACCESS_KEY_ID: minioadmin
   RCLONE_CONFIG_S3_SECRET_ACCESS_KEY: minioadmin
-  RCLONE_CONFIG_S3_ENDPOINT: http://$REMOTEIP:31900
+  RCLONE_CONFIG_S3_ENDPOINT: http://$PUBLIC_IP:31900
 EOF
     rm mc
     echo "End Setup storage"
     echo
 }
 
+if [ -z "${PUBLIC_IP}" ]; then \
+  echo "You must provide public IP: make storage PUBLIC_IP=<your_public_ip>"; \
+  exit 1; \
+fi
+
 echo "Running script"
-setup_storage "$1"
+setup_storage "$PUBLIC_IP"
 
 echo "Script execution complete"
