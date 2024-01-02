@@ -98,12 +98,8 @@ EOF
     echo
 }
 
-if [ -z "${PUBLIC_IP}" ]; then \
-  echo "You must provide public IP: make storage PUBLIC_IP=<your_public_ip>"; \
-  exit 1; \
-fi
 
 echo "Running script"
-setup_storage "$PUBLIC_IP"
+setup_storage
 
 echo "Script execution complete"
