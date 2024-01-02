@@ -21,7 +21,7 @@ spec:
 
         - name: logs-volume
           hostPath:
-            path: /home/cc/infernece-pipeline-joint-optimization/data/logs
+            path: /home/cc/ipa-private/data/logs
 
         initContainers:
         - name: classifier-model-initializer
@@ -127,7 +127,7 @@ spec:
 
         - name: logs-volume
           hostPath:
-            path: /home/cc/infernece-pipeline-joint-optimization/data/logs
+            path: /home/cc/ipa-private/data/logs
 
         initContainers:
         - name: classifier-model-initializer
@@ -225,7 +225,7 @@ spec:
         volumes:
         - name: logs-volume
           hostPath:
-            path: /home/cc/infernece-pipeline-joint-optimization/data/logs
+            path: /home/cc/ipa-private/data/logs
 
         containers:
         - image: sdghafouri/router:router-debug

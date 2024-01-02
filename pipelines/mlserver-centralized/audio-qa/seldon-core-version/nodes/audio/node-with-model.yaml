@@ -55,8 +55,8 @@ spec:
           env:
             - name: MODEL_VARIANT
               value: facebook-s2t-large-librispeech-asr
-            - name: TRANSFORMERS_CACHE
-              value: /opt/mlserver/.cache
+            # - name: TRANSFORMERS_CACHE
+            #   value: /opt/mlserver/.cache
             - name: TASK
               value: automatic-speech-recognition
             - name: MLSERVER_PARALLEL_WORKERS
@@ -86,7 +86,7 @@ spec:
                 - /bin/sh
                 - -c
                 - /bin/sleep 10
-      replicas: 30
+      replicas: 1
     graph:
       name: audio
       type: MODEL

@@ -15,6 +15,8 @@ spec:
     componentSpecs:
     - spec:
         terminationGracePeriodSeconds: {{ distrpution_time }}
+        # nodeSelector:
+        #   router-node: "true"
         containers:
         - image: sdghafouri/queue:queue
           name: queue-{{ model_name }}

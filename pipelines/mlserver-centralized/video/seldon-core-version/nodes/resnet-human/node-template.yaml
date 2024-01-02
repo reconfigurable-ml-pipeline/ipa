@@ -15,25 +15,25 @@ spec:
     componentSpecs:
     - spec:
 
-        volumes:
-        - name: resnet-volume
-          emptyDir: {}
+        # volumes:
+        # - name: resnet-volume
+        #   emptyDir: {}
 
-        initContainers:
-        - name: classifier-model-initializer
-          image: seldonio/rclone-storage-initializer:1.16.0-dev
-          imagePullPolicy: IfNotPresent
-          args:
-            - "s3://torchhub/resnet/{{ model_variant }}"
-            - "/opt/mlserver/.torch/hub/checkpoints/"
+        # initContainers:
+        # - name: classifier-model-initializer
+        #   image: seldonio/rclone-storage-initializer:1.16.0-dev
+        #   imagePullPolicy: IfNotPresent
+        #   args:
+        #     - "s3://torchhub/resnet/{{ model_variant }}"
+        #     - "/opt/mlserver/.torch/hub/checkpoints/"
 
-          volumeMounts:
-          - mountPath: /opt/mlserver/.torch/hub/checkpoints
-            name: resnet-volume
+        #   volumeMounts:
+        #   - mountPath: /opt/mlserver/.torch/hub/checkpoints
+        #     name: resnet-volume
 
-          envFrom:
-          - secretRef:
-              name: seldon-rclone-secret
+        #   envFrom:
+        #   - secretRef:
+        #       name: seldon-rclone-secret
 
         terminationGracePeriodSeconds: {{ distrpution_time }}
         containers:
@@ -47,9 +47,9 @@ spec:
             limits:
               cpu: '{{ cpu_limit }}'
               memory: '{{ memory_limit }}'
-          volumeMounts:
-          - mountPath: /opt/mlserver/.torch/hub/checkpoints
-            name: resnet-volume
+          # volumeMounts:
+          # - mountPath: /opt/mlserver/.torch/hub/checkpoints
+          #   name: resnet-volume
 
           env:
             - name: MODEL_VARIANT

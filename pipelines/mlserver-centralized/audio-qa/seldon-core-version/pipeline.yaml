@@ -210,7 +210,7 @@ spec:
             tcpSocket:
               port: 9000
             timeoutSeconds: 1
-      replicas: 6
+      replicas: 20
     graph:
       name: nlp-qa
       type: MODEL

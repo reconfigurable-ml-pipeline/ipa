@@ -11,6 +11,8 @@ spec:
       seldon.io/no-engine: "true" 
     componentSpecs:
     - spec:
+        nodeSelector:
+          router-node: "true"
         containers:
         - image: sdghafouri/router:router
           name: router
@@ -37,7 +39,7 @@ spec:
             tcpSocket:
               port: 9000
             timeoutSeconds: 1
-      replicas: 1
+      replicas: 50
     graph:
       name: router
       type: MODEL

@@ -15,29 +15,29 @@ spec:
     componentSpecs:
     - spec:
 
-        volumes:
-        - name: classifier-provision-location
-          emptyDir: {}
+        # volumes:
+        # - name: classifier-provision-location
+        #   emptyDir: {}
 
-        initContainers:
-        - name: classifier-model-initializer
-          image: seldonio/rclone-storage-initializer:1.16.0-dev
-          imagePullPolicy: IfNotPresent
-          args:
-            - "s3://huggingface/text-classification/{{ model_variant }}"
-            - "/mnt/models/{{ model_variant }}"
+        # initContainers:
+        # - name: classifier-model-initializer
+        #   image: seldonio/rclone-storage-initializer:1.16.0-dev
+        #   imagePullPolicy: IfNotPresent
+        #   args:
+        #     - "s3://huggingface/text-classification/{{ model_variant }}"
+        #     - "/mnt/models/{{ model_variant }}"
 
-          volumeMounts:
-          - mountPath: /mnt/models
-            name: classifier-provision-location
+        #   volumeMounts:
+        #   - mountPath: /mnt/models
+        #     name: classifier-provision-location
 
-          envFrom:
-          - secretRef:
-              name: seldon-rclone-secret
+        #   envFrom:
+        #   - secretRef:
+        #       name: seldon-rclone-secret
 
         terminationGracePeriodSeconds: {{ distrpution_time }}
         containers:
-        - image: sdghafouri/nlp-final:nlpli
+        - image: sdghafouri/nlp-final-with-model:nlpli
           name: nlp-li
           imagePullPolicy: Always
           resources:
@@ -47,9 +47,9 @@ spec:
             limits:
               cpu: '{{ cpu_limit }}'
               memory: '{{ memory_limit }}'
-          volumeMounts:
-          - mountPath: /mnt/models
-            name: classifier-provision-location
+          # volumeMounts:
+          # - mountPath: /mnt/models
+          #   name: classifier-provision-location
 
           env:
             - name: MODEL_VARIANT

@@ -86,7 +86,7 @@ spec:
                 - /bin/sh
                 - -c
                 - /bin/sleep 10
-      replicas: 15
+      replicas: 1
     graph:
       name: nlp-li
       type: MODEL

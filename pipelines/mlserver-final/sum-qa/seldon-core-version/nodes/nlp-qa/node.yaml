@@ -87,7 +87,7 @@ spec:
                 - /bin/sh
                 - -c
                 - /bin/sleep 10
-      replicas: 1
+      replicas: 20
     graph:
       name: nlp-qa
       type: MODEL

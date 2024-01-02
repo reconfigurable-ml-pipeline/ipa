@@ -62,6 +62,15 @@ except KeyError as e:
         f"LOGS_ENABLED env variable not set, using default value: {LOGS_ENABLED}"
     )
 
+try:
+    WITH_MODELS = os.getenv("WITH_MODELS", "False").lower() in ("true", "1", "t")
+    logger.info(f"WITH_MODELS set to: {WITH_MODELS}")
+except KeyError as e:
+    WITH_MODELS = False
+    logger.info(
+        f"USE_THREADING env variable not set, using default value: {WITH_MODELS}"
+    )
+
 if not LOGS_ENABLED:
     logger.disabled = True
 
@@ -95,9 +104,13 @@ class GeneralNLP(MLModel):
         # TODO add batching like the runtime
         logger.info(f"max_batch_size: {self._settings.max_batch_size}")
         logger.info(f"max_batch_time: {self._settings.max_batch_time}")
+        if WITH_MODELS:
+            model_path = os.path.join(".", "models", self.MODEL_VARIANT)
+        else:
+            model_path = os.path.join("/", "mnt", "models", self.MODEL_VARIANT)
         self.model = pipeline(
             task=self.TASK,
-            model=self.MODEL_VARIANT,
+            model=model_path,
             batch_size=self._settings.max_batch_size,
         )
         self.loaded = True

@@ -50,7 +50,6 @@ RUN ./hack/build-env.sh . && \
     mkdir -p ./envs/base && \
     chown -R 1000:0 ./envs/base && \
     chmod -R 776 ./envs/base
-RUN microdnf update -y && microdnf install -y git
 USER 1000
 
 # Copy everything else

@@ -1,0 +1,101 @@
+apiVersion: machinelearning.seldon.io/v1
+kind: SeldonDeployment
+metadata:
+  name: {{ name }}
+spec:
+  protocol: v2
+  name: {{ name }}
+  # annotations:
+  #   seldon.io/engine-separate-pod: "true"
+  annotations:
+    proxy.istio.io/config: |
+      terminationDrainDuration: {{ distrpution_time }}s
+  predictors:
+  - name: {{ name }}
+    annotations:
+      seldon.io/no-engine: "true"
+    componentSpecs:
+    - spec:
+        # volumes:
+        # - name: classifier-provision-location
+        #   emptyDir: {}
+
+        # initContainers:
+        # - name: classifier-model-initializer
+        #   image: seldonio/rclone-storage-initializer:1.16.0-dev
+        #   imagePullPolicy: IfNotPresent
+        #   args:
+        #     - "s3://huggingface/automatic-speech-recognition/{{ model_variant }}"
+        #     - "/mnt/models/{{ model_variant }}"
+
+        #   volumeMounts:
+        #   - mountPath: /mnt/models
+        #     name: classifier-provision-location
+
+        #   envFrom:
+        #   - secretRef:
+        #       name: seldon-rclone-secret
+
+        terminationGracePeriodSeconds: {{ distrpution_time }}
+        containers:
+        - image: sdghafouri/audio-qa-final-with-model:audio
+          name: audio
+          imagePullPolicy: Always
+          resources:
+            requests:
+              cpu: '{{ cpu_request }}'
+              memory: '{{ memory_request }}'
+            limits:
+              cpu: '{{ cpu_limit }}'
+              memory: '{{ memory_limit }}'
+          # volumeMounts:
+          # - mountPath: /mnt/models
+          #   name: classifier-provision-location
+
+          env:
+            - name: MODEL_VARIANT
+              # value: /mnt/models/{{ model_variant }}
+              value: {{ model_variant }}
+            # - name: TRANSFORMERS_CACHE
+            #   value: /opt/mlserver/.cache
+            - name: TASK
+              value: automatic-speech-recognition
+            - name: MLSERVER_MODEL_MAX_BATCH_SIZE
+              value: '{{ max_batch_size }}'
+            - name: MLSERVER_MODEL_MAX_BATCH_TIME
+              value: '{{ max_batch_time }}'
+            - name: MLSERVER_PARALLEL_WORKERS
+              value: "0"
+            - name: USE_THREADING
+              value: '{{use_threading}}'
+            - name: NUM_INTEROP_THREADS
+              value: '{{num_interop_threads}}'
+            - name: NUM_THREADS
+              value: '{{num_threads}}'
+            - name: LOGS_ENABLED
+              value: '{{ logs_enabled }}'
+            - name: WITH_MODELS
+              value: "True"
+          readinessProbe:
+            failureThreshold: 3
+            initialDelaySeconds: 0
+            periodSeconds: 1
+            successThreshold: 1
+            tcpSocket:
+              port: 9000
+            timeoutSeconds: 1
+          lifecycle:
+            preStop:
+              exec:
+                command:
+                - /bin/sh
+                - -c
+                - /bin/sleep {{ distrpution_time }}
+      replicas: {{ replicas }}
+    graph:
+      name: audio
+      type: MODEL
+      children: []
+    labels:
+      sidecar.istio.io/inject: "true"
+

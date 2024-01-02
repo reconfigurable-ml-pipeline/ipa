@@ -86,7 +86,7 @@ spec:
                 - /bin/sh
                 - -c
                 - /bin/sleep 10
-      replicas: 30
+      replicas: 1
     graph:
       name: nlp-sum
       type: MODEL

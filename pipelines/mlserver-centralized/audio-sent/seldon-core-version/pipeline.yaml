@@ -73,7 +73,7 @@ spec:
             tcpSocket:
               port: 9000
             timeoutSeconds: 1
-      replicas: 1
+      replicas: 20
     graph:
       name: audio
       type: MODEL
@@ -206,7 +206,7 @@ spec:
             tcpSocket:
               port: 9000
             timeoutSeconds: 1
-      replicas: 1
+      replicas: 20
     graph:
       name: nlp-sent
       type: MODEL

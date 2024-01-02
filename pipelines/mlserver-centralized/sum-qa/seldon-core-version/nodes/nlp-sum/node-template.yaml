@@ -25,6 +25,7 @@ spec:
           args:
             - "s3://huggingface/summarization/{{ model_variant }}"
             - "/mnt/models/{{ model_variant }}"
+            - "--ignore-checksum"
 
           volumeMounts:
           - mountPath: /mnt/models

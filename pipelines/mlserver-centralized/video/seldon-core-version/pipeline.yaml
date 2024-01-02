@@ -133,7 +133,7 @@ spec:
                 - /bin/sh
                 - -c
                 - /bin/sleep 10
-      replicas: 1
+      replicas: 20
     graph:
       name: yolo
       type: MODEL
@@ -275,7 +275,7 @@ spec:
                 - /bin/sh
                 - -c
                 - /bin/sleep 10
-      replicas: 1
+      replicas: 20
     graph:
       name: resnet-human
       type: MODEL

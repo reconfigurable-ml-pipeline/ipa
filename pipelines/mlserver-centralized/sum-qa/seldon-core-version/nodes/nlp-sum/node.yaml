@@ -24,8 +24,9 @@ spec:
           image: seldonio/rclone-storage-initializer:1.16.0-dev
           imagePullPolicy: IfNotPresent
           args:
-            - "s3://huggingface/summarization/sshleifer-distilbart-cnn-12-6"
-            - "/mnt/models/sshleifer-distilbart-cnn-12-6"
+            - "s3://huggingface/summarization/sshleifer-distilbart-xsum-1-1"
+            - "/mnt/models/sshleifer-distilbart-xsum-1-1"
+            - "--ignore-checksum"
 
           volumeMounts:
           - mountPath: /mnt/models
@@ -52,7 +53,7 @@ spec:
 
           env:
             - name: MODEL_VARIANT
-              value: sshleifer-distilbart-cnn-12-6
+              value: sshleifer-distilbart-xsum-1-1
             - name: TASK
               value: summarization
             - name: MLSERVER_PARALLEL_WORKERS

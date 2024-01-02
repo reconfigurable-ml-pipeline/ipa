@@ -6,8 +6,8 @@ from barazmoon import Data
 import asyncio
 import time
 
-load = 5
-test_duration = 5
+load = 1
+test_duration = 1
 variant = 0
 platform = "seldon"
 image_name = "input-sample.JPEG"
@@ -51,3 +51,4 @@ load_tester = MLServerAsyncGrpc(
 responses = asyncio.run(load_tester.start())
 
 print(f"{(time.time() - start_time):2.2}s spent in total")
+print(responses)
