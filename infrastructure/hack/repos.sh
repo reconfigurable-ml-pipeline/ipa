@@ -5,7 +5,7 @@ function install_packages() {
     echo "Updating packages"
     sudo apt-get update -y
     echo "Installing packages"
-    sudo apt-get install ffmpeg libsm6 libxext6 -y
+    sudo apt-get install unzip ffmpeg libsm6 libxext6 -y
     echo "Packages installation complete"
     echo
 }
