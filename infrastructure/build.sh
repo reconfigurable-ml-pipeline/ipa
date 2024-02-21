@@ -8,7 +8,7 @@ install_packages() {
     fi
 
     hack_dir="$HOME/ipa/infrastructure/hack"
-    zsh_script="${hack_dir}/zsh.sh"
+    disable_firewall="${hack_dir}/disable_firewall.sh"
     repos_script="${hack_dir}/repos.sh"
     kubernetes_script="${hack_dir}/kubernetes.sh"
     utilities_script="${hack_dir}/utilities.sh"
@@ -17,6 +17,8 @@ install_packages() {
     download_data="${hack_dir}/download_data.sh"
     jupyters="${hack_dir}/jupyters.sh"
 
+    source "$disable_firewall"
+    echo "disable_firewall.sh completed"
     source "$repos_script"
     echo "repos.sh completed"
     bash "$kubernetes_script"

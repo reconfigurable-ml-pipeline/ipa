@@ -5,8 +5,8 @@ install_kubectl() {
     curl -LO https://dl.k8s.io/release/v1.23.2/bin/linux/amd64/kubectl
     sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
     sudo microk8s config > $HOME/.kube/config
-    sudo ufw allow 16443
-    echo "y" | sudo ufw enable
+    # sudo ufw allow 16443
+    # echo "y" | sudo ufw enable
     echo "End Install kubectl"
     rm kubectl
 }

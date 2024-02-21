@@ -35,9 +35,9 @@ function install_microk8s() {
     mkdir -p $HOME/.kube
     sudo chown -f -R cc ~/.kube
     microk8s config > $HOME/.kube/config
-    sudo ufw allow in on cni0
-    sudo ufw allow out on cni0
-    sudo ufw default allow routed
+    # sudo ufw allow in on cni0
+    # sudo ufw allow out on cni0
+    # sudo ufw default allow routed
     sudo microk8s enable dns
     echo "alias k='kubectl'" >> ~/.zshrc
     echo "MicroK8s installation complete"

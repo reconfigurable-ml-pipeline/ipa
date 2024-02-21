@@ -12,10 +12,10 @@ microk8s config > config
   ```
   4. To enable outside externally (from an external machine e.g. your local) do the following:
       1. According to this [issue](https://github.com/canonical/microk8s/issues/421) on your cluster master node disable the firewall on the port 16443 which is the default apiserver port
-      ```
+      <!-- ```
       sudo ufw allow 16443
       sudo ufw enable
-      ``` 
+      ```  -->
       2. Find out your master node public ip from the Chameleon dashboard and according to [question](https://stackoverflow.com/questions/63451290/microk8s-devops-unable-to-connect-to-the-server-x509-certificate-is-valid-f) use the instruction given in [authentication and authorization](https://stackoverflow.com/questions/63451290/microk8s-devops-unable-to-connect-to-the-server-x509-certificate-is-valid-f) to include the public ip in the server certificates in the file `/var/snap/microk8s/current/certs/csr.conf.template`. As said in this [answer](https://stackoverflow.com/a/65571967) that the ip should be `USE IP > 100`
       ```
       ...
