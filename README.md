@@ -98,3 +98,50 @@ python runner_script.py --config-name sample-audio-qa
 The log of the experiments are now available at `results/<metaseries>/<series>` of the experiments.
 
 **Note**: For now we have provided all the configs used for the video pipelines for the artifact evaluation (explained in 1) and samples from other pipelines for intetersted users who wish to setup larger clusters for running the rest of the experiements. We are currently working on making the same automation for the video pipeline explained earlier for the rest of the inference pipelines.
+
+## Re-running Flaky Failed Experiments
+In some rare scenarios one or more of the experiments might not be successfully done for flaky server faults in the Chameleon cloud clusters using the automated scripst. In order to save your time, please follow the instructions below to avoid making the cluster and experiment from scratch and just run the problematic experiment(s) again rather than all the experiments.
+
+1. The [`run-revision.sh`](https://github.com/reconfigurable-ml-pipeline/ipa/blob/main/experiments/runner/run-revision.sh) runs series 1-20 excluding 4, 9, 14, 19 e.g. see the command for [series 5](https://github.com/reconfigurable-ml-pipeline/ipa/blob/ea095b2b19cc44aa2a1c6940316b1aad8084d634/experiments/runner/run-revision.sh#L11).
+2. After running each experiment it saves the logs under `/home/cc/ipa/data/results/final/metaseries/21/series/`, in each of the subfolders in this folder you can see the corresponding experiment saved logs:
+
+```bash
+(base) ➜  series git:(main) ✗ pwd
+/home/cc/ipa/data/results/final/metaseries/21/series
+(base) ➜  series git:(main) ✗ ls 
+1  10  11  12  13  15  16  17  18  2  20  3  5  6  7  8
+```
+3. Please check the `/home/cc/ipa/data/results/final/metaseries/21/series/` and:
+   1. make sure all the 1-20 excluding 4, 9, 14, 19 experiment folders are there.
+   2. make sure the content of all the subfolders contains the following contents, e.g. for series 3:
+```
+(base) ➜  3 git:(main) ✗ pwd
+/home/cc/ipa/data/results/final/metaseries/21/series/3
+(base) ➜  3 git:(main) ✗ ls
+0.json  0.yaml  1.yaml  adaptation_log.json
+```
+   There should be `0.json  0.yaml  1.yaml  adaptation_log.json` files in the folder, if either the entire experiment folder is missing or any of the content is missing (in your case seems to be the adaptation_log.json for series 3) then that specific experiment has failed for some reason (probably due to some chameleon network fault etc).
+
+4. But you can just the failed experiment rather than all the experiments, for example if the failed experiment is experiment number 3, then you can use either the `experiments/runner/run-revision-failed-experiment.sh` or `experiments/runner/run-failed-experiment.sh` depending on whether you are generating the revision results or the original results. E.g. if you want to generate the revised results go to `experiments/runner/` and run `source run-revision-failed-experiment.sh <failed experiment number>`:
+
+```bash
+source run-revision-failed-experiment.sh 3
+```
+
+After a quick pause this will start the experiment and the experiment will take around ~20 minutes, you should see some log like this at the end:
+
+```
+ 2024-03-27:09:39:38 [INFO] [logger.py:31] --------------------------------------------------
+ 2024-03-27:09:39:38 [INFO] [logger.py:31] --------------------------------------------------
+ 2024-03-27:09:39:38 [INFO] [logger.py:31] Waiting 10 to make next descision
+ 2024-03-27:09:39:38 [INFO] [logger.py:31] --------------------------------------------------
+100%|███████████████████████████████████████████| 10/10 [00:10<00:00,  1.00s/it]
+ 2024-03-27:09:39:48 [INFO] [logger.py:31] --------------------------------------------------
+ 2024-03-27:09:39:48 [INFO] [logger.py:31] no pipeline in the system, aborting adaptation process ...
+ 2024-03-27:09:39:48 [INFO] [logger.py:31] --------------------------------------------------
+Error from server (NotFound): services "NAME" not found
+ 2024-03-27:09:41:12 [INFO] [logger.py:31] -------------------------------------------------- pipeline video successfuly removed --------------------------------------------------
+ 2024-03-27:09:41:12 [INFO] [logger.py:31]
+```
+
+Once you have completed all the failed experiments and made sure that all the 1-20 excluding 4, 9, 14, 19 experiment folder are available in `/home/cc/ipa/data/results/final/metaseries/21/series/` and all of them contain the `0.json  0.yaml  1.yaml  adaptation_log.json` then your results should be ready in the corresponding Jupyter notebook.
