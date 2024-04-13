@@ -16,7 +16,7 @@ For the initial submitted version results:
 2. Go to the `experiments/runner/notebooks/Jsys-reviewers.ipynb` notebook to see the generated figure is same as the `paper-fig8-e2e-video.ipynb` that was generated from the downloaded log. Due to the K8S and distributed scheduling uncertainties there might be slight differences in the figures as shown below figures (for a sample run of the artifact evaluation) but the general trend should be the same.
 
 For generating the revised version results:
-1. Go to the `experiments/runner` and run `source run-revised.sh`, this will take ~7 hours since each of the 20 experiments is conducted on a 20 minute load (20 * 20 = 400 minutes ~ 7 hours). The results and logs will be saved under `ipa/data/results/final/21` and the final figure will be in the `ipa/data/figures` under the name of `metaseries-21-video.pdf`
+1. Go to the `experiments/runner` and run `source run-revision.sh`, this will take ~7 hours since each of the 20 experiments is conducted on a 20 minute load (20 * 20 = 400 minutes ~ 7 hours). The results and logs will be saved under `ipa/data/results/final/21` and the final figure will be in the `ipa/data/figures` under the name of `metaseries-21-video.pdf`
 2. Go to the `experiments/runner/notebooks/Jsys-reviewers-revised.ipynb` notebook to see the generated figure is same as the `paper-revision-fig8-e2e-video.ipynb` that was generated from the downloaded log. Due to the K8S and distributed scheduling uncertainties there might be slight differences in the figures as shown below figures (for a sample run of the artifact evaluation) but the general trend should be the same.
 
 
@@ -122,7 +122,7 @@ In some rare scenarios one or more of the experiments might not be successfully 
 ```
    There should be `0.json  0.yaml  1.yaml  adaptation_log.json` files in the folder, if either the entire experiment folder is missing or any of the content is missing (in your case seems to be the adaptation_log.json for series 3) then that specific experiment has failed for some reason (probably due to some chameleon network fault etc).
 
-4. But you can just the failed experiment rather than all the experiments, for example if the failed experiment is experiment number 3, then you can use either the `experiments/runner/run-revision-failed-experiment.sh` or `experiments/runner/run-failed-experiment.sh` depending on whether you are generating the revision results or the original results. E.g. if you want to generate the revised results go to `experiments/runner/` and run `source run-revision-failed-experiment.sh <failed experiment number>`:
+4. But you can just the failed experiment rather than all the experiments, for example, if the failed experiment is experiment number 3, then you can use either the `experiments/runner/run-revision-failed-experiment.sh` or `experiments/runner/run-failed-experiment.sh` depending on whether you are generating the revision results or the original results. E.g. if you want to generate the revised results go to `experiments/runner/` and run `source run-revision-failed-experiment.sh <failed experiment number>`:
 
 ```bash
 source run-revision-failed-experiment.sh 3
