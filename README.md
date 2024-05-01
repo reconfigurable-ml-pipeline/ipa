@@ -145,3 +145,7 @@ Error from server (NotFound): services "NAME" not found
 ```
 
 Once you have completed all the failed experiments and made sure that all the 1-20 excluding 4, 9, 14, 19 experiment folder are available in `/home/cc/ipa/data/results/final/metaseries/21/series/` and all of them contain the `0.json  0.yaml  1.yaml  adaptation_log.json` then your results should be ready in the corresponding Jupyter notebook.
+
+## Getting Support
+- Saeid Ghafouri (s.ghafouri@qub.ac.uk)
+- Create a GitHub [issue](https://github.com/reconfigurable-ml-pipeline/ipa/issues)
