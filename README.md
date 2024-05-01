@@ -146,6 +146,20 @@ Error from server (NotFound): services "NAME" not found
 
 Once you have completed all the failed experiments and made sure that all the 1-20 excluding 4, 9, 14, 19 experiment folder are available in `/home/cc/ipa/data/results/final/metaseries/21/series/` and all of them contain the `0.json  0.yaml  1.yaml  adaptation_log.json` then your results should be ready in the corresponding Jupyter notebook.
 
+## Citation
+If you find this repository useful, please consider citing the following paper:
+
+```
+@article{ghafouri2024solution,
+  title={[Solution] IPA: Inference Pipeline Adaptation to achieve high accuracy and cost-efficiency},
+  author={Ghafouri, Saeid and Razavi, Kamran and Salmani, Mehran and Sanaee, Alireza and Botran, Tania Lorido and Wang, Lin and Doyle, Joseph and Jamshidi, Pooyan},
+  journal={Journal of Systems Research},
+  volume={4},
+  number={1},
+  year={2024}
+}
+```
+
 ## Getting Support
-- Saeid Ghafouri (s.ghafouri@qub.ac.uk)
+- Saeid Ghafouri s.ghafouri@qub.ac.uk
 - Create a GitHub [issue](https://github.com/reconfigurable-ml-pipeline/ipa/issues)
