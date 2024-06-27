@@ -1,4 +1,4 @@
-Forked version of MLServer used for generating docker images of IPA
+Forked version of [MLServer](https://github.com/SeldonIO/MLServer) used for generating docker images of IPA
 
 
 # MLServer
